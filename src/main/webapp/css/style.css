@@ -1,0 +1,62 @@
+/* 
+    Document   : style.css
+    Created on : Sep 24, 2012, 10:56:39 AM
+    Author     : Anders and Julia
+    Description: Handling css for main design
+*/
+/**************************** BASICS ****************************/
+/* Lite jobbiga saker som annars är satt som standard */
+html,body{
+height: 100%;
+}
+body, div, h1, h2, h3, h4, h5, h6,
+p, ul, ol, li, dl, dt, dd, img, form, 
+fieldset, input, blockquote{
+margin: 0;
+padding: 0;
+list-style-type: none;
+outline: none;
+border: none;
+}
+
+/* Tar bort understreck */
+a,a:link,a:visited, a:hover, a:active{
+text-decoration: none;
+}
+
+a:hover{
+/* Kommer senare */
+}
+/****************************Main ****************************/
+header#main_header{
+    width: 100%;
+    height: 100px;
+    background: #176EB2;
+}
+
+/* Navigation */
+nav#main_menu{
+    width: 100%;
+    height: 50px;
+    background: #666;
+    border-bottom-left-radius: 1em;
+    border-bottom-right-radius: 1em;
+}
+nav#main_menu ul li{
+display: inline;
+}
+
+div#main_content{
+    height: 100%;
+    background: #ccc;
+    width: 900px;
+    margin: 15px auto;
+    border-radius: 1.0em;
+}
+
+footer#main_footer{
+width: 100%;
+height: 120px;
+background: #483619;
+}
+
