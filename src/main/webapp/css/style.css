@@ -7,21 +7,29 @@
 /**************************** BASICS ****************************/
 /* Lite jobbiga saker som annars är satt som standard */
 html,body{
-height: 100%;
+    height: 100%;
+    background: #49C2F2;
+    font-family: 'Droid Sans', sans-serif;
 }
+
 body, div, h1, h2, h3, h4, h5, h6,
 p, ul, ol, li, dl, dt, dd, img, form, 
 fieldset, input, blockquote{
-margin: 0;
-padding: 0;
-list-style-type: none;
-outline: none;
-border: none;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    outline: none;
+    border: none;
+}
+
+h1,h2,h3,h4,h5,h6{
+    color: #359AF2;
 }
 
 /* Tar bort understreck */
 a,a:link,a:visited, a:hover, a:active{
-text-decoration: none;
+    text-decoration: none;
+    color: #ff9900;
 }
 
 a:hover{
@@ -31,32 +39,87 @@ a:hover{
 header#main_header{
     width: 100%;
     height: 100px;
-    background: #176EB2;
+    background: #359AF2;
+}
+
+
+
+div#main_content{
+    height: 100%;
+    background: #fff;
+    box-shadow:
+        0 1px 1px rgba(0,0,0,0.15), /* The top layer shadow */
+        0 10px 0 -5px #eee, /* The second layer */
+        0 10px 1px -4px rgba(0,0,0,0.15), /* The second layer shadow */
+        0 20px 0 -10px #eee, /* The third layer */
+        0 20px 1px -9px rgba(0,0,0,0.15); /* The third layer shadow */
+    padding: 15px 10px;
+    width: 900px;
+    margin: 15px auto 40px auto;
+    border-radius: 1.0em;
+}
+
+footer#main_footer{
+    width: 100%;
+    height: 200px;
+    box-shadow: 0 -5px 15px #888;
+    background: #D99748;
+}
+
+/****************************Log In ****************************/
+form#login{
+    float: right;
+    height: 100%;
+    width: 600px;
+}
+
+form#login a{
+    margin: 3px 0px;
+    display: block;
+    font-size: 12px;
+}
+
+input.login_input{
+    border-radius: 0.4em;
+    background: #f1f1f1;
+    box-shadow:inset 2px 2px 4px  #888;
+    padding: 0.5em; 
+    margin: 4px 5px 4px 0;
+    color: #666;
+}
+
+input.login_submit{
+    border-radius: 0.4em;
+    border: 1px solid #666;
+    cursor: pointer;
+    background: #ccc;
+    padding: 0.5em; 
+    margin: 4px 5px 4px 0;
+    color: #666;  
+    font-weight: bold;
 }
 
 /* Navigation */
 nav#main_menu{
     width: 100%;
-    height: 50px;
-    background: #666;
-    border-bottom-left-radius: 1em;
-    border-bottom-right-radius: 1em;
+    margin: 0 auto;
 }
 nav#main_menu ul li{
-display: inline;
+    display: inline;
 }
 
-div#main_content{
-    height: 100%;
-    background: #ccc;
-    width: 900px;
-    margin: 15px auto;
-    border-radius: 1.0em;
+#static_bar{
+    background: #734014;
+    padding:5px;   
+    box-shadow: 0 5px 5px #888;
+    cursor: pointer;
 }
-
-footer#main_footer{
-width: 100%;
-height: 120px;
-background: #483619;
+#dynamic_bar{
+    background: #734014;
+    height: 50px;
+    text-align: center;
+    border-bottom-left-radius: 35px 50px;
+    border-bottom-right-radius: 35px 50px;
+    display:none;    
+    box-shadow: 0 5px 5px #888;
 }
-
