@@ -4,6 +4,7 @@
  */
 package dat076.frukostklubben.webshop;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,24 +16,32 @@ import javax.persistence.Temporal;
  * @author anders
  */
 @Entity
-public class Flight {
+public class Flight implements Serializable {
     @Id @GeneratedValue
     private long id;
     private String name;
     private String fromAirport;
     private String toAirport;
     @Temporal(javax.persistence.TemporalType.DATE)
-    private Date date;
+    private Date departureTime;
 
     public Flight() {
     }
 
-    public Flight(long id, String name, String fromAirport, String toAirport, Date date) {
+    /**
+     *
+     * @param id
+     * @param name
+     * @param fromAirport
+     * @param toAirport
+     * @param departureTime
+     */
+    public Flight(long id, String name, String fromAirport, String toAirport, Date departureTime) {
         this.id = id;
         this.name = name;
         this.fromAirport = fromAirport;
         this.toAirport = toAirport;
-        this.date = date;
+        this.departureTime = departureTime;
     }
 
     public long getId() {
@@ -68,11 +77,15 @@ public class Flight {
     }
 
     public Date getDate() {
-        return date;
+        return departureTime;
     }
 
-    public void setDate(Date date) {
-        this.date = date;
+    /**
+     *
+     * @param departureTime
+     */
+    public void setDate(Date departureTime) {
+        this.departureTime = departureTime;
     }
     
     
