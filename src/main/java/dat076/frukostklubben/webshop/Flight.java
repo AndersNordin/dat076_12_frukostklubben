@@ -9,6 +9,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
 
 /**
@@ -16,6 +17,7 @@ import javax.persistence.Temporal;
  * @author anders
  */
 @Entity
+@NamedQuery(name = "findAllFlights", query = "SELECT f FROM Flight f")
 public class Flight implements Serializable {
     @Id @GeneratedValue
     private long id;
