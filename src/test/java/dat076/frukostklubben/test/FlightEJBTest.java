@@ -4,7 +4,7 @@ package dat076.frukostklubben.test;
  * and open the template in the editor.
  */
 
-import dat076.frukostklubbe.ejb.FlightEJB;
+import dat076.frukostklubben.ejb.FlightEJB;
 import dat076.frukostklubben.model.Flight;
 import java.util.Calendar;
 import java.util.Date;
@@ -36,7 +36,7 @@ public class FlightEJBTest {
         //Create an Ejb container and put in an FlightEJB instance
         ec = EJBContainer.createEJBContainer();
         flightEJB = (FlightEJB)ec.getContext().
-                lookup("java:global/classes/FlightEJB!dat076.frukostklubben.webshop.FlightEJB");
+                lookup("java:global/classes/FlightEJB!dat076.frukostklubben.ejb.FlightEJB");
     }
 
     @AfterClass

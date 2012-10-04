@@ -1,7 +1,7 @@
 /*
  * If something is added here, add extra test case in FlightEJBTest
  */
-package dat076.frukostklubbe.ejb;
+package dat076.frukostklubben.ejb;
 
 import dat076.frukostklubben.model.Flight;
 import java.util.List;
