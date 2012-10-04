@@ -17,8 +17,6 @@ import javax.persistence.TypedQuery;
  */
 @Stateless
 @LocalBean
-/*Möjligt att man måste använda @Localbean och sedan göra ett interface som
-man i denna klass implementerar och i den klassen behöver man skriva @Remote*/
 public class FlightEJB implements FlightEJBRemote {
     @PersistenceContext(unitName = "projectPU")
     private EntityManager em;

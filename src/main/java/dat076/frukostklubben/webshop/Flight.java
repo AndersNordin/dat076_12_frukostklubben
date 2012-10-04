@@ -38,20 +38,14 @@ public class Flight implements Serializable {
      * @param toAirport
      * @param departureTime
      */
-    public Flight(long id, String name, String fromAirport, String toAirport, Date departureTime) {
-        this.id = id;
+    public Flight(String name, String fromAirport, String toAirport, Date departureTime) {
         this.name = name;
         this.fromAirport = fromAirport;
         this.toAirport = toAirport;
         this.departureTime = departureTime;
     }
-
-    public long getId() {
+    public long getId(){
         return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
     }
 
     public String getName() {
