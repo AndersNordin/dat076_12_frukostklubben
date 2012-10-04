@@ -7,7 +7,7 @@
         <property name="databaseName" value="test"/>
         <property name="User" value="app"/>
         <property name="Password" value="app"/>
-        <property name="URL" value="jdbc:derby://localhost:1527/test"/>
+        <property name="URL" value="jdbc:derby://localhost:1527/projectPU"/>
         <property name="driverClass" value="org.apache.derby.jdbc.ClientDriver"/>
     </jdbc-connection-pool>
     <jdbc-resource enabled="true" jndi-name="jdbc/test" object-type="user" pool-name="derby_net_test_appPool"/>

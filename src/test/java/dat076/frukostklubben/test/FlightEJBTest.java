@@ -49,8 +49,9 @@ public class FlightEJBTest {
     @Test
     public void shouldCreateAFlight() throws Exception {
         ec = javax.ejb.embeddable.EJBContainer.createEJBContainer();
+
         FlightEJB flightEJB = (FlightEJB)ec.getContext().
-                lookup("java:global/classes/FlightEJB");
+                lookup("java:global/classes/FlightEJB!dat076.frukostklubben.webshop.FlightEJB");
         
         // Creates an instance of flight
         Flight flight = new Flight("Resa 1","Landvetter", "Frankfurt",new Date());
