@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package dat076.frukostklubben.webshop;
+package dat076.frukostklubben.model;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -17,6 +17,7 @@ import javax.persistence.Temporal;
  * @author anders
  */
 @Entity
+@NamedQuery(name = "findAllFlights", query = "SELECT f FROM Flight f")
 public class Flight implements Serializable {
     @Id @GeneratedValue
     private long id;

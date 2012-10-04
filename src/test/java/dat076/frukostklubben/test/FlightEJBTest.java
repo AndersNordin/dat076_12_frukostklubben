@@ -4,8 +4,8 @@ package dat076.frukostklubben.test;
  * and open the template in the editor.
  */
 
-import dat076.frukostklubben.webshop.Flight;
-import dat076.frukostklubben.webshop.FlightEJB;
+import dat076.frukostklubbe.ejb.FlightEJB;
+import dat076.frukostklubben.model.Flight;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;

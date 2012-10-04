@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package dat076.frukostklubben.webshop;
+package dat076.frukostklubben.model;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
