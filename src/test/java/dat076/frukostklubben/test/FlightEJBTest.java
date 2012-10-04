@@ -6,10 +6,10 @@ package dat076.frukostklubben.test;
 
 import dat076.frukostklubben.webshop.Flight;
 import dat076.frukostklubben.webshop.FlightEJB;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import javax.ejb.embeddable.EJBContainer;
-import javax.naming.Context;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -25,7 +25,7 @@ public class FlightEJBTest {
     // =             Fields             =
     // ======================================
     private static EJBContainer ec;
-    private static Context ctx;
+    private static FlightEJB flightEJB;
 
     // ======================================
     // =          Lifecycle Methods         =
@@ -33,6 +33,10 @@ public class FlightEJBTest {
 
     @BeforeClass
     public static void initContainer() throws Exception {
+        //Create an Ejb container and put in an FlightEJB instance
+        ec = EJBContainer.createEJBContainer();
+        flightEJB = (FlightEJB)ec.getContext().
+                lookup("java:global/classes/FlightEJB!dat076.frukostklubben.webshop.FlightEJB");
     }
 
     @AfterClass
@@ -47,16 +51,10 @@ public class FlightEJBTest {
     // ======================================
 
     @Test
-    public void shouldCreateAFlight() throws Exception {
-        ec = javax.ejb.embeddable.EJBContainer.createEJBContainer();
-
-        FlightEJB flightEJB = (FlightEJB)ec.getContext().
-                lookup("java:global/classes/FlightEJB!dat076.frukostklubben.webshop.FlightEJB");
-        
+    public void testOfAllFlightEJBMethods() throws Exception {
         // Creates an instance of flight
-        Flight flight = new Flight("Resa 1","Landvetter", "Frankfurt",new Date());
+        Flight flight = new Flight("Resa 1","Landvetter", "Frankfurt",new Date(Calendar.getInstance().getTimeInMillis()));
         
-
         // Persists the flight to the database
         flight = flightEJB.createFlight(flight);
         Assert.assertNotNull("ID should not be null", flight.getId());
@@ -64,5 +62,22 @@ public class FlightEJBTest {
         // Retrieves all the flights from the database
         List<Flight> flights = flightEJB.findFlights();
         Assert.assertNotNull(flights);
+        
+        //Gets a flight by its it
+        Flight flight2 = flightEJB.findFlightById(flight.getId());
+        Assert.assertTrue(flight.getId() == flight2.getId());
+        
+        
+        //Updating the flight
+        flight.setName("Ny Flygtur");
+        flightEJB.updateFlight(flight);
+        Flight flight3 = flightEJB.findFlightById(flight.getId());
+        Assert.assertTrue(flight3.getName().equals("Ny Flygtur"));
+        
+                
+        //If we delete the last flight the list of flights should på empty.
+        flightEJB.deleteFlight(flight);
+        flights = flightEJB.findFlights();
+        Assert.assertTrue(flights.isEmpty());        
     }
 }

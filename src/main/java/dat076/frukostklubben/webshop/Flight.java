@@ -17,7 +17,6 @@ import javax.persistence.Temporal;
  * @author anders
  */
 @Entity
-@NamedQuery(name = "findAllFlights", query = "SELECT f FROM Flight f")
 public class Flight implements Serializable {
     @Id @GeneratedValue
     private long id;

@@ -8,6 +8,8 @@ package dat076.frukostklubben.webshop;
  *
  * @author Fredrik
  */
-public class Person {
+public abstract class BasicEntity {
+    
+    private long id;
     
 }
