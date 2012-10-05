@@ -24,6 +24,7 @@ public class Flight implements Serializable {
     private String name;
     private String fromAirport;
     private String toAirport;
+    private Double cost;
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date departureTime;
 
@@ -83,6 +84,14 @@ public class Flight implements Serializable {
     public void setDate(Date departureTime) {
         this.departureTime = departureTime;
     }
-    
+
+    public Double getCost() {
+        return cost;
+    }
+
+    public void setCost(Double cost) {
+        this.cost = cost;
+    }
+
     
 }
