@@ -1,9 +1,9 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * If something is added here, add extra test case in FlightEJBTest
  */
-package dat076.frukostklubben.webshop;
+package dat076.frukostklubben.ejb;
 
+import dat076.frukostklubben.model.Flight;
 import java.util.List;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
