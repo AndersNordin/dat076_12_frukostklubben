@@ -1,7 +1,7 @@
 ----------------------------------------------------------------
-Thu Oct 04 13:31:25 CEST 2012:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.8.1.2 - (1095077): instance a816c00e-013a-2b8b-5ff4-000015d26478 
-on database directory /tmp/gfembed3120408645337547419tmp/lib/databases/embedded_default  with class loader sun.misc.Launcher$AppClassLoader@42b36022 
+Sat Oct 06 11:18:46 CEST 2012:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.8.1.2 - (1095077): instance a816c00e-013a-355e-a6e8-000002d6b2d8 
+on database directory /tmp/gfembed4921294377989163252tmp/lib/databases/embedded_default  with class loader sun.misc.Launcher$AppClassLoader@8746d23 
 Loaded from file:/chalmers/users/freein/.m2/repository/org/glassfish/main/extras/glassfish-embedded-all/3.1.2/glassfish-embedded-all-3.1.2.jar
 java.vendor=Oracle Corporation
 java.runtime.version=1.7.0_03-b04
