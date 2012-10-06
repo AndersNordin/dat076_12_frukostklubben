@@ -63,7 +63,7 @@ public class FlightEJBTest {
         List<Flight> flights = flightEJB.findFlights();
         Assert.assertNotNull(flights);
         
-        //Gets a flight by its it
+        //Gets a flight by its id
         Flight flight2 = flightEJB.findFlightById(flight.getId());
         Assert.assertTrue(flight.getId() == flight2.getId());
         

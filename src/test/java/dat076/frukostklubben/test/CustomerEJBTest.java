@@ -5,10 +5,11 @@
 package dat076.frukostklubben.test;
 
 import dat076.frukostklubben.ejb.CustomerEJB;
-import dat076.frukostklubben.ejb.FlightEJB;
 import dat076.frukostklubben.model.Address;
 import dat076.frukostklubben.model.Customer;
+import java.util.List;
 import javax.ejb.embeddable.EJBContainer;
+import junit.framework.Assert;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -45,24 +46,32 @@ public class CustomerEJBTest {
     
     @Test
     public void testCustomer() throws Exception{
-        // Creates an instance of flight
-
+        // Creates an instance of Customer
+        Customer customer = new Customer("Anders", "Nordin", "mail@mail.com", new Address());
         
-        // Persists the flight to the database
-
-
-        // Retrieves all the flights from the database
-
+        // Persists the customer to the database
+        customer  = customerEJB.createCustomer(customer);
+        Assert.assertNotNull(customer);
         
-        //Gets a flight by its it
-
+        // Retrieves all the customers from the database
+        List<Customer> customers = customerEJB.findCustomers();
+        Assert.assertNotNull(customers);
         
+        //Gets a customer by its id
+        Customer customer2 = customerEJB.findCustomerById(customer.getId());
+        Assert.assertEquals(customer2.getId(), customer.getId());
         
-        //Updating the flight
-
+        //Updating the customer
+        customer.setMail("Anders@mail.com");
+        customerEJB.updateCustomer(customer);
+        Customer customer3 = customerEJB.findCustomerById(customer.getId());
+        Assert.assertEquals(customer3.getMail(),"Anders@mail.com");
         
                 
-        //If we delete the last flight the list of flights should på empty.
+        //If we delete the last customer the list of customers should på empty.
+        customerEJB.deleteCustomer(customer);
+        customers = customerEJB.findCustomers();
+        Assert.assertTrue(customers.isEmpty());   
  
     }
 }

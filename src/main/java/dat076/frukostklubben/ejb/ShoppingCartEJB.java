@@ -7,6 +7,7 @@ package dat076.frukostklubben.ejb;
 import dat076.frukostklubben.model.Flight;
 import java.util.ArrayList;
 import java.util.List;
+import javax.ejb.EJB;
 import javax.ejb.LocalBean;
 import javax.ejb.Remove;
 import javax.ejb.Stateful;
@@ -20,7 +21,8 @@ import javax.ejb.StatefulTimeout;
 @StatefulTimeout(value = 30) //Containern tar bort bönan efter 30 overksamma min
 @LocalBean
 public class ShoppingCartEJB implements ShoppingCartEJBRemote {
-    
+    @EJB
+    OrderEJB orderEJB;
     
     private List<Flight> cartItems = new ArrayList<>();
     
@@ -74,6 +76,7 @@ public class ShoppingCartEJB implements ShoppingCartEJBRemote {
     @Override
     public void checkout() {
         // Do some business logic
+        orderEJB.sendEmailOrderComplete();
         cartItems.clear();
     }   
 }
