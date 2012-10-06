@@ -7,7 +7,10 @@
                 <goal>org.codehaus.mojo:exec-maven-plugin:1.2:exec</goal>
             </goals>
             <properties>
-                <netbeans.deploy>true</netbeans.deploy>
+                <exec.args>-classpath %classpath ${packageClassName}</exec.args>
+                <exec.executable>java</exec.executable>
+                <exec.classpathScope>runtime</exec.classpathScope>
+                
             </properties>
         </action>
     </actions>

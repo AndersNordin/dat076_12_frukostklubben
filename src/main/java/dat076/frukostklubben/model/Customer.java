@@ -31,8 +31,7 @@ public class Customer implements Serializable {
      @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
      private Address address;
 
-    public Customer(long id, String firstName, String lastName, String mail, Address address) {
-        this.id = id;
+    public Customer(String firstName, String lastName, String mail, Address address) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.mail = mail;
