@@ -5,9 +5,10 @@
     <groupId>com.frukostklubben</groupId>
     <artifactId>ptoject</artifactId>
     <version>1.0</version>
-    <packaging>jar</packaging>
+    <packaging>war</packaging>
     <name>project</name>
     <properties>
+                <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<eclipselink.version>2.4.0</eclipselink.version>
 	</properties>
@@ -64,7 +65,9 @@
                 <configuration>
                     <source>1.7</source>
                     <target>1.7</target>
-
+                    <compilerArguments>
+                        <endorseddirs>${endorsed.dir}</endorseddirs>
+                    </compilerArguments>
                 </configuration>
             </plugin>
             <plugin>
