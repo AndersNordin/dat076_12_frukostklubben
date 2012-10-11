@@ -14,7 +14,7 @@
             <ui:define name="content">
                 <h2 class="signup">Signup</h2>
                 <h:form>
-                    <h:panelGrid columns="2">
+                    <h:panelGrid columns="1">
                         <h:outputLabel for="userName" value="Username:" />
                         <h:inputText id="userName" value="#{signup.userName}" size="10" autocomplete="off" />
 
@@ -41,10 +41,21 @@
 
                         <h:panelGrid columns="2">
                             <h:commandButton id="register" value="Register" action="#{signup.action}" />
-                            <h:button outcome="/index" value="Cancel"  />
+                            <h:button outcome="index" value="Cancel"  />
                         </h:panelGrid>
                     </h:panelGrid>
                 </h:form>
+            </ui:define>
+            
+               <ui:define name="sideboxTop">
+                <h2 class="signup">Signup</h2>
+                <h:form>
+                    <h:panelGrid columns="2">        
+                            <h:link value="Register" id="register" action="#{signup.action}" outcome="signup.xhtml" /><br/>   
+                            <h:link value="Cancel" outcome="index.xhtml" /><br/>   
+                    </h:panelGrid>
+                </h:form>
+                
             </ui:define>
         </ui:composition>
     </h:body>
