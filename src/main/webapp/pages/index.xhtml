@@ -10,14 +10,39 @@
             <ui:define name="content">
                 <article>
                     <header>
-                        <h1>Travel Now</h1>
-                        <p>Published: <time>2012-10-07</time></p>
+                        <h1>Search flight</h1>                        
                     </header>
-                    <p>Order a flight now! </p>              
+                    <h:form>   
+                        <h:panelGrid columns="2">
+                            <h:outputLabel for="from" value="From:" />
+                            <h:inputText id="from" value="#{search.from}" />
+                            <h:outputLabel for="to" value="To:" />
+                            <h:inputText id="to" value="#{search.to}" />
+                            <h:outputLabel for="date" value="Date:" />
+                            <h:inputText id="date" value="#{search.date}" />
+                            <h:commandButton action="#{search.action}" value="Search" />
+                        </h:panelGrid>
+                    </h:form>
                     <footer>
+                        <p><small>Published: <time pubdate="pubdate">2012-10-07</time></small></p>
                         <p><small>Posted by Admin</small></p>
                     </footer>
                 </article>
+            </ui:define>
+            <ui:define name="sideboxTop">
+                <header>
+                    <h1>Login</h1>                        
+                </header>
+                <h:form>
+                    <h:panelGrid columns="2">
+                        <h:outputLabel for="userName" value="Username:" />
+                        <h:inputText id="userName" />
+
+                        <h:outputLabel for="password" value="Password:" />
+                        <h:inputText id="password"/>
+                    </h:panelGrid>
+                </h:form>
+                <h:link value="Sign up" outcome="signup" />
             </ui:define>
         </ui:composition>
 

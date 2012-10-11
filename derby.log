@@ -1,10 +1,30 @@
 ----------------------------------------------------------------
-Tue Oct 09 21:55:33 CEST 2012:
-Booting Derby version The Apache Software Foundation - Apache Derby - 10.8.1.2 - (1095077): instance a816c00e-013a-4718-b636-00000276fe08 
-on database directory C:\Users\anders\AppData\Local\Temp\gfembed1824739149067948513tmp\lib\databases\embedded_default  with class loader sun.misc.Launcher$AppClassLoader@75e4f66a 
-Loaded from file:/C:/Users/anders/.m2/repository/org/glassfish/main/extras/glassfish-embedded-all/3.1.2/glassfish-embedded-all-3.1.2.jar
+Thu Oct 11 17:43:39 CEST 2012:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.8.1.2 - (1095077): instance a816c00e-013a-507e-d21a-00000878ae70 
+on database directory C:\Users\Johan\AppData\Local\Temp\gfembed5696060759589995750tmp\lib\databases\embedded_default  with class loader sun.misc.Launcher$AppClassLoader@315e4dbe 
+Loaded from file:/C:/Users/Johan/.m2/repository/org/glassfish/main/extras/glassfish-embedded-all/3.1.2/glassfish-embedded-all-3.1.2.jar
 java.vendor=Oracle Corporation
-java.runtime.version=1.7.0_07-b11
-user.dir=C:\Users\anders\Documents\NetBeansProjects\dat076_12_frukostklubben_new
+java.runtime.version=1.7.0_01-b08
+user.dir=C:\git\web
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Thu Oct 11 17:44:27 CEST 2012:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.8.1.2 - (1095077): instance 176240b2-013a-507e-d21a-00000878ae70 
+on database directory C:\Users\Johan\AppData\Local\Temp\gfembed446767141010919736tmp\lib\databases\embedded_default  with class loader sun.misc.Launcher$AppClassLoader@315e4dbe 
+Loaded from file:/C:/Users/Johan/.m2/repository/org/glassfish/main/extras/glassfish-embedded-all/3.1.2/glassfish-embedded-all-3.1.2.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_01-b08
+user.dir=C:\git\web
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Thu Oct 11 17:45:09 CEST 2012:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.8.1.2 - (1095077): instance a0f1c156-013a-507e-d21a-00000878ae70 
+on database directory C:\Users\Johan\AppData\Local\Temp\gfembed2061552258084563418tmp\lib\databases\embedded_default  with class loader sun.misc.Launcher$AppClassLoader@315e4dbe 
+Loaded from file:/C:/Users/Johan/.m2/repository/org/glassfish/main/extras/glassfish-embedded-all/3.1.2/glassfish-embedded-all-3.1.2.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_01-b08
+user.dir=C:\git\web
 derby.system.home=null
 Database Class Loader started - derby.database.classpath=''
