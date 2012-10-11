@@ -16,31 +16,31 @@
                 <h:form>
                     <h:panelGrid columns="2">
                         <h:outputLabel for="userName" value="Username:" />
-                        <h:inputText id="userName" value="#{register.userName}" size="10" autocomplete="off" />
+                        <h:inputText id="userName" value="#{signup.userName}" size="10" autocomplete="off" />
 
                         <h:outputLabel for="firstName" value="First name:" />
-                        <h:inputText id="firstName" value="#{register.firstName}" size="10" autocomplete="off" />
+                        <h:inputText id="firstName" value="#{signup.firstName}" size="10" autocomplete="off" />
 
                         <h:outputLabel for="lastName" value="Last name:" />
-                        <h:inputText id="lastName" value="#{register.lastName}" size="10" autocomplete="off" />
+                        <h:inputText id="lastName" value="#{signup.lastName}" size="10" autocomplete="off" />
 
                         <h:outputLabel for="street" value="Street Address:" />
-                        <h:inputText id="street" value="#{register.street}" size="10" autocomplete="off" />
+                        <h:inputText id="street" value="#{signup.street}" size="10" autocomplete="off" />
 
                         <h:outputLabel for="zip" value="Zip Code:" />
-                        <h:inputText id="zip" value="#{register.zip}" size="10" autocomplete="off" />
+                        <h:inputText id="zip" value="#{signup.zip}" size="10" autocomplete="off" />
 
                         <h:outputLabel for="city" value="City:" />
-                        <h:inputText id="city" value="#{register.city}" size="10" autocomplete="off" />
+                        <h:inputText id="city" value="#{signup.city}" size="10" autocomplete="off" />
 
                         <h:outputLabel for="mail" value="E-mail:" />
-                        <h:inputText id="mail" value="#{register.mail}" size="10" autocomplete="off" />
+                        <h:inputText id="mail" value="#{signup.mail}" size="10" autocomplete="off" />
 
                         <h:outputLabel for="passwd" value="Password:" />
-                        <h:inputText id="passwd" value="#{register.passwd}" size="10" autocomplete="off" />
+                        <h:inputText id="passwd" value="#{signup.passwd}" size="10" autocomplete="off" />
 
                         <h:panelGrid columns="2">
-                            <h:commandButton id="login" value="Register" action="#{register.action}" />
+                            <h:commandButton id="register" value="Register" action="#{signup.action}" />
                             <h:button outcome="/index" value="Cancel"  />
                         </h:panelGrid>
                     </h:panelGrid>
