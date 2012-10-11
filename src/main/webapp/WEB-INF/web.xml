@@ -43,7 +43,7 @@
     
     <welcome-file-list>
         <welcome-file>
-            /pages/index.xhtml
+            /pages/signup.xhtml
         </welcome-file>
     </welcome-file-list>
 </web-app>
