@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- This templated is used through the whole page -->
 <html xmlns="http://www.w3.org/1999/xhtml"   
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets">
-
     <h:head>
         <title>Paradise Travel Agency</title>
         <h:outputStylesheet name="style.css" library="css" /> 
         <h:outputScript library="js" name="lib/jquery-1.8.2.min.js" target="head" />
         <h:outputScript library="js" name="jquery_functions.js" target="head"/>
-
     </h:head>
     <h:body>
         <ui:insert name="navigationBar" >
             <nav id="main_menu">
                 <ui:include src="navigationBar.xhtml" />
             </nav>
+
+
             <div id="toggle_menu">
                 <div id="toggle_arrow" class="arrow_right"></div>            
             </div>
@@ -24,25 +25,27 @@
 
 
         <div id="main_wrapper">
-        <div id="main_content"> 
-            <ui:insert name="content" >            
-                <ui:include src="content.xhtml" />
-            </ui:insert>
-        </div>
+            <div id="main_content"> 
+                <ui:insert name="content" >            
+                    <ui:include src="content.xhtml" />
+                </ui:insert>
+            </div>
+            
             <aside class="logo">
-                <h:outputLink value="#" ><img src="resources/img/logo.png" />  </h:outputLink>
-                         </aside>
-        <aside class="sideBox">
-            <h1 class="titleRibbon">
-                <strong class="titleContent">Login</strong>
-            </h1>
-          
-        </aside>
-        <aside class="sideBox">
-            <h1 class="titleRibbon">
-                <strong class="titleContent">Most Popular</strong>
-            </h1>
-        </aside>
+                <h:outputLink value="#" ><img src="resources/img/logo.png" /></h:outputLink>
+            </aside>
+            
+            <aside class="sideBox">
+                <ui:insert name="sideboxTop" >            
+                    <ui:include src="sideboxTop.xhtml" />
+                </ui:insert>
+            </aside>
+            
+            <aside class="sideBox">
+                <ui:insert name="sideboxBottom" >            
+                    <ui:include src="sideboxBottom.xhtml" />
+                </ui:insert>
+            </aside>
         </div>
 
 
