@@ -3,7 +3,8 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"   
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets" >
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:f="http://java.sun.com/jsf/core">
     <h:body>
 
         <ui:composition template="/jsf/template/template.xhtml">
@@ -29,21 +30,18 @@
                     </footer>
                 </article>
             </ui:define>
+            
+            
             <ui:define name="sideboxTop">
-                <header>
-                    <h1>Login</h1>                        
-                </header>
+                <h2 class="signup">Login</h2>
                 <h:form>
-                    <h:panelGrid columns="2">
-                        <h:outputLabel for="userName" value="Username:" />
-                        <h:inputText id="userName" />
-
-                        <h:outputLabel for="password" value="Password:" />
-                        <h:inputText id="password"/>
+                    <h:panelGrid columns="2">        
+                            <h:link value="Register" id="register" outcome="signup.xhtml" /> 
                     </h:panelGrid>
                 </h:form>
-                <h:link value="Sign up" outcome="signup" />
+                
             </ui:define>
+
         </ui:composition>
 
     </h:body>
