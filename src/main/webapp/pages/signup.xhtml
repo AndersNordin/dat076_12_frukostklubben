@@ -4,10 +4,47 @@
 <html xmlns="http://www.w3.org/1999/xhtml"   
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets" >
+    
+    <h:head>
+        <h:outputStylesheet name="style.css" library="css" /> 
+    </h:head>
+    
     <h:body>
         <ui:composition template="/jsf/template/template.xhtml">
             <ui:define name="content">
-                <h2>Signup</h2>
+                <h2 class="signup">Signup</h2>
+                <h:form>
+                    <h:panelGrid columns="2">
+                        <h:outputLabel for="userName" value="Username:" />
+                        <h:inputText id="userName" value="#{register.userName}" size="10" autocomplete="off" />
+
+                        <h:outputLabel for="firstName" value="First name:" />
+                        <h:inputText id="firstName" value="#{register.firstName}" size="10" autocomplete="off" />
+
+                        <h:outputLabel for="lastName" value="Last name:" />
+                        <h:inputText id="lastName" value="#{register.lastName}" size="10" autocomplete="off" />
+
+                        <h:outputLabel for="street" value="Street Address:" />
+                        <h:inputText id="street" value="#{register.street}" size="10" autocomplete="off" />
+
+                        <h:outputLabel for="zip" value="Zip Code:" />
+                        <h:inputText id="zip" value="#{register.zip}" size="10" autocomplete="off" />
+
+                        <h:outputLabel for="city" value="City:" />
+                        <h:inputText id="city" value="#{register.city}" size="10" autocomplete="off" />
+
+                        <h:outputLabel for="mail" value="E-mail:" />
+                        <h:inputText id="mail" value="#{register.mail}" size="10" autocomplete="off" />
+
+                        <h:outputLabel for="passwd" value="Password:" />
+                        <h:inputText id="passwd" value="#{register.passwd}" size="10" autocomplete="off" />
+
+                        <h:panelGrid columns="2">
+                            <h:commandButton id="login" value="Register" action="#{register.action}" />
+                            <h:button outcome="/index" value="Cancel"  />
+                        </h:panelGrid>
+                    </h:panelGrid>
+                </h:form>
             </ui:define>
         </ui:composition>
     </h:body>
