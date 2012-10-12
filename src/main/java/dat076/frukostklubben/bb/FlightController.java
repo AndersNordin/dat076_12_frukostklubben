@@ -11,6 +11,7 @@ import java.util.List;
 import javax.annotation.ManagedBean;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Named;
 
 /**
  *
@@ -18,6 +19,7 @@ import javax.enterprise.context.RequestScoped;
  */
 @ManagedBean
 @RequestScoped
+@Named("new")
 public class FlightController {
 
     // ======================================
@@ -36,29 +38,18 @@ public class FlightController {
 
     public String doCreateFlight() {
         flight = flightEJB.createFlight(flight);
-        flightList = flightEJB.findFlights();
-        return "VETTIG XHTML-SIDA";
+        return "browse.xhtml";
     }
 
     // ======================================
     // =          Getters & Setters         =
     // ======================================
 
-    public Flight getFlight() {
-        return flight;
-    }
-
     public void setFlight(Flight flight) {
         this.flight = flight;
     }
 
     public List<Flight> getFlightList() {
-        return flightList;
+        return flightEJB.findFlights();
     }
-
-    public void setFlightList(List<Flight> flightList) {
-        this.flightList = flightList;
-    }
-
-    
 }
