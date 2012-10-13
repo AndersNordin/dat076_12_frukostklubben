@@ -19,7 +19,7 @@ import javax.inject.Named;
  */
 @ManagedBean
 @RequestScoped
-@Named("new")
+@Named("flightController")
 public class FlightController {
 
     // ======================================
@@ -44,7 +44,10 @@ public class FlightController {
     // ======================================
     // =          Getters & Setters         =
     // ======================================
-
+    public Flight getFlight(){
+        return this.flight;
+    }
+    
     public void setFlight(Flight flight) {
         this.flight = flight;
     }

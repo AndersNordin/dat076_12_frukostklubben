@@ -9,22 +9,53 @@
 
         <ui:composition template="/jsf/template/template.xhtml">
             <ui:define name="content">
-                browse 
+                <h:dataTable value="#{flightController.flightList}" var="fl">
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Name"/>
+                        </f:facet>
+                        <h:outputText value="#{fl.name}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="From"/>
+                        </f:facet>
+                        <h:outputText value="#{fl.fromAirport}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="To"/>
+                        </f:facet>
+                        <h:outputText value="#{fl.toAirport}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Date"/>
+                        </f:facet>
+                        <h:outputText value="#{fl.date}"/>
+                    </h:column>
+                    <h:column>
+                        <f:facet name="header">
+                            <h:outputText value="Price"/>
+                        </f:facet>
+                        <h:outputText value="#{fl.cost}"/>
+                    </h:column>
+                </h:dataTable>                    
             </ui:define>
-            
-            
+
+
             <ui:define name="sideboxTop">
                 <h2 class="signup">Signup</h2>
                 <h:form>
                     <h:panelGrid columns="2">        
-                            <h:link value="Register" id="register" action="#{signup.action}" outcome="signup.xhtml" /><br/>   
-                            <h:link value="Cancel" outcome="index.xhtml" /><br/>   
+                        <h:link value="Register" id="register" action="#{signup.action}" outcome="signup.xhtml" /><br/>   
+                        <h:link value="Cancel" outcome="index.xhtml" /><br/>   
                     </h:panelGrid>
                 </h:form>
-                
+
             </ui:define>
-            
-            
+
+
         </ui:composition>
 
     </h:body>
