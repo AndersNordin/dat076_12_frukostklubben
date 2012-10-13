@@ -43,5 +43,16 @@ public class FlightEJB implements FlightEJBRemote {
     public Flight updateFlight(Flight flight) {
         return em.merge(flight);
     }
+    
+    public List<Flight> searchFlights(String from, String to, String date){
+        String query = "select f from Flight f where f.from = :from"
+                + "and f.to = :to and f.date = :date";
+        TypedQuery<Flight> q = em.createNamedQuery(query, Flight.class);
+        q.setParameter("from", from);
+        q.setParameter("to", to);
+        q.setParameter("date", date);
+        List<Flight> result = q.getResultList();
+        return result;
+    }
 }
 

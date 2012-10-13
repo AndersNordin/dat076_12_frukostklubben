@@ -6,9 +6,11 @@ package dat076.frukostklubben.bb;
 
 import dat076.frukostklubben.ejb.FlightEJB;
 import dat076.frukostklubben.model.Flight;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import javax.ejb.EJB;
+import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 
 /**
@@ -16,11 +18,13 @@ import javax.inject.Named;
  * @author Johan
  */
 @Named("search")
-public class SearchFlightBean {
+@SessionScoped
+public class SearchFlightBean implements Serializable {
     
     private String from;
     private String to;
-    private Date date;
+    private String date;
+    private List<Flight> flights;
     @EJB
     FlightEJB flight;
 
@@ -40,11 +44,11 @@ public class SearchFlightBean {
         this.to = to;
     }
 
-    public Date getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
        /* try{
             DateFormat df = new SimpleDateFormat("");
@@ -52,12 +56,15 @@ public class SearchFlightBean {
         }*/
     }
     
+    public List<Flight> getFlights() {
+        return flights;
+    }
+    
     public String action(){
-        return "fdsg"; //Måste ändras
+        return "search";
     }
     
-    public List<Flight> actionListener(){
-        return flight.findFlights(); //Måste ändras
-    }
-    
+    public void actionListener(){
+        flights =  flight.searchFlights(from, to, date);
+    }   
 }
