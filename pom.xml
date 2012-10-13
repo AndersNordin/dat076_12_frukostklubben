@@ -50,9 +50,14 @@
             <scope>test</scope>
         </dependency>
                 <dependency>
-                        <groupId>org.richfaces.ui</groupId>
-                        <artifactId>richfaces-components-ui</artifactId>
-                        <version>4.2.2.Final</version>
+                        <groupId>org.icefaces</groupId>
+                        <artifactId>icefaces</artifactId>
+                        <version>3.1.0</version>
+                </dependency>
+                <dependency>
+                        <groupId>org.icefaces</groupId>
+                        <artifactId>icefaces-ace</artifactId>
+                        <version>3.1.0</version>
                 </dependency>
                 <dependency>
             <groupId>javax</groupId>

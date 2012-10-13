@@ -5,34 +5,35 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets" 
       xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:a4j="http://richfaces.org/a4j"
-      xmlns:rich="http://richfaces.org/rich">
+      xmlns:ace="http://www.icefaces.org/icefaces/components">
     <h:body>
 
         <ui:composition template="/jsf/template/template.xhtml">
+
             <ui:define name="content">
-                <h:form>
-                    <table border="4">
-                        <tr>
-                            <td><h:outputLabel value="Name : "/></td>
-                            <td><h:inputText value="#{flightController.flight.name}"/></td>
-                            <tr>
-                            </tr>
-                            <td><h:outputLabel value="From :"/> </td>
-                            <td><h:inputText value="#{flightController.flight.fromAirport}"/></td>
-                            <tr>
-                            </tr>
-                            <td><h:outputLabel value="To :"/> </td>
-                            <td><h:inputText value="#{flightController.flight.toAirport}"/></td>
-                            <tr>
-                            </tr>
-                            <rich:calendar/>
-                        </tr>
-                    </table>
-                    <h:commandButton value="Create a Flight"
-                                     action="#{flightController.doCreateFlight}" styleClass="submit"/>
+                <h:form id="addForm">
+                    <h:panelGrid id="calendar" style="margin-left: auto; margin-right: auto; text-align: center;" width="100">
+                        <ace:dateTimeEntry id="cal"
+                                           value="#{flightController.flight.date}"
+                                           timeZone="CST"
+                                           pattern="MMM/dd/yyyy hh:mm:ss" />
+                        <ace:textEntry value="#{flightController.flight.name}" label="Name" labelPosition="left" required="true" requiredIndicator="(*)" indicatorPosition="right">
+                        </ace:textEntry>
+                        <ace:textEntry value="#{flightController.flight.fromAirport}" label="From" labelPosition="left" required="true" requiredIndicator="(*)" indicatorPosition="right">
+                        </ace:textEntry>
+                        <ace:textEntry value="#{flightController.flight.toAirport}" label="To" labelPosition="left" required="true" requiredIndicator="(*)" indicatorPosition="right">
+                        </ace:textEntry>
+                        <ace:textEntry value="#{flightController.flight.cost}" label="Price" labelPosition="left" required="true" requiredIndicator="(*)" indicatorPosition="right">
+                        </ace:textEntry>
+                        <ace:pushButton value="Submit" action="#{flightController.doCreateFlight}" />
+                    </h:panelGrid>
                 </h:form>
             </ui:define>
+
+
+
+
+
 
             <ui:define name="sideboxTop">
                 <h2 class="signup">Signup</h2>
