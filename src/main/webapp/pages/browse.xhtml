@@ -4,43 +4,44 @@
 <html xmlns="http://www.w3.org/1999/xhtml"   
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets" 
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ace="http://www.icefaces.org/icefaces/components">
     <h:body>
 
         <ui:composition template="/jsf/template/template.xhtml">
             <ui:define name="content">
-                <h:dataTable value="#{flightController.flightList}" var="fl">
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Name"/>
-                        </f:facet>
-                        <h:outputText value="#{fl.name}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="From"/>
-                        </f:facet>
-                        <h:outputText value="#{fl.fromAirport}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="To"/>
-                        </f:facet>
-                        <h:outputText value="#{fl.toAirport}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Date"/>
-                        </f:facet>
-                        <h:outputText value="#{fl.date}"/>
-                    </h:column>
-                    <h:column>
-                        <f:facet name="header">
-                            <h:outputText value="Price"/>
-                        </f:facet>
-                        <h:outputText value="#{fl.cost}"/>
-                    </h:column>
-                </h:dataTable>                    
+                <h:form>
+                    <ace:dataTable id="flightTable"
+                                   value="#{flightController.flightList}"
+                                   var="flight"
+                                   paginator="true"
+                                   paginatorPosition="bottom">
+                        <ace:column id="name" headerText="Name" sortBy="#{flight.name}"
+                                    filterBy="#{flight.name}" filterMatchMode="contains">
+                            <h:outputText id="nameCell" value="#{flight.name}"/>
+                        </ace:column>
+                        <ace:column id="from" headerText="From" sortBy="#{flight.fromAirport}"
+                                    filterBy="#{flight.fromAirport}" filterMatchMode="contains">
+                            <h:outputText id="chassisCell" value="#{flight.fromAirport}"/>
+                        </ace:column>
+                        <ace:column id="to" headerText="To" sortBy="#{flight.toAirport}"
+                                    filterBy="#{flight.toAirport}" filterMatchMode="contains">
+                            <h:outputText id="weightCell" value="#{flight.toAirport}lbs."/>
+                        </ace:column>
+                        <ace:column id="cost" headerText="Cost" sortBy="#{flight.cost}"
+                                    filterBy="#{flight.cost}" filterMatchMode="contains">
+                            <f:facet name="header">
+                                Cost
+                            </f:facet>
+                            <h:outputText id="costCell" value="#{flight.cost}">
+                                <f:convertNumber type="currency"
+                                                 groupingUsed="true"
+                                                 minFractionDigits="2"
+                                                 maxFractionDigits="2"/>
+                            </h:outputText>
+                        </ace:column>
+                    </ace:dataTable>
+                </h:form>
             </ui:define>
 
 
