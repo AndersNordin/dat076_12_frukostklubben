@@ -112,7 +112,7 @@ public class SignupBB {
         try {
             Address address = new Address(); //fix new constructor 
             customerRegistry.createCustomer(new Customer(firstName, lastName, mail, address));
-            return "login";
+            return "index";
         } catch (Exception e) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Bad Login name"));
             return null; // Same page
