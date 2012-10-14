@@ -15,7 +15,8 @@
                                    value="#{flightController.flightList}"
                                    var="flight"
                                    paginator="true"
-                                   paginatorPosition="bottom">
+                                   paginatorPosition="bottom"
+                                   rows="100">
                         <ace:column id="name" headerText="Name" sortBy="#{flight.name}"
                                     filterBy="#{flight.name}" filterMatchMode="contains">
                             <h:outputText id="nameCell" value="#{flight.name}"/>
