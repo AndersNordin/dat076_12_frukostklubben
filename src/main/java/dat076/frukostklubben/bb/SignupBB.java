@@ -7,8 +7,6 @@ package dat076.frukostklubben.bb;
 import dat076.frukostklubben.ejb.CustomerEJB;
 import dat076.frukostklubben.model.Address;
 import dat076.frukostklubben.model.Customer;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
@@ -40,6 +38,8 @@ public class SignupBB {
     private String city;
     @NotNull
     private String passwd;
+    @NotNull
+    private String passwdConfirm;
     @EJB
     CustomerEJB customerRegistry;
 
@@ -69,6 +69,11 @@ public class SignupBB {
 
     public void setCity(String city) {
         this.city = city;
+    }
+    
+    public void setPasswdConfirm(String passwdConfirm)
+    {
+        this.passwdConfirm = passwdConfirm;
     }
 
     public void setPasswd(String passwd) {
@@ -106,7 +111,15 @@ public class SignupBB {
     public String getPasswd(){
         return passwd;
     }
+    
+    public String getPasswdConfirm()
+    {
+        return passwdConfirm;
+    }
 
+    /* Måste lägga till att skapa en användare där lösenordet lagras. Glöm ej att kolla så att Lösenord + bekräftat lösenord är lika. */ 
+    
+    
     public String action() {
         //log.log(Level.INFO, "New Customer Login {0} Passwd {1}", new Object[]{login, passwd});
         try {
