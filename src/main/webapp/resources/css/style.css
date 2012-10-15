@@ -314,6 +314,10 @@ label{
     float: right;
 }
 
+.hidden{
+    visibility: hidden;
+}
+
 .inputButton:hover{
         border: 1px solid #FFF;
 }

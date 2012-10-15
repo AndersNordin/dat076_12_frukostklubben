@@ -11,18 +11,23 @@
             <ui:define name="content">
                 <article>
                     <header>
-                        <h1>Search flight</h1>                        
+                        <h1>Search for a flight now!</h1>                        
                     </header>
-                    <h:form>   
-                        <h:panelGrid id="search">
-                            <ace:textEntry value="#{search.flight.fromAirport}" label="From" labelPosition="left">
-                            </ace:textEntry>
-                            <ace:textEntry value="#{search.flight.toAirport}" label="To" labelPosition="left">
-                            </ace:textEntry>
-                            <ace:textEntry value="#{search.flight.cost}" label="Price" labelPosition="left">
-                            </ace:textEntry>
-                            <ace:pushButton value="Search" action="#{search.search}" />
-                        </h:panelGrid>
+                    <h:form>
+                            <ui:remove>
+                                styleClass="hidden"
+                            </ui:remove>
+                            <p><label for="from">From:</label><br/>
+                            <ace:textEntry id="from" value="#{search.flight.fromAirport}"  styleClass="inputForm"  /></p>
+                            
+                            <p><label for="to">To:</label><br/>
+                                <ace:textEntry id="to" value="#{search.flight.toAirport}" styleClass="inputForm" /></p>
+                           
+                            <p><label for="price">Price:</label><br/>
+                                <ace:textEntry id="price" value="#{search.flight.cost}" styleClass="inputForm" /></p>
+                            
+                        <ace:pushButton value="Search"  styleClass="inputButton" action="#{search.search}"/>                     
+                        
                     </h:form>
                 </article>
             </ui:define>
