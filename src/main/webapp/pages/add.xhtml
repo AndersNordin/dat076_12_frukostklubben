@@ -12,10 +12,10 @@
 
             <ui:define name="content">
                 <h:form id="addForm">
-                    <h:panelGrid id="calendar" style="margin-left: auto; margin-right: auto; text-align: center;" width="100">
+                    <h:panelGrid id="calendar">
                         <ace:dateTimeEntry id="cal"
                                            value="#{flightController.flight.date}"
-                                           timeZone="CST"
+                                           timeZone="Europe/Stockholm"
                                            pattern="MMM/dd/yyyy hh:mm:ss" />
                         <ace:textEntry value="#{flightController.flight.name}" label="Name" labelPosition="left" required="true" requiredIndicator="(*)" indicatorPosition="right">
                         </ace:textEntry>
@@ -29,24 +29,6 @@
                     </h:panelGrid>
                 </h:form>
             </ui:define>
-
-
-
-
-
-
-            <ui:define name="sideboxTop">
-                <h2 class="signup">Signup</h2>
-                <h:form>
-                    <h:panelGrid columns="2">        
-                        <h:link value="Register" id="register" action="#{signup.action}" outcome="signup.xhtml" /><br/>   
-                        <h:link value="Cancel" outcome="index.xhtml" /><br/>   
-                    </h:panelGrid>
-                </h:form>
-
-            </ui:define>
-
-
         </ui:composition>
 
     </h:body>

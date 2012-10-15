@@ -3,14 +3,15 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <!-- Main navigation bar. -->
 <html xmlns="http://www.w3.org/1999/xhtml"   
-      xmlns:ui="http://java.sun.com/jsf/facelets">
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
     <body>
         <ui:composition> 	
-            <ul class="menu">
-                <li><a href="index.xhtml"><span>Index</span> <span>Home</span></a></li>
-                <li><a href="browse.xhtml"><span>Browse</span> <span>Travels and Flights</span></a></li>
-                <li><a href="add.xhtml"><span>Last Minute </span> <span>Travel Now</span></a></li>
-                <li><a href="contact.xhtml"><span>Get in touch</span> <span>Contact Us</span></a></li>
+            <ul class="menu">                
+                <li><h:link outcome="index"><span>Index</span> <span>Home</span></h:link></li>
+                <li><h:link outcome="browse"><span>Browse</span> <span>Travels and Flights</span></h:link></li>
+                <li><h:link outcome="add"><span>Last Minute </span> <span>Travel Now</span></h:link></li>
+                <li><h:link outcome="contact"><span>Get in touch</span> <span>Contact Us</span></h:link></li>
             </ul>
         </ui:composition>
     </body>

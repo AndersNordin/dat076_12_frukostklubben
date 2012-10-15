@@ -15,8 +15,8 @@
                 <h2 class="signup">Signup</h2>
                 <h:form>
                     <h:panelGrid columns="1">
-                        <h:outputLabel for="userName" value="Username:" />
-                        <h:inputText id="userName" value="#{signup.userName}" size="10" autocomplete="off" />
+                        <h:outputLabel for="mail" value="E-mail:" />
+                        <h:inputText id="mail" value="#{signup.mail}" size="10" autocomplete="off" />
 
                         <h:outputLabel for="firstName" value="First name:" />
                         <h:inputText id="firstName" value="#{signup.firstName}" size="10" autocomplete="off" />
@@ -33,9 +33,6 @@
                         <h:outputLabel for="city" value="City:" />
                         <h:inputText id="city" value="#{signup.city}" size="10" autocomplete="off" />
 
-                        <h:outputLabel for="mail" value="E-mail:" />
-                        <h:inputText id="mail" value="#{signup.mail}" size="10" autocomplete="off" />
-
                         <h:outputLabel for="passwd" value="Password:" />
                         <h:inputText id="passwd" value="#{signup.passwd}" size="10" autocomplete="off" />
 
@@ -45,17 +42,6 @@
                         </h:panelGrid>
                     </h:panelGrid>
                 </h:form>
-            </ui:define>
-            
-               <ui:define name="sideboxTop">
-                <h2 class="signup">Signup</h2>
-                <h:form>
-                    <h:panelGrid columns="2">        
-                            <h:link value="Register" id="register" action="#{signup.action}" outcome="signup.xhtml" /><br/>   
-                            <h:link value="Cancel" outcome="index.xhtml" /><br/>   
-                    </h:panelGrid>
-                </h:form>
-                
             </ui:define>
         </ui:composition>
     </h:body>

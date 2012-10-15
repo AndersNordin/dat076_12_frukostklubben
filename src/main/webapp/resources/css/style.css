@@ -91,8 +91,7 @@ aside.logo a, aside.logo a:hover{
 
 footer#main_footer{
     width: 100%;
-    padding: 0;
-    height: 45px;
+    height: auto;
     float: left;
     margin: 140px auto 0 auto;
     box-shadow: 0 5px 10px rgba(0, 0, 0, .75) inset;
@@ -100,14 +99,15 @@ footer#main_footer{
 }
 footer#main_footer ul{
     margin: 0 auto;
-    width:400px;
+    width:600px;
     padding-top: 15px;
     height: 30px;
     color: #FFF;
 }
 footer#main_footer ul li{
-    text-align: center;
-    float: left; 
+    padding: 0;
+    float: left;
+    display: inline;
     margin: 0 6px;
 }
 /****************************************************************
@@ -264,4 +264,11 @@ nav#main_menu{
 .titleRibbon .titleContent:after {
     right: 0;
     border-width: 1em 1em 0 0;
+}
+/****************************************************************
+****************************FORMS*******************
+*****************************************************************/
+#calendarr{
+    width: 100px;
+    text-align: center;
 }

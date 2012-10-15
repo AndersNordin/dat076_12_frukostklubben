@@ -17,6 +17,10 @@
                                    paginator="true"
                                    paginatorPosition="bottom"
                                    rows="100">
+                        <ace:column id="date" headerText="Date" sortBy="#{flight.date}"
+                                    filterBy="#{flight.date}" filterMatchMode="contains">
+                            <h:outputText id="dateCell" value="#{flight.date}"/>
+                        </ace:column>
                         <ace:column id="name" headerText="Name" sortBy="#{flight.name}"
                                     filterBy="#{flight.name}" filterMatchMode="contains">
                             <h:outputText id="nameCell" value="#{flight.name}"/>
@@ -43,19 +47,7 @@
                         </ace:column>
                     </ace:dataTable>
                 </h:form>
-            </ui:define>
-
-
-            <ui:define name="sideboxTop">
-                <h2 class="signup">Signup</h2>
-                <h:form>
-                    <h:panelGrid columns="2">        
-                        <h:link value="Register" id="register" action="#{signup.action}" outcome="signup.xhtml" /><br/>   
-                        <h:link value="Cancel" outcome="index.xhtml" /><br/>   
-                    </h:panelGrid>
-                </h:form>
-
-            </ui:define>
+            </ui:define>       
 
 
         </ui:composition>
