@@ -3,7 +3,8 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"   
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets" >
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:ace="http://www.icefaces.org/icefaces/components">
     <h:body>
 
         <ui:composition template="/jsf/template/template.xhtml">
@@ -12,18 +13,16 @@
                     <header>
                         <h1>Search flight</h1>                        
                     </header>
-                    <h:form>  
-
-                        <p><h:outputLabel for="from" value="From:" /><br />
-                            <h:inputText id="from" value="#{search.from}" class="inputForm"/></p>
-
-                        <p> <h:outputLabel for="to" value="To:" /><br />
-                            <h:inputText id="to" value="#{search.to}" class="inputForm"/></p>
-
-                        <p> <h:outputLabel for="date" value="Date:" /><br />
-                            <h:inputText id="date" value="#{search.date}" class="inputForm"/></p>
-                        <h:commandButton class="inputButton" actionListener="#{search.actionListener}" action="#{search.action}" value="Search" />
-
+                    <h:form>   
+                        <h:panelGrid id="search">
+                            <ace:textEntry value="#{search.flight.fromAirport}" label="From" labelPosition="left">
+                            </ace:textEntry>
+                            <ace:textEntry value="#{search.flight.toAirport}" label="To" labelPosition="left">
+                            </ace:textEntry>
+                            <ace:textEntry value="#{search.flight.cost}" label="Price" labelPosition="left">
+                            </ace:textEntry>
+                            <ace:pushButton value="Search" action="#{search.search}" />
+                        </h:panelGrid>
                     </h:form>
                 </article>
             </ui:define>

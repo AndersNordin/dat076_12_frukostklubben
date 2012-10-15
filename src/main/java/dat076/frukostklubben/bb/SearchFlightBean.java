@@ -7,7 +7,7 @@ package dat076.frukostklubben.bb;
 import dat076.frukostklubben.ejb.FlightEJB;
 import dat076.frukostklubben.model.Flight;
 import java.io.Serializable;
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
@@ -21,50 +21,36 @@ import javax.inject.Named;
 @SessionScoped
 public class SearchFlightBean implements Serializable {
     
-    private String from;
-    private String to;
-    private String date;
-    private List<Flight> flights;
+
     @EJB
-    FlightEJB flight;
-
-    public String getFrom() {
-        return from;
-    }
-
-    public void setFrom(String from) {
-        this.from = from;
-    }
-
-    public String getTo() {
-        return to;
-    }
-
-    public void setTo(String to) {
-        this.to = to;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-       /* try{
-            DateFormat df = new SimpleDateFormat("");
-            this.date = df.parse(date);
-        }*/
-    }
+    private FlightEJB flightEJB;
     
+    private Flight flight = new Flight();
+    private List<Flight> flights;
+
+
+    public Flight getFlight() {
+        return flight;
+    }
+
+    public void setFlight(Flight flight) {
+        this.flight = flight;
+    }
+
     public List<Flight> getFlights() {
         return flights;
     }
-    
-    public String action(){
-        return "search";
+
+    public void setFlights(List<Flight> flights) {
+        this.flights = flights;
     }
+
     
-    public void actionListener(){
-        flights =  flight.searchFlights(from, to, date);
+
+  
+    public String search(){
+        
+        flights = flightEJB.searchFlights(this.flight);
+        return "results";
     }   
 }

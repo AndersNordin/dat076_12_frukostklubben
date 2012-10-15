@@ -30,7 +30,6 @@ public class FlightController {
     private FlightEJB flightEJB;
 
     private Flight flight = new Flight();
-    private List<Flight> flightList = new ArrayList<>();
 
     // ======================================
     // =           Public Methods           =
