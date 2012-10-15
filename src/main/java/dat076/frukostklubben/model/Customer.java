@@ -30,6 +30,7 @@ public class Customer implements Serializable {
      @Embedded
      @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
      private Address address;
+     private String password;
 
     public Customer(String firstName, String lastName, String mail, Address address) {
         this.firstName = firstName;
@@ -44,6 +45,16 @@ public class Customer implements Serializable {
     public long getId() {
         return id;
     }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+    
+    
 
     public void setId(long id) {
         this.id = id;
