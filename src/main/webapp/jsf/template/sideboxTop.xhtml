@@ -8,8 +8,16 @@
     <body>
         <ui:composition>                           
             <h1 class="titleRibbon"><strong class="titleContent">Login</strong></h1>
-            <h:form>                  
-                    <h:link value="Register" id="register" action="#{signup.action}" outcome="signup" /><br/>               
+            <h:form> 
+
+                <p><h:outputLabel for="username" value="Username:" /><br />
+                    <h:inputText id="username" value="" class="inputForm"/></p>
+
+                <p> <h:outputLabel for="password" value="Password:" /><br />
+                    <h:inputSecret id="password" value="" class="inputForm"/></p>
+
+                <p><h:commandButton class="inputButton" actionListener="#{search.actionListener}" action="#{search.action}" value="Search" />
+                <h:button class="inputButton" id="register" action="#{signup.action}" value="Register" outcome="signup"/></p>
             </h:form>
         </ui:composition>
     </body>

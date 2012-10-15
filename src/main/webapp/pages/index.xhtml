@@ -12,24 +12,22 @@
                     <header>
                         <h1>Search flight</h1>                        
                     </header>
-                    <h:form>   
-                        <h:panelGrid columns="2">
-                            <h:outputLabel for="from" value="From:" />
-                            <h:inputText id="from" value="#{search.from}" />
-                            <h:outputLabel for="to" value="To:" />
-                            <h:inputText id="to" value="#{search.to}" />
-                            <h:outputLabel for="date" value="Date:" />
-                            <h:inputText id="date" value="#{search.date}" />
-                            <h:commandButton actionListener="#{search.actionListener}" action="#{search.action}" value="Search" />
-                        </h:panelGrid>
+                    <h:form>  
+
+                        <p><h:outputLabel for="from" value="From:" /><br />
+                            <h:inputText id="from" value="#{search.from}" class="inputForm"/></p>
+
+                        <p> <h:outputLabel for="to" value="To:" /><br />
+                            <h:inputText id="to" value="#{search.to}" class="inputForm"/></p>
+
+                        <p> <h:outputLabel for="date" value="Date:" /><br />
+                            <h:inputText id="date" value="#{search.date}" class="inputForm"/></p>
+                        <h:commandButton class="inputButton" actionListener="#{search.actionListener}" action="#{search.action}" value="Search" />
+
                     </h:form>
-                    <footer>
-                        <p><small>Published: <time pubdate="pubdate">2012-10-07</time></small></p>
-                        <p><small>Posted by Admin</small></p>
-                    </footer>
                 </article>
             </ui:define>
-            
+
 
 
         </ui:composition>

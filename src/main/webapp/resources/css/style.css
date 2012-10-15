@@ -60,6 +60,9 @@ div#main_content{
     height: 100%;
     border-radius: 1.0em;
 }
+div#main_content p{
+    padding: 10px 5px;
+}
 
 aside.sideBox{
     background: #fff;
@@ -71,6 +74,9 @@ aside.sideBox{
     margin-bottom: 40px;
     margin-left: 25px;
     min-height: 300px;
+}
+aside.sideBox p{
+    padding: 5px 10px;
 }
 
 aside.logo{
@@ -246,7 +252,7 @@ nav#main_menu{
     text-align: center;
     float: left;
     padding: 1em 1em;
-    margin: 1em auto 3em -1em;
+    margin: 1em auto 2em -1em;
     box-shadow: 0 1px 4px rgba(0, 0, 0, .4), 0 0 20px rgba(0, 0, 0, .15) inset;
 }
 .titleRibbon .titleContent:before, .titleRibbon .titleContent:after {
@@ -268,7 +274,46 @@ nav#main_menu{
 /****************************************************************
 ****************************FORMS*******************
 *****************************************************************/
-#calendarr{
+#calendarr{ /*Bör ändras till calendar */
     width: 100px;
     text-align: center;
+}
+
+.inputForm{
+    padding: 4px 6px;
+    font-size: 12px;
+    width: 250px;
+    border-radius: 0.5em;
+    background-color: #e2e2e2;
+    border: 1px solid  rgba(0,0,0,0.75);
+}
+
+label{
+    text-transform:uppercase;
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+.inputButton{
+    font-family: Verdana, Geneva, sans-serif;
+    font-size: 20px;
+    color: #FFF;
+    padding: 5px 25px 5px 25px;
+    border: 1px solid #999; 
+    text-shadow: 0px 1px 1px #666;
+    text-decoration: none; 
+    -moz-box-shadow: 0 1px 3px #111;
+    -webkit-box-shadow: 0 1px 3px #111;
+    box-shadow: 0 1px 3px #111; 
+    border-radius: 4px;
+    background: #64a724;
+    background: -moz-linear-gradient(top, #64a724 0%, #579727 50%, #58982a 51%, #498c25 100%);
+    background: -webkit-gradient(linear, left top, left bottom, from(#64a724), to(#498c25), color-stop(0.4, #579727), color-stop(0.5, #58982a), color-stop(.9, #498c25), color-stop(0.9, #498c25));
+    margin: 0 25px;
+    cursor: pointer; 
+    float: right;
+}
+
+.inputButton:hover{
+        border: 1px solid #FFF;
 }
