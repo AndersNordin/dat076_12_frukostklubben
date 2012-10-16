@@ -1,0 +1,30 @@
+----------------------------------------------------------------
+Tue Oct 16 22:33:27 CEST 2012:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.8.1.2 - (1095077): instance a816c00e-013a-6b47-f0aa-000010fa6240 
+on database directory C:\Users\Fredrik\AppData\Local\Temp\gfembed3319419672163090139tmp\lib\databases\embedded_default  with class loader sun.misc.Launcher$AppClassLoader@35087359 
+Loaded from file:/C:/Users/Fredrik/.m2/repository/org/glassfish/main/extras/glassfish-embedded-all/3.1.2.2/glassfish-embedded-all-3.1.2.2.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_07-b11
+user.dir=C:\Users\Fredrik\Documents\NetBeansProjects\dat076_12_frukostklubben
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Tue Oct 16 22:35:12 CEST 2012:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.8.1.2 - (1095077): instance 176240b2-013a-6b47-f0aa-000010fa6240 
+on database directory C:\Users\Fredrik\AppData\Local\Temp\gfembed308109081370472287tmp\lib\databases\embedded_default  with class loader sun.misc.Launcher$AppClassLoader@35087359 
+Loaded from file:/C:/Users/Fredrik/.m2/repository/org/glassfish/main/extras/glassfish-embedded-all/3.1.2.2/glassfish-embedded-all-3.1.2.2.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_07-b11
+user.dir=C:\Users\Fredrik\Documents\NetBeansProjects\dat076_12_frukostklubben
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Tue Oct 16 22:36:41 CEST 2012:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.8.1.2 - (1095077): instance a0f1c156-013a-6b47-f0aa-000010fa6240 
+on database directory C:\Users\Fredrik\AppData\Local\Temp\gfembed8741697767032901214tmp\lib\databases\embedded_default  with class loader sun.misc.Launcher$AppClassLoader@35087359 
+Loaded from file:/C:/Users/Fredrik/.m2/repository/org/glassfish/main/extras/glassfish-embedded-all/3.1.2.2/glassfish-embedded-all-3.1.2.2.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.7.0_07-b11
+user.dir=C:\Users\Fredrik\Documents\NetBeansProjects\dat076_12_frukostklubben
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
