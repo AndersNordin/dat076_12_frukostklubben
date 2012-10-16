@@ -5,7 +5,6 @@
 package dat076.frukostklubben.bb;
 
 import dat076.frukostklubben.ejb.CustomerEJB;
-import dat076.frukostklubben.model.Address;
 import dat076.frukostklubben.model.Customer;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
@@ -22,113 +21,51 @@ import javax.validation.constraints.NotNull;
 @RequestScoped //created once for every request
 public class SignupBB {
 
-    @NotNull
-    private String userName;
-    @NotNull
-    private String firstName;
-    @NotNull
-    private String lastName;
-    @NotNull
-    private String mail;
-    @NotNull
-    private String street;
-    @NotNull
-    private Integer zip;
-    @NotNull
-    private String city;
-    @NotNull
-    private String passwd;
-    @NotNull
-    private String passwdConfirm;
+    // ======================================
+    // =             Attributes             =
+    // ======================================
+
     @EJB
     CustomerEJB customerRegistry;
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
-
-    public void setStreet(String street) {
-        this.street = street;
-    }
-
-    public void setZip(Integer zip) {
-        this.zip = zip;
-    }
-
-    public void setCity(String city) {
-        this.city = city;
-    }
     
-    public void setPasswdConfirm(String passwdConfirm)
-    {
-        this.passwdConfirm = passwdConfirm;
-    }
-
-    public void setPasswd(String passwd) {
-        this.passwd = passwd;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public String getMail() {
-        return mail;
-    }
-
-    public String getStreet() {
-        return street;
-    }
-
-    public Integer getZip() {
-        return zip;
-    }
-
-    public String getCity() {
-        return city;
-    }
+    private Customer customer = new Customer();
     
-    public String getPasswd(){
-        return passwd;
-    }
-    
-    public String getPasswdConfirm()
-    {
-        return passwdConfirm;
-    }
+    private String passwdConfirm;
 
-    /* Måste lägga till att skapa en användare där lösenordet lagras. Glöm ej att kolla så att Lösenord + bekräftat lösenord är lika. */ 
+    // ======================================
+    // =           Public Methods           =
+    // ======================================
     
-    
-    public String action() {
+    public String doCreateCustomer() {
         //log.log(Level.INFO, "New Customer Login {0} Passwd {1}", new Object[]{login, passwd});
         try {
-            Address address = new Address(); //fix new constructor 
-            customerRegistry.createCustomer(new Customer(firstName, lastName, mail, address));
-            return "index";
+            customer = customerRegistry.createCustomer(customer);
+            return "index.xhtml"; //or some confirmation page
         } catch (Exception e) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Bad Login name"));
             return null; // Same page
         }
     }
+
+    // ======================================
+    // =          Getters & Setters         =
+    // ======================================
+   
+    public Customer getCustomer(){
+        return this.customer;
+    }
+    
+    public void setCutomer(Customer customer){
+        this.customer = customer;
+    }
+    
+    public void passwdConfirm(String passwdConfirm){
+        this.passwdConfirm = passwdConfirm;
+        //do something real...
+    }
+    
+    public String getpasswdConfirm(){
+        return passwdConfirm;
+    }
+    
 }
