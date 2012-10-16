@@ -10,6 +10,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
+import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 
@@ -18,7 +19,7 @@ import javax.inject.Named;
  * @author Johan
  */
 @Named("search")
-@SessionScoped
+@RequestScoped
 public class SearchFlightBean implements Serializable {
     
 
@@ -45,11 +46,7 @@ public class SearchFlightBean implements Serializable {
         this.flights = flights;
     }
 
-    
-
-  
     public String search(){
-        
         flights = flightEJB.searchFlights(this.flight);
         return "results";
     }   
