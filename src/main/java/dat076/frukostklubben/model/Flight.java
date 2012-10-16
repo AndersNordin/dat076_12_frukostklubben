@@ -92,6 +92,4 @@ public class Flight implements Serializable {
     public void setCost(Double cost) {
         this.cost = cost;
     }
-
-    
 }

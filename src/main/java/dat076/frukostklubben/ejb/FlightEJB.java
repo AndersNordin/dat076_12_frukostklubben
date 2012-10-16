@@ -5,11 +5,20 @@ package dat076.frukostklubben.ejb;
 
 import dat076.frukostklubben.model.Flight;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.annotation.Resource;
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
+import javax.transaction.HeuristicMixedException;
+import javax.transaction.HeuristicRollbackException;
+import javax.transaction.NotSupportedException;
+import javax.transaction.RollbackException;
+import javax.transaction.SystemException;
+import javax.transaction.UserTransaction;
 
 /**
  *
@@ -20,6 +29,9 @@ import javax.persistence.TypedQuery;
 public class FlightEJB implements FlightEJBRemote {
     @PersistenceContext(unitName = "projectPU")
     private EntityManager em;
+
+    /*@Resource
+    private UserTransaction utx;*/
 
     @Override
     public List<Flight> findFlights() {
@@ -32,7 +44,29 @@ public class FlightEJB implements FlightEJBRemote {
     }
     @Override
     public Flight createFlight(Flight flight) {
+        /*try {
+            utx.begin();
+        } catch (NotSupportedException ex) {
+            Logger.getLogger(FlightEJB.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SystemException ex) {
+            Logger.getLogger(FlightEJB.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
         em.persist(flight);
+        /*try {
+            utx.commit();
+        } catch (RollbackException ex) {
+            Logger.getLogger(FlightEJB.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (HeuristicMixedException ex) {
+            Logger.getLogger(FlightEJB.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (HeuristicRollbackException ex) {
+            Logger.getLogger(FlightEJB.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SecurityException ex) {
+            Logger.getLogger(FlightEJB.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalStateException ex) {
+            Logger.getLogger(FlightEJB.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SystemException ex) {
+            Logger.getLogger(FlightEJB.class.getName()).log(Level.SEVERE, null, ex);
+        }*/
         return flight;
     }
     @Override
