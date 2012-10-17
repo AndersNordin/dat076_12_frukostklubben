@@ -49,7 +49,17 @@ public class FlightEJB implements FlightEJBRemote {
      * Metoden söker i databasen efter antingen från och till eller någon
      * av dem.
      */
-    public List<Flight> searchFlights(Flight flight){
+    public List<Flight> searchFlights(Flight flight) {
+        if (!flight.getFromAirport().equals("") && !flight.getToAirport().equals("")
+            && flight.getDepartureTime() != null){
+            String query = "select f from Flight f where f.fromAirport = :from "
+                    + "and f.toAirport = :to and f.departureTime = :date";
+            TypedQuery<Flight> q = em.createQuery(query, Flight.class);
+            q.setParameter("from", flight.getFromAirport());
+            q.setParameter("to", flight.getToAirport());
+            q.setParameter("date", flight.getDepartureTime());
+            return q.getResultList();
+        }
         if (flight.getFromAirport() != "" && flight.getToAirport() != "") {
             String query = "select f from Flight f where f.fromAirport = :from "
                     + "and f.toAirport = :to";
@@ -58,13 +68,13 @@ public class FlightEJB implements FlightEJBRemote {
             q.setParameter("to", flight.getToAirport());
             return q.getResultList();
         }
-        if(flight.getFromAirport() != ""){
+        if (flight.getFromAirport() != "") {
             String query = "select f from Flight f where f.fromAirport = :from";
             TypedQuery<Flight> q = em.createQuery(query, Flight.class);
             q.setParameter("from", flight.getFromAirport());
             return q.getResultList();
         }
-        if(flight.getToAirport() != ""){
+        if (flight.getToAirport() != "") {
             String query = "select f from Flight f where f.toAirport = :to";
             TypedQuery<Flight> q = em.createQuery(query, Flight.class);
             q.setParameter("to", flight.getToAirport());
@@ -73,4 +83,3 @@ public class FlightEJB implements FlightEJBRemote {
         return null;
     }
 }
-

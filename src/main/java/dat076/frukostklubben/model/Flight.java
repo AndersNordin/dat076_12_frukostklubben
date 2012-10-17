@@ -73,7 +73,7 @@ public class Flight implements Serializable {
         this.toAirport = toAirport;
     }
 
-    public Date getDate() {
+    public Date getDepartureTime() {
         return departureTime;
     }
 
@@ -81,7 +81,7 @@ public class Flight implements Serializable {
      *
      * @param departureTime
      */
-    public void setDate(Date departureTime) {
+    public void setDepartureTime(Date departureTime) {
         this.departureTime = departureTime;
     }
 

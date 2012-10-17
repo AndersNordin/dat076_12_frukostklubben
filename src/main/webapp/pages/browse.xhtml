@@ -17,9 +17,9 @@
                                    paginator="true"
                                    paginatorPosition="bottom"
                                    rows="100">
-                        <ace:column id="date" headerText="Date" sortBy="#{flight.date}"
-                                    filterBy="#{flight.date}" filterMatchMode="contains">
-                            <h:outputText id="dateCell" value="#{flight.date}"/>
+                        <ace:column id="date" headerText="Date" sortBy="#{flight.departureTime}"
+                                    filterBy="#{flight.departureTime}" filterMatchMode="contains">
+                            <h:outputText id="dateCell" value="#{flight.departureTime}"/>
                         </ace:column>
                         <ace:column id="name" headerText="Name" sortBy="#{flight.name}"
                                     filterBy="#{flight.name}" filterMatchMode="contains">

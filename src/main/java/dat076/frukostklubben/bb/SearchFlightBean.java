@@ -7,11 +7,9 @@ package dat076.frukostklubben.bb;
 import dat076.frukostklubben.ejb.FlightEJB;
 import dat076.frukostklubben.model.Flight;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
-import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 
 /**
@@ -21,8 +19,6 @@ import javax.inject.Named;
 @Named("search")
 @RequestScoped
 public class SearchFlightBean implements Serializable {
-    
-
     @EJB
     private FlightEJB flightEJB;
     

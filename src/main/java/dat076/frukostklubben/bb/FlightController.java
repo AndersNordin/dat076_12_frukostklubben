@@ -28,7 +28,6 @@ public class FlightController {
 
     @EJB
     private FlightEJB flightEJB;
-
     private Flight flight = new Flight();
 
     // ======================================
