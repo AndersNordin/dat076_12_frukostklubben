@@ -22,7 +22,7 @@ import javax.ejb.StatefulTimeout;
 @LocalBean
 public class ShoppingCartEJB implements ShoppingCartEJBRemote {
     @EJB
-    OrderEJB orderEJB;
+    MailEJB orderEJB;
     
     private List<Flight> cartItems = new ArrayList<>();
     
@@ -76,7 +76,6 @@ public class ShoppingCartEJB implements ShoppingCartEJBRemote {
     @Override
     public void checkout() {
         // Do some business logic
-        orderEJB.sendEmailOrderComplete();
         cartItems.clear();
     }   
 }
