@@ -4,17 +4,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml"   
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets" 
-      xmlns:f="http://java.sun.com/jsf/core">
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ace="http://www.icefaces.org/icefaces/components">
     <h:body>
-
         <ui:composition template="/jsf/template/template.xhtml">
             <ui:define name="content">
-                Contact us...
+                   <h:form id="contactForm">
+                    <h:panelGrid id="contact">
+                        <ace:textEntry value="#{contactBB.name}" label="Name" labelPosition="left">
+                        </ace:textEntry>
+                        <ace:textEntry value="#{contactBB.mail}"  label="Email" labelPosition="left">
+                        </ace:textEntry>
+                        <ace:textAreaEntry value="#{contactBB.comment}">
+                        </ace:textAreaEntry>
+                        <ace:pushButton value="Search" action="#{contactBB.submit}" />
+                    </h:panelGrid>
+                </h:form>
             </ui:define>         
-            
-
-            
-            
         </ui:composition>
 
     </h:body>
