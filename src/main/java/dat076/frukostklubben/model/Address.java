@@ -13,16 +13,19 @@ import javax.persistence.Embeddable;
  */
 @Embeddable
 public class Address implements Serializable {
-    private String streetAddress;
+    private String street;
     private Integer zip;
     private String city;
 
-    public String getStreetAddress() {
-        return streetAddress;
+    // ======================================
+    // =          Getters & Setters         =
+    // ======================================    
+    public String getStreet() {
+        return street;
     }
 
-    public void setStreetAddress(String streetAddress) {
-        this.streetAddress = streetAddress;
+    public void setStreet(String street) {
+        this.street = street;
     }
 
     public Integer getZip() {

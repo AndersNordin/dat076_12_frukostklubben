@@ -1,71 +1,52 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package dat076.frukostklubben.bb;
 
-import dat076.frukostklubben.ejb.CustomerEJB;
-import dat076.frukostklubben.model.Customer;
+import dat076.frukostklubben.ejb.UserEJB;
+import dat076.frukostklubben.model.User;
+import javax.annotation.ManagedBean;
 import javax.ejb.EJB;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
-import javax.validation.constraints.NotNull;
 
 /**
  *
  * @author Julia
+ * Edited by: Anders, 2012-10-17
  */
+@ManagedBean
 @Named("signup")
-@RequestScoped //created once for every request
+@RequestScoped 
 public class SignupBB {
-
+    
     // ======================================
     // =             Attributes             =
     // ======================================
-
     @EJB
-    CustomerEJB customerRegistry;
-    
-    private Customer customer = new Customer();
-    
-    private String passwdConfirm;
+    UserEJB userRegistry;    
+    private User user = new User();    
 
     // ======================================
     // =           Public Methods           =
     // ======================================
     
-    public String doCreateCustomer() {
-        //log.log(Level.INFO, "New Customer Login {0} Passwd {1}", new Object[]{login, passwd});
+    public String doCreateUser() {
         try {
-            customer = customerRegistry.createCustomer(customer);
-            return "index.xhtml"; //or some confirmation page
+            user = userRegistry.createUser(user);
+            return "#";
         } catch (Exception e) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Bad Login name"));
-            return null; // Same page
+            return null; // Stay on same page
         }
     }
-
     // ======================================
     // =          Getters & Setters         =
-    // ======================================
-   
-    public Customer getCustomer(){
-        return this.customer;
+    // ======================================   
+    public User getUser(){
+        return this.user;
     }
     
-    public void setCutomer(Customer customer){
-        this.customer = customer;
-    }
-    
-    public void passwdConfirm(String passwdConfirm){
-        this.passwdConfirm = passwdConfirm;
-        //do something real...
-    }
-    
-    public String getpasswdConfirm(){
-        return passwdConfirm;
-    }
-    
+    public void setUser(User user){
+        this.user = user;
+    }    
 }

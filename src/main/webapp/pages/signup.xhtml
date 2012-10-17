@@ -20,30 +20,30 @@
 
                 <h:form>
                     <p><h:outputLabel for="mail" value="E-mail*:" /><br />
-                    <h:inputText id="mail" value="#{signup.customer.mail}" size="10" required="required" autocomplete="off" class="inputForm"/></p>
+                    <h:inputText id="mail" value="#{signup.user.mail}" size="10" required="required" autocomplete="off" class="inputForm"/></p>
 
                     <p><h:outputLabel for="firstName" value="First name*:" /><br />
-                    <h:inputText id="firstName" value="#{signup.customer.firstName}" size="10" autocomplete="off" class="inputForm"/></p>
+                    <h:inputText id="firstName" value="#{signup.user.firstName}" size="10" autocomplete="off" class="inputForm"/></p>
 
                     <p><h:outputLabel for="lastName" value="Last name*:" /><br />
-                    <h:inputText id="lastName" value="#{signup.customer.lastName}" size="10" autocomplete="off" class="inputForm"/></p>
+                        <h:inputText id="lastName" value="#{signup.user.lastName}" size="10" autocomplete="off" class="inputForm"/></p>
 
-                    <p><h:outputLabel for="street" value="Street Address*:" /><br />
-                    <h:inputText id="street" value="#{signup.customer.address.streetAddress}" size="10" autocomplete="off" class="inputForm"/></p>
+                    <p><h:outputLabel for="street" value="Street*:" /><br />
+                        <h:inputText id="street" value="#{signup.user.address.street}" size="10" autocomplete="off" class="inputForm"/></p>
 
                     <p><h:outputLabel for="zip" value="Zip Code*:" /><br />
-                    <h:inputText id="zip" value="#{signup.customer.address.zip}" size="10" autocomplete="off" class="inputForm"/></p>
+                    <h:inputText id="zip" value="#{signup.user.address.zip}" size="10" autocomplete="off" class="inputForm"/></p>
 
                     <p><h:outputLabel for="city" value="City*:" /><br />
-                    <h:inputText id="city" value="#{signup.customer.address.city}" size="10" autocomplete="off" class="inputForm"/></p>
+                    <h:inputText id="city" value="#{signup.user.address.city}" size="10" autocomplete="off" class="inputForm"/></p>
 
                     <p><h:outputLabel for="passwd" value="Password*:" /><br />
-                    <h:inputSecret id="passwd" value="#{signup.customer.password}" size="10" autocomplete="off" class="inputForm"/></p>
+                    <h:inputSecret id="passwd" value="#{signup.user.password}" size="10" autocomplete="off" class="inputForm"/></p>
                     
                     <p><h:outputLabel for="passwdConfirm" value="Confirm Password*:" /><br />
-                    <h:inputSecret id="passwdConfirm" value="#{signup.passwdConfirm}" size="10" autocomplete="off" class="inputForm"/></p>
+                    <h:inputSecret id="passwdConfirm" size="10" autocomplete="off" class="inputForm"/></p>
 
-                    <footer><h:commandButton id="register" value="Register" class="inputButton" action="#{signup.doCreateCustomer}" />
+                    <footer><h:commandButton id="register" value="Register" class="inputButton" action="#{signup.doCreateUser}" />
                         <h:button outcome="signup" value="Clear" class="inputButton" /></footer>
                 </h:form>
             </ui:define>
