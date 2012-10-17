@@ -14,9 +14,6 @@
                         <h1>Search for a flight now!</h1>                        
                     </header>
                     <h:form>
-                            <ui:remove>
-                                styleClass="hidden"
-                            </ui:remove>
                             <p><label for="from">From:</label><br/>
                             <ace:textEntry id="from" value="#{search.flight.fromAirport}"  styleClass="inputForm"  /></p>
                             
@@ -26,7 +23,7 @@
                             <p><label for="price">Price:</label><br/>
                                 <ace:textEntry id="price" value="#{search.flight.cost}" styleClass="inputForm" /></p>
                             
-                        <ace:pushButton value="Search"  styleClass="inputButton" action="#{search.search}"/>                     
+                        <ace:pushButton value="Search Travel"  action="#{search.search}"/>                     
                         
                     </h:form>
                 </article>
