@@ -12,7 +12,7 @@ import javax.enterprise.context.RequestScoped;
 
 @ManagedBean
 @RequestScoped
-public class CustomerController { 
+public class UserController { 
    private ArrayList<String> users;
    private String selectedUser;
  
