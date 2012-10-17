@@ -137,16 +137,6 @@ input.login_input{
     margin: 4px 5px 4px 0;
     color: #666;
 }
-input.login_submit{
-    border-radius: 0.4em;
-    border: 1px solid #666;
-    cursor: pointer;
-    background: #ccc;
-    padding: 0.5em; 
-    margin: 4px 5px 4px 0;
-    color: #666;  
-    font-weight: bold;
-}
 
 /****************************************************************
 ****************************Navigation***************************
@@ -296,9 +286,9 @@ label{
 
 .inputButton{
     font-family: Verdana, Geneva, sans-serif;
-    font-size: 20px;
+    font-size: 18px;
     color: #FFF;
-    padding: 5px 25px 5px 25px;
+    padding: 5px 20px 5px 20px;
     border: 1px solid #999; 
     text-shadow: 0px 1px 1px #666;
     text-decoration: none; 
@@ -309,13 +299,14 @@ label{
     background: #64a724;
     background: -moz-linear-gradient(top, #64a724 0%, #579727 50%, #58982a 51%, #498c25 100%);
     background: -webkit-gradient(linear, left top, left bottom, from(#64a724), to(#498c25), color-stop(0.4, #579727), color-stop(0.5, #58982a), color-stop(.9, #498c25), color-stop(0.9, #498c25));
-    margin: 0 25px;
+    margin: 0 10px;
     cursor: pointer; 
     float: right;
 }
 
-.hidden{
-    visibility: hidden;
+.sideBox .inputButton{
+    margin-top: 30px;
+    margin-right: 15px;
 }
 
 .inputButton:hover{
