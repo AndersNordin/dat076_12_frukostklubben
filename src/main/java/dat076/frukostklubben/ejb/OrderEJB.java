@@ -4,7 +4,7 @@
  */
 package dat076.frukostklubben.ejb;
 
-import dat076.frukostklubben.model.Customer;
+import dat076.frukostklubben.model.User;
 import java.io.UnsupportedEncodingException;
 import java.util.Properties;
 import javax.ejb.Asynchronous;
