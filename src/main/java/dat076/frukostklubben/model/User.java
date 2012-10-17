@@ -19,26 +19,24 @@ import javax.persistence.OneToOne;
  * @author Fredrik
  * Edited by: Anders, 2012-10-17
  */
-@Entity
-@NamedQuery(name = "findAllUsers", query = "SELECT u FROM User u")
+@Entity(name="UserObj")
+@NamedQuery(name = "findAllUsers", query = "SELECT u FROM UserObj u")
 public class User implements Serializable {
     
     // Access level for user account. 
     public enum Access{
         ADMIN,
         USER
-    }
-    
+    }    
     
      @Id @GeneratedValue
-     private long id;
-     
+     private long id;     
      private String firstName;
      private String lastName;
      private String mail;
      @Embedded
      @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-     private Address address;
+     private Address address = new Address();
      private String password;
      private Access access;
 
@@ -53,10 +51,17 @@ public class User implements Serializable {
     }
 
     public User() {
-    }
-
+    }    
+    
+    // ======================================
+    // =          Getters & Setters         =
+    // ======================================
     public long getId() {
         return id;
+    }
+    
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getPassword() {
@@ -65,12 +70,8 @@ public class User implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
-    }   
-
-    public void setId(long id) {
-        this.id = id;
-    }
-
+    } 
+    
     public String getFirstName() {
         return firstName;
     }
@@ -103,11 +104,11 @@ public class User implements Serializable {
         this.address = address;
     }
     
-    public void setAccess(Access access) {
-        this.access = access;
-    }
-
     public Access getAccess() {
         return access;
+    }
+    
+    public void setAccess(Access access) {
+        this.access = access;
     }
 }
