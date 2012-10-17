@@ -6,7 +6,6 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:ace="http://www.icefaces.org/icefaces/components">
     <h:body>
-
         <ui:composition template="/jsf/template/template.xhtml">
             <ui:define name="content">
                 <article>
@@ -14,25 +13,20 @@
                         <h1>Search for a flight now!</h1>                        
                     </header>
                     <h:form>
-                            <p><label for="from">From:</label><br/>
+                        <p><label for="from">From:</label><br/>
                             <ace:textEntry id="from" value="#{search.flight.fromAirport}"  styleClass="inputForm"  /></p>
-                            
-                            <p><label for="to">To:</label><br/>
-                                <ace:textEntry id="to" value="#{search.flight.toAirport}" styleClass="inputForm" /></p>
-                           
-                            <p><label for="price">Price:</label><br/>
-                                <ace:textEntry id="price" value="#{search.flight.cost}" styleClass="inputForm" /></p>
-                            
+
+                        <p><label for="to">To:</label><br/>
+                            <ace:textEntry id="to" value="#{search.flight.toAirport}" styleClass="inputForm" /></p>
+
+                        <p><label for="price">Price:</label><br/>
+                            <ace:textEntry id="price" value="#{search.flight.cost}" styleClass="inputForm" /></p>
+
                         <ace:pushButton value="Search Travel"  action="#{search.search}"/>                     
-                        
+
                     </h:form>
                 </article>
             </ui:define>
-
-
-
         </ui:composition>
-
     </h:body>
-
 </html>

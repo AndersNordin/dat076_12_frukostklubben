@@ -17,10 +17,19 @@ import javax.persistence.OneToOne;
 /**
  *
  * @author Fredrik
+ * Edited by: Anders, 2012-10-17
  */
 @Entity
-@NamedQuery(name = "findAllCustomers", query = "SELECT c FROM Customer c")
-public class Customer implements Serializable {
+@NamedQuery(name = "findAllUsers", query = "SELECT u FROM User u")
+public class User implements Serializable {
+    
+    // Access level for user account. 
+    public enum Access{
+        ADMIN,
+        USER
+    }
+    
+    
      @Id @GeneratedValue
      private long id;
      
@@ -31,15 +40,19 @@ public class Customer implements Serializable {
      @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
      private Address address;
      private String password;
+     private Access access;
 
-    public Customer(String firstName, String lastName, String mail, Address address) {
+
+
+    public User(String firstName, String lastName, String mail, Address address, Access access) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.mail = mail;
         this.address = address;
+        this.access = access;
     }
 
-    public Customer() {
+    public User() {
     }
 
     public long getId() {
@@ -52,9 +65,7 @@ public class Customer implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-    
-    
+    }   
 
     public void setId(long id) {
         this.id = id;
@@ -91,6 +102,12 @@ public class Customer implements Serializable {
     public void setAddress(Address address) {
         this.address = address;
     }
-     
-     
+    
+    public void setAccess(Access access) {
+        this.access = access;
+    }
+
+    public Access getAccess() {
+        return access;
+    }
 }
