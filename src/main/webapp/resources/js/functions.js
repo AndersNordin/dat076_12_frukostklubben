@@ -1,15 +1,14 @@
 /* 
-    Document   : jquery_functions.js
+    Document   : functions.js
     Created on : Oct 11, 2012, 01:11:41 PM
     Author     : Anders
     Description: Functions using Jquery
 */
 
 // This is a bug-fix.
-var $ = jQuery;
-    
+var $ = jQuery;    
 $(document).ready(function() {
-    
+ 
     // Handles the effects of the main menu.
     $("#toggle_arrow").click(function () {
         var elem = "nav#main_menu";

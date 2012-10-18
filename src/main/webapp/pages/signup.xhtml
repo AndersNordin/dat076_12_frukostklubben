@@ -3,7 +3,8 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"   
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets" >
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
+      xmlns:f="http://java.sun.com/jsf/core">
 
     <h:head>
         <h:outputStylesheet name="style.css" library="css" /> 
@@ -17,35 +18,52 @@
                     Sign up for a membership. A membership is required for purchasing travels.     
                     All fields with (*) is required.
                 </p>    
+                <f:view>
+                    <h:form id="signupForm" onsubmit="return validate()">
+                        <p><h:outputLabel for="mail" value="E-mail*:" /><br />
+                            <h:inputText id="mail" value="#{signup.user.mail}" size="10" autocomplete="off" 
+                                         class="inputForm" validator="#{signup.emailValidator}" />
+                            <h:message for="mail" style="color:red" />
+                        </p>
 
-                <h:form>
-                    <p><h:outputLabel for="mail" value="E-mail*:" /><br />
-                    <h:inputText id="mail" value="#{signup.user.mail}" size="10" required="required" autocomplete="off" class="inputForm"/></p>
+                        <p><h:outputLabel for="firstName" value="First name*:" /><br />
+                            <h:inputText id="firstName" value="#{signup.user.firstName}" size="10" autocomplete="off" class="inputForm"
+                                         required="true" requiredMessage="*required"/>
+                            <h:message for="firstName" style="color:red" />
+                        </p>
 
-                    <p><h:outputLabel for="firstName" value="First name*:" /><br />
-                    <h:inputText id="firstName" value="#{signup.user.firstName}" size="10" autocomplete="off" class="inputForm"/></p>
+                        <p><h:outputLabel for="lastName" value="Last name*:" /><br />
+                            <h:inputText id="lastName" value="#{signup.user.lastName}" size="10" autocomplete="off" class="inputForm"
+                                         required="true" requiredMessage="*required"/>
+                        <h:message for="lastName" style="color:red" /></p>
 
-                    <p><h:outputLabel for="lastName" value="Last name*:" /><br />
-                        <h:inputText id="lastName" value="#{signup.user.lastName}" size="10" autocomplete="off" class="inputForm"/></p>
+                        <p><h:outputLabel for="street" value="Street*:" /><br />
+                            <h:inputText id="street" value="#{signup.user.address.street}" required="true" requiredMessage="*required" size="10" 
+                                         autocomplete="off" class="inputForm"/>
+                        <h:message for="street" style="color:red" /></p>
 
-                    <p><h:outputLabel for="street" value="Street*:" /><br />
-                        <h:inputText id="street" value="#{signup.user.address.street}" size="10" autocomplete="off" class="inputForm"/></p>
+                        <p><h:outputLabel for="zipCode" value="Zip Code*:" /><br />
+                            <h:inputText id="zipCode" value="#{signup.user.address.zip}" required="true" requiredMessage="*required" size="10" autocomplete="off" class="inputForm"
+                                         />
+                        <h:message for="zipCode" style="color:red" /></p>
 
-                    <p><h:outputLabel for="zip" value="Zip Code*:" /><br />
-                    <h:inputText id="zip" value="#{signup.user.address.zip}" size="10" autocomplete="off" class="inputForm"/></p>
+                        <p><h:outputLabel for="city" value="City*:" /><br />
+                            <h:inputText id="city" value="#{signup.user.address.city}" required="true" requiredMessage="*required" size="10" autocomplete="off" class="inputForm"
+                                        />
+                        <h:message for="city" style="color:red" /></p>
 
-                    <p><h:outputLabel for="city" value="City*:" /><br />
-                    <h:inputText id="city" value="#{signup.user.address.city}" size="10" autocomplete="off" class="inputForm"/></p>
+                        <p><h:outputLabel for="passwd" value="Password*:" /><br />
+                            <h:inputSecret id="passwd" value="#{signup.user.password}" size="10" autocomplete="off" class="inputForm" required="true" 
+                                           validator="#{signup.pwValidator}"/></p>
 
-                    <p><h:outputLabel for="passwd" value="Password*:" /><br />
-                    <h:inputSecret id="passwd" value="#{signup.user.password}" size="10" autocomplete="off" class="inputForm"/></p>
-                    
-                    <p><h:outputLabel for="passwdConfirm" value="Confirm Password*:" /><br />
-                    <h:inputSecret id="passwdConfirm" size="10" autocomplete="off" class="inputForm"/></p>
+                        <p><h:outputLabel for="passwdConfirm" value="Confirm Password*:" /><br />
+                            <h:inputSecret id="passwdConfirm" size="10" autocomplete="off" class="inputForm" required="true"
+                                           validator="#{signup.pwValidator}"/></p>
 
-                    <footer><h:commandButton id="register" value="Register" class="inputButton" action="#{signup.doCreateUser}" />
-                        <h:button outcome="signup" value="Clear" class="inputButton" /></footer>
-                </h:form>
+                        <footer><h:commandButton id="register" value="Register" class="inputButton" action="#{signup.doCreateUser}" />
+                            <h:button outcome="signup" value="Clear" class="inputButton" /></footer>
+                    </h:form>
+                </f:view>
             </ui:define>
         </ui:composition>
     </h:body>
