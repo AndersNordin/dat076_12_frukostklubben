@@ -13,13 +13,13 @@ import javax.persistence.TypedQuery;
 
 /**
  *
- * @author freein
- * Default is container-managed transactions so explicit transactions is not 
- * needed.
+ * @author freein Default is container-managed transactions so explicit
+ * transactions is not needed.
  */
 @Stateless
 @LocalBean
 public class FlightEJB implements FlightEJBRemote {
+
     @PersistenceContext(unitName = "projectPU")
     private EntityManager em;
 
@@ -28,19 +28,23 @@ public class FlightEJB implements FlightEJBRemote {
         TypedQuery<Flight> query = em.createNamedQuery("findAllFlights", Flight.class);
         return query.getResultList();
     }
+
     @Override
     public Flight findFlightById(Long id) {
         return em.find(Flight.class, id);
     }
+
     @Override
     public Flight createFlight(Flight flight) {
         em.persist(flight);
         return flight;
     }
+
     @Override
     public void deleteFlight(Flight flight) {
         em.remove(em.merge(flight));
     }
+
     @Override
     public Flight updateFlight(Flight flight) {
         return em.merge(flight);
@@ -49,9 +53,10 @@ public class FlightEJB implements FlightEJBRemote {
      * Metoden söker i databasen efter antingen från och till eller någon
      * av dem.
      */
+
     public List<Flight> searchFlights(Flight flight) {
         if (!flight.getFromAirport().equals("") && !flight.getToAirport().equals("")
-            && flight.getDepartureTime() != null){
+                && flight.getDepartureTime() != null) {
             String query = "select f from Flight f where f.fromAirport = :from "
                     + "and f.toAirport = :to and f.departureTime = :date";
             TypedQuery<Flight> q = em.createQuery(query, Flight.class);
@@ -60,7 +65,7 @@ public class FlightEJB implements FlightEJBRemote {
             q.setParameter("date", flight.getDepartureTime());
             return q.getResultList();
         }
-        if (flight.getFromAirport() != "" && flight.getToAirport() != "") {
+        if (!flight.getFromAirport().equals("") && !flight.getToAirport().equals("")) {
             String query = "select f from Flight f where f.fromAirport = :from "
                     + "and f.toAirport = :to";
             TypedQuery<Flight> q = em.createQuery(query, Flight.class);
@@ -68,16 +73,22 @@ public class FlightEJB implements FlightEJBRemote {
             q.setParameter("to", flight.getToAirport());
             return q.getResultList();
         }
-        if (flight.getFromAirport() != "") {
+        if (!flight.getFromAirport().equals("")) {
             String query = "select f from Flight f where f.fromAirport = :from";
             TypedQuery<Flight> q = em.createQuery(query, Flight.class);
             q.setParameter("from", flight.getFromAirport());
             return q.getResultList();
         }
-        if (flight.getToAirport() != "") {
+        if (!flight.getToAirport().equals("")) {
             String query = "select f from Flight f where f.toAirport = :to";
             TypedQuery<Flight> q = em.createQuery(query, Flight.class);
             q.setParameter("to", flight.getToAirport());
+            return q.getResultList();
+        }
+        if (flight.getDepartureTime() != null) {
+            String query = "select f from Flight f where f.departureTime = :date";
+            TypedQuery<Flight> q = em.createQuery(query, Flight.class);
+            q.setParameter("date", flight.getDepartureTime());
             return q.getResultList();
         }
         return null;
