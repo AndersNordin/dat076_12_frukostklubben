@@ -12,6 +12,7 @@ import javax.ejb.LocalBean;
 import javax.ejb.Remove;
 import javax.ejb.Stateful;
 import javax.ejb.StatefulTimeout;
+import javax.inject.Named;
 
 /**
  *
@@ -20,6 +21,7 @@ import javax.ejb.StatefulTimeout;
 @Stateful
 @StatefulTimeout(value = 30) //Containern tar bort bönan efter 30 overksamma min
 @LocalBean
+@Named("cart")
 public class ShoppingCartEJB implements ShoppingCartEJBRemote {
     @EJB
     MailEJB orderEJB;

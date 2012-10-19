@@ -16,7 +16,9 @@
                                    var="flight"
                                    paginator="true"
                                    paginatorPosition="bottom"
-                                   rows="100">
+                                   rows="100"
+                                   selectionMode="single">
+                        <ace:ajax event="select" render="@this selectForm:status" execute="@this" />
                         <ace:column id="date" headerText="Date" sortBy="#{flight.departureTime}"
                                     filterBy="#{flight.departureTime}" filterMatchMode="contains">
                             <h:outputText id="dateCell" value="#{flight.departureTime}"/>
@@ -31,7 +33,7 @@
                         </ace:column>
                         <ace:column id="to" headerText="To" sortBy="#{flight.toAirport}"
                                     filterBy="#{flight.toAirport}" filterMatchMode="contains">
-                            <h:outputText id="weightCell" value="#{flight.toAirport}lbs."/>
+                            <h:outputText id="weightCell" value="#{flight.toAirport}"/>
                         </ace:column>
                         <ace:column id="cost" headerText="Cost" sortBy="#{flight.cost}"
                                     filterBy="#{flight.cost}" filterMatchMode="contains">
@@ -44,14 +46,14 @@
                                                  minFractionDigits="2"
                                                  maxFractionDigits="2"/>
                             </h:outputText>
+                           
+                        </ace:column>
+                        <ace:column id="buy" headerText="">
+                            <h:commandButton value="Buy" action="#{cart.addFlight(flight)}"/>
                         </ace:column>
                     </ace:dataTable>
                 </h:form>
             </ui:define>       
-
-
         </ui:composition>
-
     </h:body>
-
 </html>

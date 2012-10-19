@@ -5,6 +5,7 @@
 package dat076.frukostklubben.bb;
 
 import dat076.frukostklubben.ejb.FlightEJB;
+import dat076.frukostklubben.ejb.ShoppingCartEJB;
 import dat076.frukostklubben.model.Flight;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,6 +29,8 @@ public class FlightController {
 
     @EJB
     private FlightEJB flightEJB;
+    @EJB
+    private ShoppingCartEJB cart;
     private Flight flight = new Flight();
 
     // ======================================
@@ -52,5 +55,9 @@ public class FlightController {
 
     public List<Flight> getFlightList() {
         return flightEJB.findFlights();
+    }
+    
+    public void buy(){
+        cart.addFlight(flight);
     }
 }
