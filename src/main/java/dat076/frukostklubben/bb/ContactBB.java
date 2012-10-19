@@ -51,6 +51,6 @@ public class ContactBB {
     
     public String submit(){
         mailEJB.sendEmailOrderComplete(name, mail, message);
-        return "index?faces-redirect=true";
+        return "index?faces-redirect=true"; // bug fix, need parameter to redirect correctly
     }
 }

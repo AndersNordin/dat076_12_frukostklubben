@@ -87,11 +87,14 @@ public class SignupBB {
 
     public String doCreateUser() {
         try {
+            // Set by default
+            user.setAccess(User.Access.USER);
+            
             user = userRegistry.createUser(user);
-            return "index?faces-redirect=true"; // bug fix
+            return "index?faces-redirect=true"; // bug fix, need parameter to redirect correctly
         } catch (Exception e) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Bad Login name"));
-            return null; // Stay on same page
+            return "?faces-redirect=true"; // Stay on same page
         }
     }
     // ======================================

@@ -39,7 +39,7 @@ public class FlightController {
 
     public String doCreateFlight() {
         flight = flightEJB.createFlight(flight);
-        return "browse?faces-redirect=true";
+        return "browse?faces-redirect=true"; // bug fix, need parameter to redirect correctly
     }
 
     // ======================================

@@ -7,7 +7,7 @@
 
 // This is a bug-fix.
 var $ = jQuery;    
-$(document).ready(function() {
+$(document).ready(function() {    
  
     // Handles the effects of the main menu.
     $("#toggle_arrow").click(function () {
@@ -27,3 +27,5 @@ $(document).ready(function() {
         }              
     });  // toggle end 
 }); // document ready end
+
+

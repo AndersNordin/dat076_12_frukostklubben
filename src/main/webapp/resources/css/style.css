@@ -313,6 +313,10 @@ label{
         border: 1px solid #FFF;
 }
 
-.error{
-    color: red;
+span.error{
+    color:#000;
+    background-color:#ffeded;
+    padding:5px;
+    margin:0 0 0 10px;
+    border:1px solid #f27c7c;
 }

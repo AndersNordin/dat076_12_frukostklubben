@@ -8,17 +8,17 @@
     <body>
         <ui:composition>                           
             <h1 class="titleRibbon"><strong class="titleContent">Login</strong></h1>
-            <h:form id="loginForm" onsubmit="return validate()"> 
+            <form id="loginForm" method="post" action="j_security_check"> 
 
                 <p><h:outputLabel for="username" value="Username:" /><br />
-                    <h:inputText id="username" value="" class="inputForm"/></p>
+                    <h:inputText id="username"  class="inputForm"/></p>
 
                 <p><h:outputLabel for="password" value="Password:" /><br />
-                   <h:inputSecret id="password" value="" class="inputForm"/></p>
+                   <h:inputSecret id="password" class="inputForm"/></p>
 
-                <p><h:commandButton class="inputButton" actionListener="#{search.actionListener}" action="#{search.action}" value="Login" />
+                <p><h:commandButton class="inputButton" value="Login" />
                 <h:button class="inputButton" id="register" action="#{signup.action}" value="Register" outcome="signup"/></p>
-            </h:form>
+            </form>
         </ui:composition>
     </body>
 </html>
