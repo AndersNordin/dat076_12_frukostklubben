@@ -19,46 +19,48 @@
                     All fields with (*) is required.
                 </p>    
                 <f:view>
-                    <h:form id="signupForm" onsubmit="return validate()">
+                    <h:form id="signupForm">
                         <p><h:outputLabel for="mail" value="E-mail*:" /><br />
-                            <h:inputText id="mail" value="#{signup.user.mail}" size="10" autocomplete="off" 
+                            <h:inputText id="mail" value="#{signup.user.mail}" 
                                          class="inputForm" validator="#{signup.emailValidator}" />
-                            <h:message for="mail" style="color:red" />
+                            <h:message for="mail" class="error" />
                         </p>
 
                         <p><h:outputLabel for="firstName" value="First name*:" /><br />
-                            <h:inputText id="firstName" value="#{signup.user.firstName}" size="10" autocomplete="off" class="inputForm"
-                                         required="true" requiredMessage="*required"/>
-                            <h:message for="firstName" style="color:red" />
+                            <h:inputText id="firstName" value="#{signup.user.firstName}" class="inputForm"
+                                         required="true" requiredMessage=" - required"/>
+                            <h:message for="firstName" class="error" />
                         </p>
 
                         <p><h:outputLabel for="lastName" value="Last name*:" /><br />
-                            <h:inputText id="lastName" value="#{signup.user.lastName}" size="10" autocomplete="off" class="inputForm"
-                                         required="true" requiredMessage="*required"/>
-                        <h:message for="lastName" style="color:red" /></p>
+                            <h:inputText id="lastName" value="#{signup.user.lastName}" class="inputForm"
+                                         required="true" requiredMessage=" - required"/>
+                            <h:message for="lastName" class="error" /></p>
 
                         <p><h:outputLabel for="street" value="Street*:" /><br />
-                            <h:inputText id="street" value="#{signup.user.address.street}" required="true" requiredMessage="*required" size="10" 
+                            <h:inputText id="street" value="#{signup.user.address.street}" required="true" requiredMessage=" - required"
                                          autocomplete="off" class="inputForm"/>
-                        <h:message for="street" style="color:red" /></p>
+                            <h:message for="street" class="error" /></p>
 
                         <p><h:outputLabel for="zipCode" value="Zip Code*:" /><br />
-                            <h:inputText id="zipCode" value="#{signup.user.address.zip}" required="true" requiredMessage="*required" size="10" autocomplete="off" class="inputForm"
-                                         />
-                        <h:message for="zipCode" style="color:red" /></p>
+                            <h:inputText id="zipCode" value="#{signup.user.address.zip}" required="true" requiredMessage=" - required" 
+                                         class="inputForm"/>
+                            <h:message for="zipCode" class="error" /></p>
 
                         <p><h:outputLabel for="city" value="City*:" /><br />
-                            <h:inputText id="city" value="#{signup.user.address.city}" required="true" requiredMessage="*required" size="10" autocomplete="off" class="inputForm"
-                                        />
-                        <h:message for="city" style="color:red" /></p>
+                            <h:inputText id="city" value="#{signup.user.address.city}" required="true" requiredMessage=" - required" class="inputForm"
+                                         />
+                            <h:message for="city" class="error" /></p>
 
                         <p><h:outputLabel for="passwd" value="Password*:" /><br />
-                            <h:inputSecret id="passwd" value="#{signup.user.password}" size="10" autocomplete="off" class="inputForm" required="true" 
-                                           validator="#{signup.pwValidator}"/></p>
+                            <h:inputSecret id="passwd" value="#{signup.user.password}" validator="#{signup.pwValidator}" required="true" requiredMessage=" - required" class="inputForm" />                            
+                            <h:message for="passwd" class="error" id="passwdError"/></p>
 
                         <p><h:outputLabel for="passwdConfirm" value="Confirm Password*:" /><br />
-                            <h:inputSecret id="passwdConfirm" size="10" autocomplete="off" class="inputForm" required="true"
-                                           validator="#{signup.pwValidator}"/></p>
+                            <h:inputSecret id="passwdConfirm" size="10" class="inputForm" required="true" requiredMessage=" - required" validator="#{signup.pwValidator}">                            
+                            </h:inputSecret>
+                            <h:message for="passwdConfirm" id="passwdConfirmError" class="error"/></p>
+
 
                         <footer><h:commandButton id="register" value="Register" class="inputButton" action="#{signup.doCreateUser}" />
                             <h:button outcome="signup" value="Clear" class="inputButton" /></footer>

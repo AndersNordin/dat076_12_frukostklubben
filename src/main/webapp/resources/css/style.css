@@ -312,3 +312,7 @@ label{
 .inputButton:hover{
         border: 1px solid #FFF;
 }
+
+.error{
+    color: red;
+}
