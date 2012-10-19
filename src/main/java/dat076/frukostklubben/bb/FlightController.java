@@ -39,7 +39,7 @@ public class FlightController {
 
     public String doCreateFlight() {
         flight = flightEJB.createFlight(flight);
-        return "browse.xhtml";
+        return "browse?faces-redirect=true";
     }
 
     // ======================================

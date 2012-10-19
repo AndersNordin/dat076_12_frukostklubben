@@ -44,6 +44,6 @@ public class SearchFlightBean implements Serializable {
 
     public String search(){
         flights = flightEJB.searchFlights(this.flight);
-        return "results";
+        return "results?faces-redirect=true";
     }   
 }
