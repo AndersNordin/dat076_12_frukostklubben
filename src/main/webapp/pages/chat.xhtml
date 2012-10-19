@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"   
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:ace="http://www.icefaces.org/icefaces/components">
+    <h:body>
+        <ui:composition template="/jsf/template/template.xhtml">
+            <ui:define name="content">
+                <h1 class="titleRibbon"><strong class="titleContent">Logged In</strong></h1>
+                <h:outputText value="${userController.user.mail}"/>
+                <ace:list var="o" dragging="false" value="#{chatBB.list}">
+                    <h:outputText value="${o}"/>
+                </ace:list>
+                <h:form>
+                    <ace:textEntry value="#{chatBB.text}"/>
+                    <ace:pushButton value="Post"  action="#{chatBB.post}"/>
+                </h:form>
+            </ui:define>
+        </ui:composition>
+    </h:body>
+</html>
