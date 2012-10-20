@@ -17,15 +17,18 @@
                                            value="#{flightController.flight.departureTime}"
                                            timeZone="Europe/Stockholm"
                                            pattern="MMM/dd/yyyy hh:mm:ss"/>
-                        <ace:textEntry value="#{flightController.flight.name}" styleClass="inputForm" label="Name" labelPosition="left" required="true" requiredIndicator="(*)" indicatorPosition="right">
+                        <ace:textEntry value="#{flightController.flight.name}" id="Name" styleClass="inputForm" label="Name" labelPosition="left" required="true" requiredIndicator="(*)" indicatorPosition="right">
                         </ace:textEntry>
-                        <ace:textEntry value="#{flightController.flight.fromAirport}" styleClass="inputForm" label="From" labelPosition="left" required="true" requiredIndicator="(*)" indicatorPosition="right">
+                        <ace:textEntry value="#{flightController.flight.fromAirport}" id="From" styleClass="inputForm" label="From" labelPosition="left" required="true" requiredIndicator="(*)" indicatorPosition="right">
                         </ace:textEntry>
-                        <ace:textEntry value="#{flightController.flight.toAirport}" styleClass="inputForm" label="To" labelPosition="left" required="true" requiredIndicator="(*)" indicatorPosition="right">
+                        <ace:textEntry value="#{flightController.flight.toAirport}" id="To" styleClass="inputForm" label="To" labelPosition="left" required="true" requiredIndicator="(*)" indicatorPosition="right">
                         </ace:textEntry>
-                        <ace:textEntry value="#{flightController.flight.cost}" styleClass="inputForm" label="Price" labelPosition="left" required="true" requiredIndicator="(*)" indicatorPosition="right">
+                        <ace:textEntry value="#{flightController.flight.cost}" id="Cost" styleClass="inputForm" label="Price" labelPosition="left" required="true" requiredIndicator="(*)" indicatorPosition="right">
                         </ace:textEntry>
                         <ace:pushButton value="Submit" action="#{flightController.doCreateFlight}" />
+                        
+                        <h:messages class="error" layout="list"/>
+                        
                     </h:panelGrid>
                 </h:form>
             </ui:define>
