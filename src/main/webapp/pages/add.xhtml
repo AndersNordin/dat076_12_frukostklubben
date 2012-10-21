@@ -19,13 +19,16 @@
                                            pattern="MMM/dd/yyyy hh:mm:ss"/>
                         <ace:textEntry value="#{flightController.flight.name}" styleClass="inputForm" label="Name" labelPosition="left" required="true" requiredIndicator="(*)" indicatorPosition="right">
                         </ace:textEntry>
-                        <ace:textEntry value="#{flightController.flight.fromAirport}" styleClass="inputForm" label="From" labelPosition="left" required="true" requiredIndicator="(*)" indicatorPosition="right">
+                        <ace:textEntry value="#{flightController.flight.fromAirport}" styleClass="autoCompleteInputForm" label="From" labelPosition="left" required="true" requiredIndicator="(*)" indicatorPosition="right">
                         </ace:textEntry>
-                        <ace:textEntry value="#{flightController.flight.toAirport}" styleClass="inputForm" label="To" labelPosition="left" required="true" requiredIndicator="(*)" indicatorPosition="right">
+                        <ace:textEntry value="#{flightController.flight.toAirport}" styleClass="autoCompleteInputForm" label="To" labelPosition="left" required="true" requiredIndicator="(*)" indicatorPosition="right">
                         </ace:textEntry>
                         <ace:textEntry value="#{flightController.flight.cost}" styleClass="inputForm" label="Price" labelPosition="left" required="true" requiredIndicator="(*)" indicatorPosition="right">
                         </ace:textEntry>
                         <ace:pushButton value="Submit" action="#{flightController.doCreateFlight}" />
+
+                        <h:messages class="error" layout="list"/>
+
                     </h:panelGrid>
                 </h:form>
             </ui:define>

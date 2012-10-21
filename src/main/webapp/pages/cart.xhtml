@@ -12,7 +12,7 @@
             <ui:define name="content">
                 <h:form>
                     <ace:dataTable id="flightTable"
-                                   value="#{flightController.flightList}"
+                                   value="#{cartbb.flights}"
                                    var="flight"
                                    paginator="true"
                                    paginatorPosition="bottom"
@@ -48,13 +48,17 @@
                             </h:outputText>
                            
                         </ace:column>
-                        <ace:column id="buy" headerText="">
-                            <ace:pushButton actionListener="#{cartbb.addFlight(flight.id)}" value="Add to cart" />
+                        <ace:column id="delete" headerText="">
+                            <ace:pushButton action="#{cartbb.removeFlight(flight.id)}" value="Delete" />
                         </ace:column>
                     </ace:dataTable>
-                    <ace:pushButton value="Continue to shopping cart" action="#{cartbb.toCart}" />
+                    <ace:pushButton value="Continue" action="cart" />
                 </h:form>
             </ui:define>       
+
+
         </ui:composition>
+
     </h:body>
+
 </html>

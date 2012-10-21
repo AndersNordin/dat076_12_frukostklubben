@@ -269,7 +269,7 @@ nav#main_menu{
     text-align: center;
 }
 
-.inputForm{
+.inputForm, .autoCompleteInputForm{
     padding: 4px 6px;
     font-size: 12px;
     width: 250px;
@@ -310,7 +310,7 @@ label{
 }
 
 .inputButton:hover{
-        border: 1px solid #FFF;
+    border: 1px solid #FFF;
 }
 
 span.error{
@@ -319,4 +319,17 @@ span.error{
     padding:5px;
     margin:0 0 0 10px;
     border:1px solid #f27c7c;
+}
+
+div.error, ul.error{
+    color:#000;
+    background-color:#ffeded;
+    padding:5px;
+    margin:0 0 0 10px;
+    border:1px solid #f27c7c; 
+}
+
+ul.error{
+    margin-top: 10px;
+    width: 94%;
 }

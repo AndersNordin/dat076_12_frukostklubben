@@ -3,7 +3,7 @@
     Created on : Oct 11, 2012, 01:11:41 PM
     Author     : Anders
     Description: Functions using Jquery
-*/
+ */
 
 // This is a bug-fix.
 var $ = jQuery;    
@@ -29,3 +29,56 @@ $(document).ready(function() {
 }); // document ready end
 
 
+$(document).ready(function() {
+    $(function() {
+        var availableTags = [
+        "Arlanda Airport (Stockholm)",
+        
+        "Amsterdam Airport Schiphol",
+        
+        "Bangkok International Airport",
+        
+        "Beijing Capital International Airport",
+        
+        "Dubai International Airport",
+        
+        "Frankfurt Airport",
+        
+        "Haneda Airport (Tokyo)",
+        
+        "Heathrow Airport (London)",
+        
+        "Hong Kong International Airport",
+        
+        "O'Hare International Airport (Chicago)",
+        
+        "John F. Kennedy International Airport (New York City)",
+        
+        "Landvetter Airport (Gothenburg)",
+        
+        "Leonardo da Vinci-Fiumicino Airport (Rome)",
+        
+        "London Gatwick Airport",
+        
+        "Los Angeles International Airport",
+        
+        "Madrid Barajas Airport",
+        
+        "McCarran International Airport (Las Vegas)",
+        
+        "Munich Airport",
+        
+        "Newark Liberty International Airport (New Jersey)",
+
+        "Paris-Charles de Gaulle Airport",
+        
+        "San Francisco International Airport",
+
+        "Singapore Changi Airport",
+        ];
+        $( ".autoCompleteInputForm" ).autocomplete({
+            source: availableTags
+        });
+    });
+    
+});
