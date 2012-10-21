@@ -18,9 +18,9 @@
                                            timeZone="Europe/Stockholm"
                                            pattern="MMM/dd/yyyy"/>
                         <p><label for="from">From:</label><br/>
-                            <ace:textEntry id="from" value="#{search.flight.fromAirport}"  styleClass="inputForm"  /></p>
+                            <ace:textEntry id="from" value="#{search.flight.fromAirport}"  styleClass="autoCompleteInputForm"  /></p>
                         <p><label for="to">To:</label><br/>
-                            <ace:textEntry id="to" value="#{search.flight.toAirport}" styleClass="inputForm" /></p>
+                            <ace:textEntry id="to" value="#{search.flight.toAirport}" styleClass="autoCompleteInputForm" /></p>
                         <ace:pushButton value="Search Travel"  action="#{search.search}"/>                     
                     </h:form>
                 </article>
