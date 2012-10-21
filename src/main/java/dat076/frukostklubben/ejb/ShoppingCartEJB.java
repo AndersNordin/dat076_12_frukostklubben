@@ -28,8 +28,7 @@ public class ShoppingCartEJB implements ShoppingCartEJBRemote {
     
     private List<Flight> cartItems = new ArrayList<>();
     
-    public ShoppingCartEJB(){} //Needed for container
-    
+    public ShoppingCartEJB(){} //Needed for container  
     
     @Override
     public void addFlight(Flight flight) {
@@ -66,7 +65,14 @@ public class ShoppingCartEJB implements ShoppingCartEJBRemote {
                 total += flight.getCost();
             }
             return total;
-        }
+        }      
+        
+    }
+    
+    
+
+    public List<Flight> getCartItems() {
+        return cartItems;
     }
     
     @Override
