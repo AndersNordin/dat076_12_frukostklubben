@@ -9,7 +9,7 @@
     <h:body>
 
         <ui:composition template="/jsf/template/template.xhtml">
-            <ui:define name="content">
+            <ui:define name="content"> 
                 <h:form>
                     <ace:dataTable id="flightTable"
                                    value="#{cartbb.flights}"
@@ -55,6 +55,8 @@
                     <ace:pushButton value="Continue" action="index" />
                     <ace:pushButton value="Checkout" action="" />
                 </h:form>
+                <h:button value="Continue" outcome="/index" class="inputButton" />
+                <h:button value="Checkout" outcome="/users/order" class="inputButton" />
             </ui:define>       
 
 
