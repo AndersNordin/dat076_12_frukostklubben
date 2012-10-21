@@ -11,37 +11,46 @@
         <ui:composition template="/jsf/template/template.xhtml">
             <ui:define name="content">
                 <h:form>
-                    <h:dataTable var="p" value="#{cart.cartItems}" >
-                                          
-                        <h:column>
+                    <ace:dataTable id="flightTable"
+                                   value="#{cartbb.flights}"
+                                   var="flight"
+                                   paginator="true"
+                                   paginatorPosition="bottom"
+                                   rows="100"
+                                   selectionMode="single">
+                        <ace:ajax event="select" render="@this selectForm:status" execute="@this" />
+                        <ace:column id="date" headerText="Date" sortBy="#{flight.departureTime}"
+                                    filterBy="#{flight.departureTime}" filterMatchMode="contains">
+                            <h:outputText id="dateCell" value="#{flight.departureTime}"/>
+                        </ace:column>
+                        <ace:column id="name" headerText="Name" sortBy="#{flight.name}"
+                                    filterBy="#{flight.name}" filterMatchMode="contains">
+                            <h:outputText id="nameCell" value="#{flight.name}"/>
+                        </ace:column>
+                        <ace:column id="from" headerText="From" sortBy="#{flight.fromAirport}"
+                                    filterBy="#{flight.fromAirport}" filterMatchMode="contains">
+                            <h:outputText id="chassisCell" value="#{flight.fromAirport}"/>
+                        </ace:column>
+                        <ace:column id="to" headerText="To" sortBy="#{flight.toAirport}"
+                                    filterBy="#{flight.toAirport}" filterMatchMode="contains">
+                            <h:outputText id="weightCell" value="#{flight.toAirport}"/>
+                        </ace:column>
+                        <ace:column id="cost" headerText="Cost" sortBy="#{flight.cost}"
+                                    filterBy="#{flight.cost}" filterMatchMode="contains">
                             <f:facet name="header">
-                                <h:outputText  value="Name"/>
+                                Cost
                             </f:facet>
-                            <h:outputText value="#{p.name}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText  value="From"/>
-                            </f:facet>
-                            <h:outputText value="#{p.fromAirport}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText  value="To"/>
-                            </f:facet>
-                            <h:outputText value="#{p.toAirport}"/>
-                        </h:column>
-                        <h:column>
-                            <f:facet name="header">
-                                <h:outputText  value="Cost"/>
-                            </f:facet>
-                            <h:outputText value="#{p.cost}"/>
-                        </h:column>                       
-                    </h:dataTable>
+                            <h:outputText id="costCell" value="#{flight.cost}">
+                                <f:convertNumber type="currency"
+                                                 groupingUsed="true"
+                                                 minFractionDigits="2"
+                                                 maxFractionDigits="2"/>
+                            </h:outputText>
+                           
+                        </ace:column>
+                    </ace:dataTable>
+                    <ace:pushButton value="Continue" action="cart" />
                 </h:form>
-
-                
-                THIS IS CART!
             </ui:define>       
 
 

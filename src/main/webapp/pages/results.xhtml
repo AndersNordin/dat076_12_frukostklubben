@@ -49,10 +49,10 @@
                            
                         </ace:column>
                         <ace:column id="buy" headerText="">
-                            <ace:pushButton actionListener="#{cart.addFlight(flight)}" action="cart" value="Buy" />
+                            <ace:pushButton actionListener="#{cartbb.addFlight(flight.id)}" value="Add to cart" />
                         </ace:column>
                     </ace:dataTable>
-                    <ace:pushButton value="Continue" action="cart" />
+                    <ace:pushButton value="Continue to shopping cart" action="#{cartbb.action}" />
                 </h:form>
             </ui:define>       
         </ui:composition>
