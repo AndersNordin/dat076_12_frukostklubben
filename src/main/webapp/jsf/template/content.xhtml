@@ -4,10 +4,26 @@
 <!-- Main content. Is almost always changed depending what page to display -->
 <html xmlns="http://www.w3.org/1999/xhtml"   
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ace="http://www.icefaces.org/icefaces/components">
     <body>
         <ui:composition>
-            No content is loaded. This is default.
+           <article>
+                    <header>
+                        <h1>Search for a flight</h1>                        
+                    </header>
+                    <h:form>
+                        <ace:dateTimeEntry id="cal"
+                                           value="#{search.flight.departureTime}"
+                                           timeZone="Europe/Stockholm"
+                                           pattern="MMM/dd/yyyy"/>
+                        <p><label for="from">From:</label><br/>
+                            <ace:textEntry id="from" value="#{search.flight.fromAirport}"  styleClass="autoCompleteInputForm"  /></p>
+                        <p><label for="to">To:</label><br/>
+                            <ace:textEntry id="to" value="#{search.flight.toAirport}" styleClass="autoCompleteInputForm" /></p>
+                        <ace:pushButton value="Search Travel"  action="#{search.search}"/>                     
+                    </h:form>
+                </article>
         </ui:composition>
     </body>
 </html>

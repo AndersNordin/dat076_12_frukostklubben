@@ -45,6 +45,6 @@ public class SearchFlightBean implements Serializable {
     public String search(){
         flights = flightEJB.searchFlights(this.flight);
         //return "results"; //Haha, pikärt läge. //Denna gör så att min sökfunktion inte längre fungerar.
-        return "results?faces-redirect=true"; // bug fix, need parameter to redirect correctly
+        return "results"; // bug fix, need parameter to redirect correctly
     }   
 }

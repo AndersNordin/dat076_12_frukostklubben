@@ -8,15 +8,15 @@
         <!-- Must match name in GlassFish ??? -->
         <realm-name>projectRealm</realm-name>
         <form-login-config>
-            <form-login-page>/indexLogin.xhtml</form-login-page>
-            <form-error-page>/loginError.xhtml</form-error-page>
+            <form-login-page>/login.xhtml</form-login-page>
+            <form-error-page>/error.xhtml</form-error-page>
         </form-login-config>
     </login-config> 
     
     <error-page>
         <!-- Access denied (bad role response) -->
         <error-code>403</error-code>
-        <location>/loginError.xhtml</location>
+        <location>/error.xhtml</location>
     </error-page>
 
     <security-constraint>

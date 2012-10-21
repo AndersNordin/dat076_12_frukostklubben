@@ -60,8 +60,15 @@ div#main_content{
     height: 100%;
     border-radius: 1.0em;
 }
+div#main_content h1{
+    margin: 0.2em 0 0.8em 0.4em;
+    text-shadow: 1px 1px 1px #2c2e38;
+    font-size: 40px;
+    letter-spacing: 1px;
+}
+
 div#main_content p{
-    padding: 10px 5px;
+    padding: 10px 0.4em;
 }
 
 aside.sideBox{
@@ -86,7 +93,7 @@ aside.logo{
     width: 300px;
     height: 200px;
     margin-bottom: 40px;
-    background: url("/img/logo.png") no-repeat;        
+    background: url("#{resource['images:logo.png']}") no-repeat;        
 }
 aside.logo a, aside.logo a:hover{
     width: 100%;
@@ -267,6 +274,17 @@ nav#main_menu{
 #calendarr{ /*Bör ändras till calendar */
     width: 100px;
     text-align: center;
+}
+
+.autoCompleteTextAreaForm
+{
+      padding: 4px 6px;
+    font-size: 12px;
+    width: 250px;
+    border-radius: 0.5em;
+    background-color: #e2e2e2;
+    border: 1px solid  rgba(0,0,0,0.75);
+    width: 100%;
 }
 
 .inputForm, .autoCompleteInputForm{

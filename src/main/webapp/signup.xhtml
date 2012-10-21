@@ -13,11 +13,12 @@
     <h:body>
         <ui:composition template="/jsf/template/template.xhtml">
             <ui:define name="content">
-                <h2 class="signup">Signup</h2>
+                <h1 class="signup">Signup</h1>
                 <p>
                     Sign up for a membership. A membership is required for purchasing travels.     
                     All fields with (*) is required.<br /><br />
-                    Password must be at least 6 characters long.
+                    - Password must be at least 6 characters long.<br/>
+                    - Mail is your username.
                 </p>    
                 <f:view>
                     <h:form id="signupForm" onclick="trySuccess()">

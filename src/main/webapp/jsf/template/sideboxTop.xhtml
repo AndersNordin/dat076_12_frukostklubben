@@ -6,19 +6,13 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html">
     <body>
-        <ui:composition>                           
-            <h1 class="titleRibbon"><strong class="titleContent">Login</strong></h1>
-            <form id="loginForm" method="post" action="j_security_check"> 
-
-                <p><h:outputLabel for="j_username" value="Username:" /><br />
-                    <h:inputText id="j_username"  class="inputForm"/></p>
-
-                <p><h:outputLabel for="j_password" value="Password:" /><br />
-                   <h:inputSecret id="j_password" class="inputForm"/></p>
-
-                <p><h:commandButton class="inputButton" value="Login" />
-                <h:button class="inputButton" id="register" value="Register" outcome="signup"/></p>
-            </form>
+        <ui:composition> 
+                <h1 class="titleRibbon"><strong class="titleContent">User Panel</strong></h1>
+                <p>It seems that you are not logged in. You can login 
+                <h:link outcome="/users/users">here</h:link>. </p>
+                <p>
+                    It is also possible to register <h:link outcome="/signup">here</h:link>.
+                </p>
         </ui:composition>
     </body>
 </html>

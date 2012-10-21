@@ -9,20 +9,23 @@
     <h:body>
         <ui:composition template="/jsf/template/template.xhtml">
             <ui:define name="content">
+               <h1>Contact us</h1>
+                <p>
+                    Ask a question in this formula. We will reach back with an answer within a week.
+                </p>   
+                
                    <h:form id="contactForm">
-                    <h:panelGrid id="contact">                        
-                                              
-                        <p><label for="name">Name:</label><br />
-                        <ace:textEntry id="name" value="#{contactBB.name}" styleClass="autoCompleteInputForm"/></p>
-                        
-                        <p><label for="mail">Mail:</label><br />
-                        <ace:textEntry id="mail" value="#{contactBB.mail}" styleClass="autoCompleteInputForm" /></p>
+                                           
+                       <p><label for="name">Name:</label><br />                      
+                        <ace:textEntry id="name" value="#{contactBB.name}" styleClass="autoCompleteInputForm"/></p>              
                        
-                            
-                        <ace:textAreaEntry value="#{contactBB.comment}">
-                        </ace:textAreaEntry>
-                        <ace:pushButton value="Search" action="#{contactBB.submit}" />
-                    </h:panelGrid>
+                        <p><label for="mail">Mail:</label><br />  
+                        <ace:textEntry id="mail" value="#{contactBB.mail}" styleClass="autoCompleteInputForm"/></p>
+                       
+                        <p><label for="message">Message:</label><br />  
+                        <ace:textAreaEntry value="#{contactBB.comment}" id="message" styleClass="autoCompleteTextAreaForm"></ace:textAreaEntry></p>
+                        <ace:pushButton value="Send" action="#{contactBB.submit}" />
+                   
                 </h:form>
             </ui:define>         
         </ui:composition>
