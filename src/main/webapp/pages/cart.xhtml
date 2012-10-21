@@ -48,6 +48,9 @@
                             </h:outputText>
                            
                         </ace:column>
+                        <ace:column id="delete" headerText="">
+                            <ace:pushButton action="#{cartbb.removeFlight(flight.id)}" value="Delete" />
+                        </ace:column>
                     </ace:dataTable>
                     <ace:pushButton value="Continue" action="cart" />
                 </h:form>

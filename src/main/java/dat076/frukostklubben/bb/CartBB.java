@@ -29,13 +29,20 @@ public class CartBB implements Serializable  {
     public void addFlight(Long id){
         cartEJB.addFlight(flightEJB.findFlightById(id));
     }
+    public void addFlight(Flight flight){
+        cartEJB.addFlight(flight);
+    }
     
-    public String action(){
-        return "cart";
+    public String toCart(){
+        return "cart?faces-redirect=true";
     }
     
     public List<Flight> getFlights(){
         return cartEJB.getCartItems();
     }
     
+    public String removeFlight(Long id){
+        cartEJB.removeItem(flightEJB.findFlightById(id));
+        return "cart?faces-redirect=true";
+    }    
 }

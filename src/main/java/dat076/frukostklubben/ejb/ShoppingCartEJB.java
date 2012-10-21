@@ -32,16 +32,28 @@ public class ShoppingCartEJB implements ShoppingCartEJBRemote {
     
     @Override
     public void addFlight(Flight flight) {
-        if (!cartItems.contains(flight)){
+        if(find(flight.getId()) == null){
+      //  if (!cartItems.contains(flight)){
             cartItems.add(flight);
         }
     }
     
     @Override
     public void removeItem(Flight flight) {
-        if (cartItems.contains(flight)){
-            cartItems.remove(flight);
+        Flight f = find(flight.getId());
+        if(f != null){
+      //  if (cartItems.contains(flight)){
+            cartItems.remove(f);
         }
+    }
+    
+    private Flight find(Long id){
+        for(Flight f : cartItems){
+            if(f.getId() == id){
+                return f;
+            }
+        }
+        return null;
     }
     
     @Override
