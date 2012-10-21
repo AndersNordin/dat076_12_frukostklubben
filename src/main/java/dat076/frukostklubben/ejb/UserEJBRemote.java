@@ -16,4 +16,5 @@ public interface UserEJBRemote {
     User createUser(User customer);
     void deleteUser(User customer);
     User updateUser(User customer);
+    User findByMail(String mail);
 }

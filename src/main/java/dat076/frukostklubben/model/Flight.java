@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.Temporal;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -21,6 +22,7 @@ public class Flight implements Serializable {
     private String fromAirport;
     private String toAirport;
     private Double cost;
+    @NotNull(message="Please select date an time.")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date departureTime;
 
