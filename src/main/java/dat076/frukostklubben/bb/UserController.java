@@ -52,10 +52,10 @@ public class UserController implements Serializable{
     public String signin(){
         user = userEJB.findByMail(mail);
         if (user != null){
-            if (user.getPassword().equals(password)){
+            if (user.getPasswd().equals(password)){
                 return "chat?faces-redirect=true";
             }
-            return "index";
+            return "index?faces-redirect=true";
         }
         return null;
 
