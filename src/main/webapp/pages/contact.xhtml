@@ -10,11 +10,15 @@
         <ui:composition template="/jsf/template/template.xhtml">
             <ui:define name="content">
                    <h:form id="contactForm">
-                    <h:panelGrid id="contact">
-                        <ace:textEntry value="#{contactBB.name}" label="Name" labelPosition="left">
-                        </ace:textEntry>
-                        <ace:textEntry value="#{contactBB.mail}"  label="Email" labelPosition="left">
-                        </ace:textEntry>
+                    <h:panelGrid id="contact">                        
+                                              
+                        <p><label for="name">Name:</label><br />
+                        <ace:textEntry id="name" value="#{contactBB.name}" styleClass="autoCompleteInputForm"/></p>
+                        
+                        <p><label for="mail">Mail:</label><br />
+                        <ace:textEntry id="mail" value="#{contactBB.mail}" styleClass="autoCompleteInputForm" /></p>
+                       
+                            
                         <ace:textAreaEntry value="#{contactBB.comment}">
                         </ace:textAreaEntry>
                         <ace:pushButton value="Search" action="#{contactBB.submit}" />
