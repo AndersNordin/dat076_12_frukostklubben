@@ -6,10 +6,26 @@
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html">
     <body>
-        <ui:composition> 	
-            <h1 class="titleRibbon">
-                <strong class="titleContent">Most Popular</strong>
-            </h1>
+        <ui:composition> 
+            <h:panelGroup rendered="#{empty request.remoteUser}">
+                <h1 class="titleRibbon"><strong class="titleContent">Popular</strong></h1>
+            </h:panelGroup>
+
+            <h:panelGroup rendered="#{not empty request.remoteUser}">
+                <h1 class="titleRibbon"><strong class="titleContent">Shopping cart</strong></h1>
+                <h:dataTable value="#{cartbb.flights}" var="flight">
+                    <h:column rowHeader="From">
+                        <h:outputText value="#{flight.fromAirport}"/>
+                    </h:column>
+                    <h:column rowHeader="To" >
+                        <h:outputText value="#{flight.toAirport}"/>
+                    </h:column>
+                </h:dataTable>
+                <h:form>
+                <h:button outcome="/users/cart" class="inputButton" value="To cart" />
+                </h:form>
+                
+            </h:panelGroup>
         </ui:composition>
     </body>
 </html>

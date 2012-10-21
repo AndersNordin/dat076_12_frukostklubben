@@ -88,7 +88,7 @@ public class SignupBB {
     public String doCreateUser() {
         try {            
             user = userRegistry.createUser(user);
-            return "index?faces-redirect=true"; // bug fix, need parameter to redirect correctly
+            return "login?faces-redirect=true"; // bug fix, need parameter to redirect correctly
         } catch (Exception e) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Bad Login name"));
             return "?faces-redirect=true"; // Stay on same page

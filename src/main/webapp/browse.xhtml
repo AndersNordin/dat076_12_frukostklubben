@@ -18,7 +18,7 @@
                                    paginator="true"
                                    paginatorPosition="bottom"
                                    rows="100"
-                                   selectionMode="single">
+                                   scrollable="false">
                         <ace:ajax event="select" render="@this selectForm:status" execute="@this" />
                         <ace:column id="date" headerText="Date" sortBy="#{flight.departureTime}"
                                     filterBy="#{flight.departureTime}" filterMatchMode="contains">
@@ -50,7 +50,7 @@
                            
                         </ace:column>
                         <ace:column id="buy" headerText="">
-                            <h:commandButton value="Buy" action="#{cart.addFlight(flight)}"/>
+                            <ace:pushButton   value="Buy" action="#{cartbb.addFlight(flight)}"/>
                         </ace:column>
                     </ace:dataTable>
                    

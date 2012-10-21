@@ -9,7 +9,6 @@ import dat076.frukostklubben.model.Flight;
 import java.io.Serializable;
 import java.util.List;
 import javax.ejb.EJB;
-import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 
@@ -26,14 +25,12 @@ public class CartBB implements Serializable  {
     @EJB
     private FlightEJB flightEJB;
     
-    public void addFlight(Long id){
+/*    public void addFlight(Long id){
         cartEJB.addFlight(flightEJB.findFlightById(id));
     }
-    public void addFlight(Flight flight){
+    */
+    public String addFlight(Flight flight){
         cartEJB.addFlight(flight);
-    }
-    
-    public String toCart(){
         return "cart?faces-redirect=true";
     }
     
