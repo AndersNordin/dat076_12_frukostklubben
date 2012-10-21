@@ -3,21 +3,22 @@
     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"   
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:ui="http://java.sun.com/jsf/facelets" 
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ace="http://www.icefaces.org/icefaces/components">
     <h:body>
 
         <ui:composition template="/jsf/template/template.xhtml">
             <ui:define name="content">
-                <h:panelGrid id="search">
                 <h:form>
                     <ace:dataTable id="flightTable"
-                                   value="#{search.flights}"
+                                   value="#{flightController.flightList}"
                                    var="flight"
                                    paginator="true"
                                    paginatorPosition="bottom"
-                                   rows="100">
+                                   rows="100"
+                                   selectionMode="single">
+                        <ace:ajax event="select" render="@this selectForm:status" execute="@this" />
                         <ace:column id="date" headerText="Date" sortBy="#{flight.departureTime}"
                                     filterBy="#{flight.departureTime}" filterMatchMode="contains">
                             <h:outputText id="dateCell" value="#{flight.departureTime}"/>
@@ -45,17 +46,15 @@
                                                  minFractionDigits="2"
                                                  maxFractionDigits="2"/>
                             </h:outputText>
+                           
+                        </ace:column>
+                        <ace:column id="buy" headerText="">
+                            <ace:pushButton actionListener="#{cart.addFlight(flight)}" action="cart" value="Buy" />
                         </ace:column>
                     </ace:dataTable>
+                    <ace:pushButton value="Continue" action="cart" />
                 </h:form>
-                </h:panelGrid>
-            </ui:define>
-
-
-
-
+            </ui:define>       
         </ui:composition>
-
     </h:body>
-
 </html>
