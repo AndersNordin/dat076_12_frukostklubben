@@ -86,10 +86,7 @@ public class SignupBB {
     }
 
     public String doCreateUser() {
-        try {
-            // Set by default
-            user.setAccess(User.Access.USER);
-            
+        try {            
             user = userRegistry.createUser(user);
             return "index?faces-redirect=true"; // bug fix, need parameter to redirect correctly
         } catch (Exception e) {

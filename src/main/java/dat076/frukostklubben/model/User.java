@@ -9,10 +9,10 @@ import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
+import dat076.frukostklubben.security.Subject;
+import dat076.frukostklubben.security.SubjectGroup;
 
 /**
  *
@@ -21,56 +21,40 @@ import javax.persistence.OneToOne;
  */
 @Entity(name="UserObj")
 @NamedQuery(name = "findAllUsers", query = "SELECT u FROM UserObj u")
-public class User implements Serializable {
-    
-    // Access level for user account. 
-    public enum Access{
-        ADMIN,
-        USER
-    }    
-    
-     @Id @GeneratedValue
-     private long id;     
+public class User extends Subject implements Serializable {
+       
+     /*@Id @GeneratedValue
+     private long id;     */
      private String firstName;
      private String lastName;
-     private String mail;
      @Embedded
      @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
      private Address address = new Address();
-     private String password;
-     private Access access;
 
 
 
-    public User(String firstName, String lastName, String mail, Address address, Access access) {
+    public User(String firstName, String lastName, String mail, Address address) {
         this.firstName = firstName;
         this.lastName = lastName;
-        this.mail = mail;
+        setMail(mail);
         this.address = address;
-        this.access = access;
+        addGroup(SubjectGroup.USER);
     }
 
     public User() {
+        addGroup(SubjectGroup.USER);
     }    
     
     // ======================================
     // =          Getters & Setters         =
     // ======================================
-    public long getId() {
+   /* public long getId() {
         return id;
     }
     
     public void setId(long id) {
         this.id = id;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    } 
+    }*/
     
     public String getFirstName() {
         return firstName;
@@ -88,27 +72,11 @@ public class User implements Serializable {
         this.lastName = lastName;
     }
 
-    public String getMail() {
-        return mail;
-    }
-
-    public void setMail(String mail) {
-        this.mail = mail;
-    }
-
     public Address getAddress() {
         return address;
     }
 
     public void setAddress(Address address) {
         this.address = address;
-    }
-    
-    public Access getAccess() {
-        return access;
-    }
-    
-    public void setAccess(Access access) {
-        this.access = access;
     }
 }

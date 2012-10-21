@@ -54,7 +54,7 @@
                             <h:message for="city" class="error" /></p>
 
                         <p><h:outputLabel for="passwd" value="Password*:" /><br />
-                            <h:inputSecret id="passwd" value="#{signup.user.password}" validator="#{signup.pwValidator}" required="true" requiredMessage=" - required" class="inputForm" />                            
+                            <h:inputSecret id="passwd" value="#{signup.user.passwd}" validator="#{signup.pwValidator}" required="true" requiredMessage=" - required" class="inputForm" />                            
                             <h:message for="passwd" class="error" id="passwdError"/></p>
 
                         <p><h:outputLabel for="passwdConfirm" value="Confirm Password*:" /><br />
