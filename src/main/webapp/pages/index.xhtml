@@ -25,6 +25,21 @@
                     </h:form>
                 </article>
             </ui:define>
+            
+            <ui:define name="sideboxTop">
+                <h1 class="titleRibbon"><strong class="titleContent">Login</strong></h1>
+            <form id="loginForm" method="post" action="j_security_check"> 
+
+                <p><h:outputLabel for="j_username" value="Username:" /><br />
+                    <h:inputText id="j_username"  class="inputForm"/></p>
+
+                <p><h:outputLabel for="j_password" value="Password:" /><br />
+                   <h:inputSecret id="j_password" class="inputForm"/></p>
+
+                <p><h:commandButton class="inputButton" id="login" value="Login" />
+                <h:button class="inputButton" id="register"  value="Register" outcome="signup"/></p>
+            </form>                
+            </ui:define>
         </ui:composition>
     </h:body>
 </html>
