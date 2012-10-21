@@ -10,7 +10,7 @@
             <h:form rendered="#{not empty request.remoteUser}">
                 <h1 class="titleRibbon"><strong class="titleContent">Välkommen</strong></h1>
                 <p>Logged in as:  ${request.remoteUser}</p>
-                <h:button outcome="/users/changeInfo" value="Ändra uppgifter"/>
+                <h:button outcome="/users/changeInfo" value="Ändra uppgifter" class="inputButton"/>
                 <h:form>
                     <h:commandButton action="#{auth.logout}" class="inputButton" value="Logout" />
                 </h:form>
