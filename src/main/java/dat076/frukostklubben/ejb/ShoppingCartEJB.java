@@ -33,8 +33,8 @@ public class ShoppingCartEJB implements ShoppingCartEJBRemote {
     @Override
     public void addFlight(Flight flight) {
         if(find(flight.getId()) == null){
-      //  if (!cartItems.contains(flight)){
-            cartItems.add(flight);
+      //  if (!cartItems.contains(flight)){ //Får det inte att fungera om man går direkt hit, utan bara via CartBB
+            cartItems.add(flight);          //Måste lägga till/ta bort med id, går inte direkt med flight?
         }
     }
     
