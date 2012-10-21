@@ -86,7 +86,7 @@ aside.logo{
     width: 300px;
     height: 200px;
     margin-bottom: 40px;
-    background: url("img/logo.png") no-repeat;        
+    background: url("/img/logo.png") no-repeat;        
 }
 aside.logo a, aside.logo a:hover{
     width: 100%;

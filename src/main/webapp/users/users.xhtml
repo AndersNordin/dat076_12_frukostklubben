@@ -13,7 +13,7 @@
                         <h1>Search for a flight now!</h1>                        
                     </header>
                     <h:form>
-                <ace:dateTimeEntry id="cal"
+                        <ace:dateTimeEntry id="cal"
                                            value="#{search.flight.departureTime}"
                                            timeZone="Europe/Stockholm"
                                            pattern="MMM/dd/yyyy"/>
@@ -25,9 +25,13 @@
                     </h:form>
                 </article>
             </ui:define>
-            
+
             <ui:define name="sideboxTop">
-              inloggad som user          
+                <h1 class="titleRibbon"><strong class="titleContent">Välkommen</strong></h1>
+                <p>Logged in as:  ${request.remoteUser}</p>
+                <h:form>
+                    <h:commandButton action="#{auth.logout}" class="inputButton" value="Logout" />
+                </h:form>
             </ui:define>
         </ui:composition>
     </h:body>

@@ -8,21 +8,21 @@
         <!-- Must match name in GlassFish ??? -->
         <realm-name>projectRealm</realm-name>
         <form-login-config>
-            <form-login-page>/faces/pages/index.xhtml</form-login-page>
-            <form-error-page>/faces/pages/loginError.xhtml</form-error-page>
+            <form-login-page>/indexLogin.xhtml</form-login-page>
+            <form-error-page>/loginError.xhtml</form-error-page>
         </form-login-config>
     </login-config> 
     
     <error-page>
         <!-- Access denied (bad role response) -->
         <error-code>403</error-code>
-        <location>/pages/loginError.xhtml</location>
+        <location>/loginError.xhtml</location>
     </error-page>
 
     <security-constraint>
         <web-resource-collection>
-            <web-resource-name>Admin</web-resource-name>
-            <url-pattern>/faces/pages/admins/*</url-pattern>
+            <web-resource-name>Admin</web-resource-name>            
+            <url-pattern>/admins/*</url-pattern>
             <http-method>GET</http-method>
             <http-method>POST</http-method>
         </web-resource-collection>
@@ -42,7 +42,7 @@
     <security-constraint>
         <web-resource-collection>
             <web-resource-name>User</web-resource-name>
-            <url-pattern>/faces/pages/users/*</url-pattern>
+            <url-pattern>/users/*</url-pattern>
             <http-method>GET</http-method>
             <http-method>POST</http-method>
         </web-resource-collection>
@@ -72,18 +72,6 @@
     <!-- Map these files with JSF -->
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
-        <url-pattern>/faces/*</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>Faces Servlet</servlet-name>
-        <url-pattern>*.jsf</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>Faces Servlet</servlet-name>
-        <url-pattern>*.faces</url-pattern>
-    </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.xhtml</url-pattern>
     </servlet-mapping>
         
@@ -95,7 +83,7 @@
     
     <welcome-file-list>
         <welcome-file>
-            faces/pages/index.xhtml
+            index.xhtml
         </welcome-file>
     </welcome-file-list>
 </web-app>
