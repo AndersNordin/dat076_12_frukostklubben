@@ -269,7 +269,7 @@ nav#main_menu{
     text-align: center;
 }
 
-.inputForm{
+.inputForm, .autoCompleteInputForm{
     padding: 4px 6px;
     font-size: 12px;
     width: 250px;
