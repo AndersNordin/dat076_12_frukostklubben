@@ -14,7 +14,7 @@ import javax.persistence.Embeddable;
 @Embeddable
 public class Address implements Serializable {
     private String street;
-    private Integer zip;
+    private String zip;
     private String city;
 
     // ======================================
@@ -28,20 +28,20 @@ public class Address implements Serializable {
         this.street = street;
     }
 
-    public Integer getZip() {
-        return zip;
-    }
-
-    public void setZip(Integer zip) {
-        this.zip = zip;
-    }
-
     public String getCity() {
         return city;
     }
 
     public void setCity(String city) {
         this.city = city;
+    }
+    
+    public String getZip() {
+        return zip;
+    }
+
+    public void setZip(String zip) {
+        this.zip = zip;
     }
     
 }

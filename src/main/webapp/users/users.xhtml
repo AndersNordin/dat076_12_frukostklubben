@@ -25,14 +25,6 @@
                     </h:form>
                 </article>
             </ui:define>
-
-            <ui:define name="sideboxTop">
-                <h1 class="titleRibbon"><strong class="titleContent">Välkommen</strong></h1>
-                <p>Logged in as:  ${request.remoteUser}</p>
-                <h:form>
-                    <h:commandButton action="#{auth.logout}" class="inputButton" value="Logout" />
-                </h:form>
-            </ui:define>
         </ui:composition>
     </h:body>
 </html>

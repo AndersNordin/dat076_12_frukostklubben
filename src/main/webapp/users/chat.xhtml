@@ -8,7 +8,7 @@
     <h:body>
         <ui:composition template="/jsf/template/template.xhtml">
             <ui:define name="content">
-                <h1 class="titleRibbon"><strong class="titleContent">Live Chat</strong></h1>
+                <h1>Live Chat</h1>
                 <h:outputText value="${userController.user.mail}"/>
                 <ace:list var="o" dragging="false" value="#{chatBB.list}">
                     <h:outputText value="${o}"/>

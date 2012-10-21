@@ -7,12 +7,21 @@
       xmlns:h="http://java.sun.com/jsf/html">
     <body>
         <ui:composition> 
+            <h:form rendered="#{not empty request.remoteUser}">
+                <h1 class="titleRibbon"><strong class="titleContent">Välkommen</strong></h1>
+                <p>Logged in as:  ${request.remoteUser}</p>
+                <h:form>
+                    <h:commandButton action="#{auth.logout}" class="inputButton" value="Logout" />
+                </h:form>               
+            </h:form>
+            <h:panelGroup rendered="#{empty request.remoteUser}">
                 <h1 class="titleRibbon"><strong class="titleContent">User Panel</strong></h1>
                 <p>It seems that you are not logged in. You can login 
                 <h:link outcome="/users/users">here</h:link>. </p>
                 <p>
                     It is also possible to register <h:link outcome="/signup">here</h:link>.
                 </p>
+            </h:panelGroup>
         </ui:composition>
     </body>
 </html>
