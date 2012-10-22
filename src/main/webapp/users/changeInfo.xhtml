@@ -4,17 +4,77 @@
 <html xmlns="http://www.w3.org/1999/xhtml"   
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:ace="http://www.icefaces.org/icefaces/components">
+      xmlns:ace="http://www.icefaces.org/icefaces/components"
+      xmlns:f="http://java.sun.com/jsf/core">
     <h:body>
         <ui:composition template="/jsf/template/template.xhtml">
             <ui:define name="content">
-                                
-                <p>Logged in as:</p><h:outputText value="#{changeInfo.currentMail}"/>
-                
-                <p>Logged in as:</p><h:outputText value="#{changeInfo.user.firstName}"/>
-                
-                
-                
+
+                <h1>Account Information</h1>
+
+                <article id="userDetails">
+                    <ul>
+                        <li>Account info for <h:outputText value="#{changeInfo.user.mail}"/></li>
+                        <br/>
+                        <li>First Name: <h:outputText value="#{changeInfo.user.firstName}"/></li>
+                        <li>Last Name: <h:outputText value="#{changeInfo.user.lastName}"/></li>
+                        <li>Street Address: <h:outputText value="#{changeInfo.user.address.street}"/></li>
+                        <li>Zip: <h:outputText value="#{changeInfo.user.address.zip}"/></li>
+                        <li>City: <h:outputText value="#{changeInfo.user.address.city}"/></li>
+                    </ul>
+                </article>
+
+                <h2><br/>Change your personal info:</h2>
+                <f:view>
+                    <h:form id="signupForm" onclick="trySuccess()">
+
+                        <p>
+                            <h:outputLabel for="firstName" value="First name:" /><br />
+                            <h:inputText id="firstName" value="#{changeInfo.user.firstName}" class="inputForm"
+                                         required="true" requiredMessage=" - required"/>
+                            <h:message for="firstName" class="error" />
+                        </p>
+
+                        <p><h:outputLabel for="lastName" value="Last name: " /><br />
+                            <h:inputText id="lastName" value="#{changeInfo.user.lastName}" class="inputForm"
+                                         required="true" requiredMessage=" - required"/>
+                            <h:message for="lastName" class="error" /></p>
+
+                        <p><h:outputLabel for="street" value="Street: " /><br />
+                            <h:inputText id="street" value="#{changeInfo.user.address.street}" class="inputForm"
+                                         required="true" requiredMessage=" - required"/>
+                            <h:message for="street" class="error" /></p>
+
+                        <p><h:outputLabel for="zipCode" value="Zip Code: " /><br />
+                            <h:inputText id="zipCode" value="#{changeInfo.user.address.zip}" class="inputForm"
+                                         required="true" requiredMessage=" - required"/>
+                            <h:message for="zipCode" class="error" /></p>
+
+                        <p><h:outputLabel for="city" value="City: " /><br />
+                            <h:inputText id="city" value="#{changeInfo.user.address.city}" class="inputForm"
+                                         required="true" requiredMessage=" - required"/>
+                            <h:message for="city" class="error" /></p>
+
+                        <h2><br/>Change password:</h2>
+
+                        <p><h:outputLabel for="password" value="Type new Password: " /><br />
+                            <h:inputSecret id="password" value="#{changeInfo.user.passwd}" class="inputForm"
+                                           required="true" requiredMessage=" - required"/>
+                            <h:message for="city" class="error" /></p>
+
+                        <p><h:outputLabel for="passwdConfirm" value="Confirm new Password*:" /><br />
+                            <h:inputSecret id="passwdConfirm" size="10" class="inputForm" required="true" requiredMessage=" - required" validator="#{changeInfo.pwValidator}">                            
+                            </h:inputSecret>
+                            <h:message for="passwdConfirm" id="passwdConfirmError" class="error"/></p>          
+
+                       <h2><br/>Current password:</h2>
+                       
+                            
+                        <footer><h:commandButton id="register" value="Save Changes" class="inputButton" action="#{changeInfo.change}" />
+                            <h:button outcome="changeInfo" value="Cancel" class="inputButton" /></footer>
+                    </h:form>
+                </f:view>
+
             </ui:define>
         </ui:composition>
     </h:body>
