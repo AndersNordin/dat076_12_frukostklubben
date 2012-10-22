@@ -8,8 +8,13 @@
     <h:body>
         <ui:composition template="/jsf/template/template.xhtml">
             <ui:define name="content">
-                Julia, jag ser inte din kod för att ändra uppgifter på den som är
-                inloggad just nu. Men här kan du lägga in den.
+                                
+                <p>Logged in as:</p><h:outputText value="#{changeInfo.currentMail}"/>
+                
+                <p>Logged in as:</p><h:outputText value="#{changeInfo.user.firstName}"/>
+                
+                
+                
             </ui:define>
         </ui:composition>
     </h:body>

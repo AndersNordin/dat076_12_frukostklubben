@@ -9,21 +9,19 @@ import javax.inject.Named;
 
 /**
  * @author anordin
- * 
+ *
  * Holds the user logged in. For creating a new one SignupBB is used.
- * 
+ *
  */
 @SessionScoped
 @Named("userController")
-public class UserController implements Serializable{
+public class UserController implements Serializable {
+
     @EJB
     UserEJB userEJB;
-    
     User user;
-    
     private String mail;
     private String password;
-    
 
     public User getUser() {
         return user;
@@ -48,11 +46,11 @@ public class UserController implements Serializable{
     public void setPassword(String password) {
         this.password = password;
     }
-    
-    public String signin(){
+
+    public String signin() {
         user = userEJB.findByMail(mail);
-        if (user != null){
-            if (user.getPasswd().equals(password)){
+        if (user != null) {
+            if (user.getPasswd().equals(password)) {
                 return "chat?faces-redirect=true";
             }
             return "index?faces-redirect=true";
@@ -60,7 +58,4 @@ public class UserController implements Serializable{
         return null;
 
     }
-    
-    
-    
 }

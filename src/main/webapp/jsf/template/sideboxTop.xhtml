@@ -4,22 +4,26 @@
 <!-- This one refers to the content of the sidebox at the top -->
 <html xmlns="http://www.w3.org/1999/xhtml"   
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:h="http://java.sun.com/jsf/html">
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
     <body>
         <ui:composition> 
+
             <h:form rendered="#{not empty request.remoteUser}">
                 <h1 class="titleRibbon"><strong class="titleContent">Välkommen</strong></h1>
                 <p>Logged in as:  ${request.remoteUser}</p>
-                <h:button outcome="/users/changeInfo" value="Ändra uppgifter" class="inputButton"/>
+                <h:commandButton action="#{changeInfo.fetchUser}" value="Ändra uppgifter" class="inputButton">
+                    <f:setPropertyActionListener target="#{changeInfo.currentMail}" value="${request.remoteUser}"/>
+                </h:commandButton>
                 <h:form>
-                    <h:commandButton action="#{auth.logout}" class="inputButton" value="Logout" />
+                    <h:commandButton action="#{auth.logout}" class="inputButton" value="Logout"/>
                 </h:form>
-                
+
             </h:form>
             <h:panelGroup rendered="#{empty request.remoteUser}">
                 <h1 class="titleRibbon"><strong class="titleContent">User Panel</strong></h1>
                 <p>It seems that you are not logged in. You can login 
-                <h:link outcome="/users/users">here</h:link>. </p>
+                    <h:link outcome="/users/users">here</h:link>. </p>
                 <p>
                     It is also possible to register <h:link outcome="/signup">here</h:link>.
                 </p>
