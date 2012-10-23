@@ -5,6 +5,7 @@
 package dat076.frukostklubben.ejb;
 
 import dat076.frukostklubben.model.Flight;
+import dat076.frukostklubben.model.Order;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
@@ -13,6 +14,8 @@ import javax.ejb.Remove;
 import javax.ejb.Stateful;
 import javax.ejb.StatefulTimeout;
 import javax.inject.Named;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 
 /**
  *
@@ -25,6 +28,8 @@ import javax.inject.Named;
 public class ShoppingCartEJB implements ShoppingCartEJBRemote {
     @EJB
     MailEJB orderEJB;
+    @PersistenceContext(unitName = "projectPU")
+    private EntityManager em;
     
     private List<Flight> cartItems = new ArrayList<>();
     
@@ -95,6 +100,10 @@ public class ShoppingCartEJB implements ShoppingCartEJBRemote {
     @Remove //Detta betyder att denna böna försvinner när checkout() anropas.
     @Override
     public void checkout() {
+        Order order = new Order();
+        order.setFlights(cartItems);
+        order.setUser(null); ///Hur vet jag vem???
+        em.persist(order);
         // Do some business logic
         cartItems.clear();
     }   
