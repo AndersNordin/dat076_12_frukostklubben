@@ -277,11 +277,12 @@ nav#main_menu{
     text-align: center;
 }
 
-.autoCompleteTextAreaForm
+.inputTextArea,.autoCompleteTextAreaForm
 {
     padding: 4px 6px;
     font-size: 12px;
-    width: 100%;
+    width: 95%;
+    margin: 0 auto 0px auto;
     height: 250px;
     overflow: hidden;
     resize: none;
@@ -343,20 +344,12 @@ label{
     border: 1px solid #FFF;
 }
 
-span.error{
+span.error, div.error, ul.error{
     color:#000;
     background-color:#ffeded;
     padding:5px;
     margin:0 0 0 10px;
     border:1px solid #f27c7c;
-}
-
-div.error, ul.error{
-    color:#000;
-    background-color:#ffeded;
-    padding:5px;
-    margin:0 0 0 10px;
-    border:1px solid #f27c7c; 
 }
 
 ul.error{
