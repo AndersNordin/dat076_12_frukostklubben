@@ -15,7 +15,6 @@
                 <article id="userDetails">
                     <ul>
                         <li>Account info for <h:outputText value="#{changeInfo.user.mail}"/></li>
-                        <br/>
                         <li>First Name: <h:outputText value="#{changeInfo.user.firstName}"/></li>
                         <li>Last Name: <h:outputText value="#{changeInfo.user.lastName}"/></li>
                         <li>Street Address: <h:outputText value="#{changeInfo.user.address.street}"/></li>
@@ -24,9 +23,9 @@
                     </ul>
                 </article>
 
-                <h2><br/>Change your personal info:</h2>
+                <h3><br/>Change your personal info:</h3>
                 <f:view>
-                    <h:form id="signupForm" onclick="trySuccess()">
+                    <h:form>
                         <p>
                             <h:outputLabel for="firstName" value="First name:" /><br />
                             <h:inputText id="firstName" value="#{changeInfo.user.firstName}" class="inputForm"
@@ -58,35 +57,37 @@
                         <h:panelGrid columns="2">
                             <h3><br/>Change password </h3>
                             <ace:checkboxButton id="changePasswdCheckBox" value="#{changeInfo.selected}">
-                                <ace:ajax execute="@this" event="activate" render="newPassword"/>
+                                <ace:ajax execute="@this" event="activate" render="newPassword confirmPassword"/>
                             </ace:checkboxButton>
                         </h:panelGrid>
 
 
                         <p><h:outputLabel for="newPassword" value="Type new Password: " /><br />
                             <h:inputSecret id="newPassword" value="#{changeInfo.newPasswd}" class="inputForm"
-                                           required="true" requiredMessage=" - required" disabled="#{!changeInfo.selected}">
+                                           required="true" requiredMessage=" - required" disabled="#{!changeInfo.selected}"
+                                           validator="#{changeInfo.validateField}">
                             </h:inputSecret>
                             <h:message for="newPassword" class="error" /></p>
 
+                        <p><h:outputLabel for="confirmPassword" value="Re-type password: " /><br />
+                            <h:inputSecret id="confirmPassword" class="inputForm"
+                                           required="true" requiredMessage=" - required"  disabled="#{!changeInfo.selected}"
+                                           validator="#{changeInfo.validateField}">
+                            </h:inputSecret>
+                            <h:message for="confirmPassword" class="error" /></p>
 
+                        <footer>
+                                <h3>Verify with current Password:</h3>
+                                <p><h:outputLabel for="password" value="Password: " /><br />
+                                    <h:inputSecret id="password" value="#{changeInfo.checkPasswd}" class="inputForm"
+                                                   required="true" requiredMessage=" - required" validator="#{changeInfo.correctPasswd}"/>
+                                 <h:message for="password" class="error" /></p>
 
+                                <h:commandButton id="register" value="Save Changes" class="inputButton" action="#{changeInfo.change}">
 
-                        <h3><br/>Verify with current Password:</h3>
-                        <p><h:outputLabel for="password" value="Password: " /><br />
-                            <h:inputSecret id="password" value="#{changeInfo.checkPasswd}" class="inputForm"
-                                           required="true" requiredMessage=" - required" validator="#{changeInfo.correctPasswd}"/>
-                            <h:message for="password" class="error" /></p>
-
-                        <br/>
-                        <footer><h:commandButton id="register" value="Save Changes" class="inputButton" action="#{changeInfo.change}">
-                                <ace:ajax event="blur" render="successMessage"/>
-                            </h:commandButton>
-                            <h:button outcome="changeInfo" value="Cancel" class="inputButton" /></footer>
-
-                        <br/>
-
-    
+                                </h:commandButton>
+                                <h:button outcome="changeInfo" value="Cancel" class="inputButton" />
+                        </footer>
                     </h:form>
                 </f:view>
 
