@@ -10,7 +10,7 @@
         <ui:composition template="/jsf/template/template.xhtml">
             <ui:define name="content">
                 Här ska man kunna gå vidare med sitt köp
-                <h:commandButton action="#{orderBB.checkout()}" value="Checkout" class="inputButton">
+                <h:commandButton action="#{orderBB.checkout}" value="Checkout" class="inputButton">
                     <f:setPropertyActionListener target="#{orderBB.mail}" value="${request.remoteUser}"/>
                 </h:commandButton>
             </ui:define>

@@ -4,9 +4,10 @@
  */
 package dat076.frukostklubben.ejb;
 
-import dat076.frukostklubben.model.Flight;
 import dat076.frukostklubben.model.FinnishedOrder;
+import dat076.frukostklubben.model.Flight;
 import dat076.frukostklubben.model.User;
+import dat076.frukostklubben.persistenceEJB.OrderEJB;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
@@ -28,7 +29,9 @@ import javax.persistence.PersistenceContext;
 @Named("cart")
 public class ShoppingCartEJB {
     @EJB
-    MailEJB orderEJB;
+    MailEJB mailEJB;
+    @EJB
+    OrderEJB orderEJB;
     @PersistenceContext(unitName = "projectPU")
     private EntityManager em;
     
@@ -101,9 +104,8 @@ public class ShoppingCartEJB {
     public void checkout(User user) {
         FinnishedOrder order = new FinnishedOrder();
         order.setFlights(cartItems);
-        order.setUser(user); ///Hur vet jag vem???
+        order.setUser(user);
         user.getFinnishedOrders().add(order);
-        em.persist(order);
-        cartItems.clear();
+        orderEJB.create(order);
     }   
 }
