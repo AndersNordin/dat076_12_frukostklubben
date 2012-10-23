@@ -60,4 +60,8 @@ public class FlightController {
     public void buy(){
         cart.addFlight(flight);
     }
+    public String delete(Flight flight){
+        flightEJB.delete(flight);
+        return "/admins/adminBrowse?faces-redirect=true";
+    }
 }
