@@ -4,8 +4,8 @@
  */
 package dat076.frukostklubben.bb;
 
-import dat076.frukostklubben.persistenceEJB.UserEJB;
 import dat076.frukostklubben.model.User;
+import dat076.frukostklubben.persistenceEJB.UserEJB;
 import java.io.Serializable;
 import javax.annotation.ManagedBean;
 import javax.ejb.EJB;
@@ -14,6 +14,7 @@ import javax.faces.application.FacesMessage;
 import javax.faces.component.EditableValueHolder;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
+import javax.faces.validator.ValidatorException;
 import javax.inject.Named;
 
 /**
@@ -31,13 +32,12 @@ public class ChangeInfoBB implements Serializable {
     @EJB
     UserEJB userRegistry;
     private User user;
-    private String currentMail;
     private Boolean selected = false;
+    //for authorizing changes:
     private String checkPasswd;
-    
-    //Attributes that can be changed
     private String newPasswd;
-    
+    //Is set when change info button is clicked:
+    private String currentMail;
 
     // ======================================
     // =           Public Methods           =
@@ -48,35 +48,43 @@ public class ChangeInfoBB implements Serializable {
     }
 
     public void change() {
-        if (checkPasswd.equals(user.getPasswd())) {
+        if (newPasswd != null) {
             user.setPasswd(newPasswd);
-            userRegistry.update(user);
-        } else {
-            checkPasswd = "";
         }
+        userRegistry.update(user);
     }
-    private String input1;
-    private String input2;
-    private boolean input1Set;
 
-    public void pwValidator(FacesContext context, UIComponent component,
+    public void correctPasswd(FacesContext context, UIComponent component,
             Object value) {
-        if (input1Set) {
-            input2 = (String) value;
-            if (input1.length() < 6) {
-                ((EditableValueHolder) component).setValid(false);
-                context.addMessage(component.getClientId(context), new FacesMessage(
-                        " - Password length > 6 chars"));
-            } else if ((!input1.equals(input2)) || input1 == null) {
-                ((EditableValueHolder) component).setValid(false);
-                context.addMessage(component.getClientId(context), new FacesMessage(
-                        " - Passwords do not match"));
-            }
-        } else {
-            input1Set = true;
-            input1 = (String) value;
+        String input = (String) value;
+        if (!input.equals(user.getPasswd())) {
+            ((EditableValueHolder) component).setValid(false);
+            context.addMessage(component.getClientId(context), new FacesMessage(
+                    " - Wrong password"));
         }
     }
+    /*private String input1;
+     private String input2;
+     private boolean input1Set = false;
+
+     public void pwValidator(FacesContext context, UIComponent component,
+     Object value) {
+     if (input1Set) {
+     input2 = (String) value;
+     if (input1.length() < 6) {
+     ((EditableValueHolder) component).setValid(false);
+     context.addMessage(component.getClientId(context), new FacesMessage(
+     " - Password length > 6 chars"));
+     } else if ((!input1.equals(input2))) {
+     ((EditableValueHolder) component).setValid(false);
+     context.addMessage(component.getClientId(context), new FacesMessage(
+     " - Passwords do not match"));
+     }
+     } else {
+     input1Set = true;
+     input1 = (String) value;
+     }
+     }*/
 
     // ======================================
     // =          Getters & Setters         =
@@ -107,7 +115,7 @@ public class ChangeInfoBB implements Serializable {
         this.selected = selected;
     }
 
-    //For checking the password
+    //For authorizing changes
     public String getCheckPasswd() {
         return checkPasswd;
     }
@@ -116,12 +124,11 @@ public class ChangeInfoBB implements Serializable {
         this.checkPasswd = checkPasswd;
     }
 
-    //Attributes that can be changed
-    public String getNewPasswd() {
-        return newPasswd;
-    }
-
     public void setNewPasswd(String newPasswd) {
         this.newPasswd = newPasswd;
+    }
+
+    public String getNewPasswd() {
+        return newPasswd;
     }
 }

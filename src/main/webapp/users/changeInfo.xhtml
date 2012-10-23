@@ -5,8 +5,7 @@
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:ace="http://www.icefaces.org/icefaces/components"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:icecore="http://www.icefaces.org/icefaces/core">
+      xmlns:f="http://java.sun.com/jsf/core">
     <h:body>
         <ui:composition template="/jsf/template/template.xhtml">
             <ui:define name="content">
@@ -28,7 +27,6 @@
                 <h2><br/>Change your personal info:</h2>
                 <f:view>
                     <h:form id="signupForm" onclick="trySuccess()">
-
                         <p>
                             <h:outputLabel for="firstName" value="First name:" /><br />
                             <h:inputText id="firstName" value="#{changeInfo.user.firstName}" class="inputForm"
@@ -60,33 +58,35 @@
                         <h:panelGrid columns="2">
                             <h3><br/>Change password </h3>
                             <ace:checkboxButton id="changePasswdCheckBox" value="#{changeInfo.selected}">
-                                <ace:ajax execute="@this" event="activate" render="newPassword passwdConfirm"/>
+                                <ace:ajax execute="@this" event="activate" render="newPassword"/>
                             </ace:checkboxButton>
                         </h:panelGrid>
 
 
                         <p><h:outputLabel for="newPassword" value="Type new Password: " /><br />
                             <h:inputSecret id="newPassword" value="#{changeInfo.newPasswd}" class="inputForm"
-                                           required="true" requiredMessage=" - required" disabled="#{!changeInfo.selected}"/>
-                            <h:message for="city" class="error" /></p>
-
-                        <p><h:outputLabel for="passwdConfirm" value="Confirm new Password*:" /><br />
-                            <h:inputSecret id="passwdConfirm" size="10" class="inputForm"
-                                           required="true" requiredMessage=" - required" validator="#{changeInfo.pwValidator}" disabled="#{!changeInfo.selected}">
-
+                                           required="true" requiredMessage=" - required" disabled="#{!changeInfo.selected}">
                             </h:inputSecret>
-                            <h:message for="passwdConfirm" id="passwdConfirmError" class="error"/></p>
+                            <h:message for="newPassword" class="error" /></p>
+
+
 
 
                         <h3><br/>Verify with current Password:</h3>
                         <p><h:outputLabel for="password" value="Password: " /><br />
-                        <h:inputText id="password" value="#{changeInfo.checkPasswd}" class="inputForm"
-                                     required="true" requiredMessage=" - required"/>
-                        <h:message for="password" class="error" /></p>
+                            <h:inputSecret id="password" value="#{changeInfo.checkPasswd}" class="inputForm"
+                                           required="true" requiredMessage=" - required" validator="#{changeInfo.correctPasswd}"/>
+                            <h:message for="password" class="error" /></p>
 
-
-                        <footer><h:commandButton id="register" value="Save Changes" class="inputButton" action="#{changeInfo.change}" />
+                        <br/>
+                        <footer><h:commandButton id="register" value="Save Changes" class="inputButton" action="#{changeInfo.change}">
+                                <ace:ajax event="blur" render="successMessage"/>
+                            </h:commandButton>
                             <h:button outcome="changeInfo" value="Cancel" class="inputButton" /></footer>
+
+                        <br/>
+
+    
                     </h:form>
                 </f:view>
 
