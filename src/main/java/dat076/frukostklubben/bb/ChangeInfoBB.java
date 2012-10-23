@@ -32,6 +32,12 @@ public class ChangeInfoBB implements Serializable {
     UserEJB userRegistry;
     private User user;
     private String currentMail;
+    private Boolean selected = false;
+    private String checkPasswd;
+    
+    //Attributes that can be changed
+    private String newPasswd;
+    
 
     // ======================================
     // =           Public Methods           =
@@ -42,14 +48,17 @@ public class ChangeInfoBB implements Serializable {
     }
 
     public void change() {
-        userRegistry.updateUser(user);
+        if (checkPasswd.equals(user.getPasswd())) {
+            user.setPasswd(newPasswd);
+            userRegistry.updateUser(user);
+        } else {
+            checkPasswd = "";
+        }
     }
-    
-    
     private String input1;
     private String input2;
     private boolean input1Set;
-    
+
     public void pwValidator(FacesContext context, UIComponent component,
             Object value) {
         if (input1Set) {
@@ -87,5 +96,32 @@ public class ChangeInfoBB implements Serializable {
 
     public void setCurrentMail(String currentMail) {
         this.currentMail = currentMail;
+    }
+
+    //For checkbox
+    public Boolean getSelected() {
+        return selected;
+    }
+
+    public void setSelected(Boolean selected) {
+        this.selected = selected;
+    }
+
+    //For checking the password
+    public String getCheckPasswd() {
+        return checkPasswd;
+    }
+
+    public void setCheckPasswd(String checkPasswd) {
+        this.checkPasswd = checkPasswd;
+    }
+
+    //Attributes that can be changed
+    public String getNewPasswd() {
+        return newPasswd;
+    }
+
+    public void setNewPasswd(String newPasswd) {
+        this.newPasswd = newPasswd;
     }
 }

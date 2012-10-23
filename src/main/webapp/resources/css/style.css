@@ -299,6 +299,15 @@ nav#main_menu{
     border: 1px solid  rgba(0,0,0,0.75);
 }
 
+.inputForm:disabled{
+    padding: 4px 6px;
+    font-size: 12px;
+    width: 250px;
+    border-radius: 0.5em;
+    background-color: #7e7e7e;
+    border: 1px solid  rgba(0,0,0,0.75);
+}
+
 label{
     text-transform:uppercase;
     font-size: 12px;
