@@ -21,6 +21,9 @@ public class ContactBB {
     @EJB
     MailEJB mailEJB;
     
+    private final String MESSAGE = "Vi har mottagit ditt meddelande och svarar"
+                    + " så får som möjligt. Ditt meddelande: \n";
+    private final String SUBJECT = "Customer question";
     private String name;
     private String mail;
     private String message;
@@ -50,7 +53,7 @@ public class ContactBB {
     }
     
     public String submit(){
-        mailEJB.sendEmailOrderComplete(name, mail, message);
+        mailEJB.sendEmailOrderComplete(name, mail, MESSAGE + message, SUBJECT);
         return "index?faces-redirect=true"; // bug fix, need parameter to redirect correctly
     }
 }

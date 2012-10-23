@@ -25,10 +25,9 @@ public class MailEJB {
 
     private final String username = "dat076.travels@gmail.com";
     private final String password = "resmedoss";
-    private final String subject = "Paradise Travel Agency";
 
     @Asynchronous
-    public void sendEmailOrderComplete(String name, String mail, String question) {
+    public void sendEmailOrderComplete(String name, String mail, String mailMessage, String subject) {
         Properties props = new Properties();
         props.put("mail.smtp.auth", "true");
         props.put("mail.smtp.starttls.enable", "true");
@@ -50,8 +49,7 @@ public class MailEJB {
             message.setRecipients(Message.RecipientType.TO,
                     InternetAddress.parse(mail));
             message.setSubject(subject);
-            message.setText("Hej " + name + ".\n Vi har mottagit ditt meddelande och svarar"
-                    + " så får som möjligt.");
+            message.setText("Hej " + name + ".\n" + mailMessage);
 
             Transport.send(message);
         } catch (MessagingException e) {
