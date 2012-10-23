@@ -4,29 +4,45 @@
 <html xmlns="http://www.w3.org/1999/xhtml"   
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets" 
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:ace="http://www.icefaces.org/icefaces/components">
+      xmlns:ace="http://www.icefaces.org/icefaces/components"
+      xmlns:f="http://java.sun.com/jsf/core">
     <h:body>
         <ui:composition template="/jsf/template/template.xhtml">
             <ui:define name="content">
-               <h1>Contact us</h1>
+                <h1>Contact us</h1>
                 <p>
                     Ask a question in this formula. We will reach back with an answer within a week.
-                </p>   
-                
-                   <h:form id="contactForm">
-                                           
-                       <p><label for="name">Name:</label><br />                      
-                        <ace:textEntry id="name" value="#{contactBB.name}" styleClass="autoCompleteInputForm"/></p>              
-                       
-                        <p><label for="mail">Mail:</label><br />  
-                        <ace:textEntry id="mail" value="#{contactBB.mail}" styleClass="autoCompleteInputForm"/></p>
-                       
-                        <p><label for="message">Message:</label><br />  
-                        <ace:textAreaEntry value="#{contactBB.comment}" id="message" styleClass="autoCompleteTextAreaForm"></ace:textAreaEntry></p>
-                        <ace:pushButton value="Send" action="#{contactBB.submit}" />
-                   
+                </p>
+
+                <h:form id="contactForm" onsubmit="greeting()">
+
+                    <p><label for="name">Name:</label><br />   
+                        <h:inputText id="name" value="#{contactBB.name}" styleClass="inputForm" validatorMessage="At least 3 characters">
+                            <f:validateLength minimum="3" />
+                            <f:ajax event="blur" render="nameOutput"/>
+                        </h:inputText>
+                        <h:message id="nameOutput" for="name" errorClass="error"/></p>
+
+
+                    <p><label for="mail">Mail:</label><br />  
+                        <h:inputText id="mail" value="#{contactBB.mail}" styleClass="inputForm" validatorMessage="Invalid Email">
+                            <f:validateRegex pattern="^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"/>
+                            <f:ajax event="blur" render="mailOutput" />
+                        </h:inputText>
+                        <h:message id="mailOutput" for="mail" styleClass="error"/></p>
+
+                    <p><label for="message">Message:</label><br />                            
+                        <h:inputTextarea id="message" value="#{contactBB.comment}" styleClass="inputTextArea" validatorMessage="At least 12 characters">
+                            <f:validateLength minimum="12" />
+                            <f:ajax event="blur" render="messageOutput"/>
+                        </h:inputTextarea></p> 
+                        <h:message id="messageOutput"  for="message" styleClass="error"/>
+
+
+
+                        <h:commandButton value="Send" action="#{contactBB.submit}"  styleClass="inputButton"/>
                 </h:form>
+
             </ui:define>         
         </ui:composition>
 

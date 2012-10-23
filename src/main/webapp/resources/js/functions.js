@@ -6,8 +6,13 @@
  */
 
 // This is a bug-fix.
+function greeting()
+{
+alert("hej");
+}
+
 var $ = jQuery;    
-$(document).ready(function() {    
+$(document).ready(function() {  
  
     // Handles the effects of the main menu.
     $("#toggle_arrow").click(function () {
@@ -26,59 +31,4 @@ $(document).ready(function() {
             $(this).addClass("arrow_right");                
         }              
     });  // toggle end 
-}); // document ready end
-
-
-$(document).ready(function() {
-    $(function() {
-        var availableTags = [
-        "Arlanda Airport (Stockholm)",
-        
-        "Amsterdam Airport Schiphol",
-        
-        "Bangkok International Airport",
-        
-        "Beijing Capital International Airport",
-        
-        "Dubai International Airport",
-        
-        "Frankfurt Airport",
-        
-        "Haneda Airport (Tokyo)",
-        
-        "Heathrow Airport (London)",
-        
-        "Hong Kong International Airport",
-        
-        "O'Hare International Airport (Chicago)",
-        
-        "John F. Kennedy International Airport (New York City)",
-        
-        "Landvetter Airport (Gothenburg)",
-        
-        "Leonardo da Vinci-Fiumicino Airport (Rome)",
-        
-        "London Gatwick Airport",
-        
-        "Los Angeles International Airport",
-        
-        "Madrid Barajas Airport",
-        
-        "McCarran International Airport (Las Vegas)",
-        
-        "Munich Airport",
-        
-        "Newark Liberty International Airport (New Jersey)",
-
-        "Paris-Charles de Gaulle Airport",
-        
-        "San Francisco International Airport",
-
-        "Singapore Changi Airport",
-        ];
-        $( ".autoCompleteInputForm" ).autocomplete({
-            source: availableTags
-        });
-    });
-    
-});
+}); // document ready end      

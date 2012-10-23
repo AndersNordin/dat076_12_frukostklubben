@@ -7,24 +7,6 @@
       xmlns:ace="http://www.icefaces.org/icefaces/components">
     <h:body>
         <ui:composition template="/jsf/template/template.xhtml">
-            <ui:define name="content">
-                <article>
-                    <header>
-                        <h1>Search for a flight now!</h1>                        
-                    </header>
-                    <h:form>
-                        <ace:dateTimeEntry id="cal"
-                                           value="#{search.flight.departureTime}"
-                                           timeZone="Europe/Stockholm"
-                                           pattern="MMM/dd/yyyy"/>
-                        <p><label for="from">From:</label><br/>
-                            <ace:textEntry id="from" value="#{search.flight.fromAirport}"  styleClass="autoCompleteInputForm"  /></p>
-                        <p><label for="to">To:</label><br/>
-                            <ace:textEntry id="to" value="#{search.flight.toAirport}" styleClass="autoCompleteInputForm" /></p>
-                        <ace:pushButton value="Search Travel"  action="#{search.search}"/>                     
-                    </h:form>
-                </article>
-            </ui:define>
         </ui:composition>
     </h:body>
 </html>
