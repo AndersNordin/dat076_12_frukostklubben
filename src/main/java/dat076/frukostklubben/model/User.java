@@ -15,6 +15,7 @@ import dat076.frukostklubben.security.Subject;
 import dat076.frukostklubben.security.SubjectGroup;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.Column;
 import javax.persistence.OneToMany;
 
 /**
@@ -25,8 +26,9 @@ import javax.persistence.OneToMany;
 @Entity(name="UserObj")
 @NamedQuery(name = "findAllUsers", query = "SELECT u FROM UserObj u")
 public class User extends Subject implements Serializable {
-
+     @Column(nullable=false)
      private String firstName;
+     @Column(nullable=false)
      private String lastName;
      @Embedded
      @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)

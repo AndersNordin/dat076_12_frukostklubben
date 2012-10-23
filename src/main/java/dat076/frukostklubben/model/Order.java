@@ -7,7 +7,9 @@ package dat076.frukostklubben.model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,7 +24,8 @@ import javax.persistence.OneToOne;
 public class Order implements Serializable {
     @Id @GeneratedValue
     private Long id;
-    @OneToMany() //Lägg till cascade.
+    @ElementCollection(fetch = FetchType.LAZY)
+    @OneToMany
     List<Flight> flights = new ArrayList<>();
     @OneToOne //Lägg till casce. //bidirectional
     User user;

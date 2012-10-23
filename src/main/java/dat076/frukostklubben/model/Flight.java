@@ -2,6 +2,7 @@ package dat076.frukostklubben.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -18,11 +19,16 @@ import javax.validation.constraints.NotNull;
 public class Flight implements Serializable {
     @Id @GeneratedValue
     private long id;
+    @Column(nullable=false)
     private String name;
+    @Column(nullable=false)
     private String fromAirport;
+    @Column(nullable=false)
     private String toAirport;
+    @Column(nullable=false)
     private Double cost;
-    @NotNull(message="Please select date an time.")
+    @Column(nullable=false)
+    @NotNull(message="Please select date and time.")
     @Temporal(javax.persistence.TemporalType.DATE)
     private Date departureTime;
 
@@ -75,10 +81,6 @@ public class Flight implements Serializable {
         return departureTime;
     }
 
-    /**
-     *
-     * @param departureTime
-     */
     public void setDepartureTime(Date departureTime) {
         this.departureTime = departureTime;
     }

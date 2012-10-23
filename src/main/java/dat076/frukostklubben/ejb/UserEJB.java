@@ -14,39 +14,39 @@ import javax.persistence.TypedQuery;
  */
 @Stateless
 @LocalBean
-public class UserEJB implements UserEJBRemote {
+public class UserEJB {
 
     @PersistenceContext(unitName = "projectPU")
     private EntityManager em;
 
-    @Override
+
     public List<User> findUsers() {
         TypedQuery<User> query = em.createNamedQuery("findAllUsers", User.class);
         return query.getResultList();
     }
 
-    @Override
+
     public User findUserById(Long id) {
         return em.find(User.class, id);
     }
 
-    @Override
+
     public User createUser(User user) {
         em.persist(user);
         return user;
     }
 
-    @Override
+
     public void deleteUser(User user) {
         em.remove(em.merge(user));
     }
 
-    @Override
+
     public User updateUser(User user) {
         return em.merge(user);
     }
 
-    @Override
+
     public User findByMail(String mail) {
         String query = "select u from UserObj u where u.mail = :mail";
         TypedQuery<User> q = em.createQuery(query, User.class);
