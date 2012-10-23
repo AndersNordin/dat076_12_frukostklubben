@@ -9,10 +9,11 @@
     <h:body>
         <ui:composition template="/jsf/template/template.xhtml">
             <ui:define name="content">
-                Här ska man kunna gå vidare med sitt köp
-                <h:commandButton action="#{orderBB.checkout}" value="Checkout" class="inputButton">
-                    <f:setPropertyActionListener target="#{orderBB.mail}" value="${request.remoteUser}"/>
-                </h:commandButton>
+                <h:form>
+                    <h:commandButton action="#{orderBB.checkout(request.remoteUser)}" value="Checkout" class="inputButton">
+                        <f:setPropertyActionListener target="#{orderBB.mail}" value="${request.remoteUser}"/>
+                    </h:commandButton>
+                </h:form>
             </ui:define>
         </ui:composition>
     </h:body>

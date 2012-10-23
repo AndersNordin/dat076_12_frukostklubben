@@ -13,7 +13,6 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 
 /**
  *
@@ -24,7 +23,6 @@ public class FinnishedOrder implements Serializable {
     @Id @GeneratedValue
     private Long id;
     @ElementCollection(fetch = FetchType.LAZY)
-    @OneToMany
     List<Flight> flights = new ArrayList<>();
     
     @ManyToOne
@@ -52,5 +50,6 @@ public class FinnishedOrder implements Serializable {
     public Long getId() {
         return id;
     }
+    
 
 }

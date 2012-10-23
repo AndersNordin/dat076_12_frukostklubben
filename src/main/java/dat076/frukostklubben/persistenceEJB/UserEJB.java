@@ -20,7 +20,7 @@ public class UserEJB extends AbstractPersistenceEJB<User,String> {
     private EntityManager em;
 
     public User find(String mail){
-        return super.find(User.class, mail);
+        return find(User.class, mail);
     }
 
     public List<User> findAll() {

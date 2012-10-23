@@ -33,9 +33,5 @@ public class OrderBB {
         this.mail = mail;
     }
     
-    public String checkout(){
-        User user = userEJB.find(mail);
-        shoppingCartEJB.checkout(user);
-        return "/index?faces-redirect=true"; //när en order är skickad. var ska jag då?
-    }
+
 }
