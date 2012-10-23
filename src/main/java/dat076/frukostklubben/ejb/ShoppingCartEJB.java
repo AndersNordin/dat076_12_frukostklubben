@@ -100,7 +100,6 @@ public class ShoppingCartEJB {
         cartItems.clear();
     }
     
-    @Remove //Detta betyder att denna böna försvinner när checkout() anropas.
     public void checkout(User user) {
         FinnishedOrder order = new FinnishedOrder();
         order.setFlights(cartItems);
