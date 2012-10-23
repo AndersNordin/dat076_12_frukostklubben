@@ -33,8 +33,8 @@ public class User extends Subject implements Serializable {
      @Embedded
      @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
      private Address address = new Address();
-     @OneToMany
-     private List<Order> orderhistory = new ArrayList<>();
+    @OneToMany(mappedBy = "user")
+    private List<FinnishedOrder> finnishedOrders;
 
     public User(String firstName, String lastName, String mail, Address address) {
         this.firstName = firstName;
@@ -76,12 +76,12 @@ public class User extends Subject implements Serializable {
         this.address = address;
     }
 
-    public List<Order> getOrderhistory() {
-        return orderhistory;
+    public List<FinnishedOrder> getFinnishedOrders() {
+        return finnishedOrders;
     }
 
-    public void setOrderhistory(List<Order> orderhistory) {
-        this.orderhistory = orderhistory;
+    public void setFinnishedOrders(List<FinnishedOrder> finnishedOrders) {
+        this.finnishedOrders = finnishedOrders;
     }
     
 }

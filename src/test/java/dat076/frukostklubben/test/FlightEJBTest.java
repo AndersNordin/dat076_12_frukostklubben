@@ -4,7 +4,7 @@ package dat076.frukostklubben.test;
  * and open the template in the editor.
  */
 
-import dat076.frukostklubben.ejb.FlightEJB;
+import dat076.frukostklubben.persistenceEJB.FlightEJB;
 import dat076.frukostklubben.model.Flight;
 import java.util.Calendar;
 import java.util.Date;
@@ -49,35 +49,35 @@ public class FlightEJBTest {
     // ======================================
     // =              Unit tests            =
     // ======================================
-
     @Test
     public void testOfAllFlightEJBMethods() throws Exception {
         // Creates an instance of flight
         Flight flight = new Flight("Resa 1","Landvetter", "Frankfurt",new Date(Calendar.getInstance().getTimeInMillis()));
+        flight.setCost(2.3);
         
         // Persists the flight to the database
-        flight = flightEJB.createFlight(flight);
+        flightEJB.create(flight);
         Assert.assertNotNull("ID should not be null", flight.getId());
 
         // Retrieves all the flights from the database
-        List<Flight> flights = flightEJB.findFlights();
+        List<Flight> flights = flightEJB.findAll();
         Assert.assertNotNull(flights);
         
         //Gets a flight by its id
-        Flight flight2 = flightEJB.findFlightById(flight.getId());
-        Assert.assertTrue(flight.getId() == flight2.getId());
+        Flight flight2 = flightEJB.find(flight.getId());
+        Assert.assertEquals(flight.getId(), flight2.getId());
         
         
         //Updating the flight
         flight.setName("Ny Flygtur");
-        flightEJB.updateFlight(flight);
-        Flight flight3 = flightEJB.findFlightById(flight.getId());
-        Assert.assertTrue(flight3.getName().equals("Ny Flygtur"));
+        flightEJB.update(flight);
+        Flight flight3 = flightEJB.find(flight.getId());
+        Assert.assertEquals(flight3.getName(),"Ny Flygtur");
         
                 
         //If we delete the last flight the list of flights should på empty.
-        flightEJB.deleteFlight(flight);
-        flights = flightEJB.findFlights();
+        flightEJB.delete(flight);
+        flights = flightEJB.findAll();
         Assert.assertTrue(flights.isEmpty());        
     }
 }

@@ -1,7 +1,7 @@
 /*
  * If something is added here, add extra test case in FlightEJBTest
  */
-package dat076.frukostklubben.ejb;
+package dat076.frukostklubben.persistenceEJB;
 
 import dat076.frukostklubben.model.Flight;
 import java.util.List;
@@ -18,41 +18,20 @@ import javax.persistence.TypedQuery;
  */
 @Stateless
 @LocalBean
-public class FlightEJB {
+public class FlightEJB extends AbstractPersistenceEJB<Flight,Long> {
 
     @PersistenceContext(unitName = "projectPU")
     private EntityManager em;
 
+    public  Flight find(Long id) {
+       return find(Flight.class,id);
+    }
 
-    public List<Flight> findFlights() {
+    public List<Flight> findAll() {
         TypedQuery<Flight> query = em.createNamedQuery("findAllFlights", Flight.class);
         return query.getResultList();
     }
-
-
-    public Flight findFlightById(Long id) {
-        return em.find(Flight.class, id);
-    }
-
-
-    public Flight createFlight(Flight flight) {
-        em.persist(flight);
-        return flight;
-    }
-
-
-    public void deleteFlight(Flight flight) {
-        em.remove(em.merge(flight));
-    }
-
-
-    public Flight updateFlight(Flight flight) {
-        return em.merge(flight);
-    }
-    /*
-     * Metoden söker i databasen efter antingen från och till eller någon
-     * av dem.
-     */
+    
 
     public List<Flight> searchFlights(Flight flight) {
         if (!flight.getFromAirport().equals("") && !flight.getToAirport().equals("")

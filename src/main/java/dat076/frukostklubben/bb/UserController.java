@@ -1,7 +1,7 @@
 package dat076.frukostklubben.bb;
 
-import dat076.frukostklubben.ejb.UserEJB;
 import dat076.frukostklubben.model.User;
+import dat076.frukostklubben.persistenceEJB.UserEJB;
 import java.io.Serializable;
 import javax.ejb.EJB;
 import javax.enterprise.context.SessionScoped;
@@ -48,7 +48,7 @@ public class UserController implements Serializable {
     }
 
     public String signin() {
-        user = userEJB.findByMail(mail);
+        user = userEJB.find(mail);
         if (user != null) {
             if (user.getPasswd().equals(password)) {
                 return "chat?faces-redirect=true";

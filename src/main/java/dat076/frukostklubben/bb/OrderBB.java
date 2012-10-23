@@ -5,8 +5,8 @@
 package dat076.frukostklubben.bb;
 
 import dat076.frukostklubben.ejb.ShoppingCartEJB;
-import dat076.frukostklubben.ejb.UserEJB;
 import dat076.frukostklubben.model.User;
+import dat076.frukostklubben.persistenceEJB.UserEJB;
 import javax.ejb.EJB;
 import javax.faces.bean.RequestScoped;
 import javax.inject.Named;
@@ -34,7 +34,7 @@ public class OrderBB {
     }
     
     public String checkout(){
-        User user = userEJB.findByMail(mail);
+        User user = userEJB.find(mail);
         shoppingCartEJB.checkout(user);
         return null; //när en order är skickad. var ska jag då?
     }

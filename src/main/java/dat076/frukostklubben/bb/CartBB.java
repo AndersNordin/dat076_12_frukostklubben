@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 package dat076.frukostklubben.bb;
-import dat076.frukostklubben.ejb.FlightEJB;
+import dat076.frukostklubben.persistenceEJB.FlightEJB;
 import dat076.frukostklubben.ejb.ShoppingCartEJB;
 import dat076.frukostklubben.model.Flight;
 import java.io.Serializable;
@@ -39,7 +39,7 @@ public class CartBB implements Serializable  {
     }
     
     public String removeFlight(Long id){
-        cartEJB.removeItem(flightEJB.findFlightById(id));
+        cartEJB.removeItem(flightEJB.find(id));
         return "cart?faces-redirect=true";
     }    
 }

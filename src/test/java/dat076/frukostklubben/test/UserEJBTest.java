@@ -1,8 +1,9 @@
 package dat076.frukostklubben.test;
 
-import dat076.frukostklubben.ejb.UserEJB;
+import dat076.frukostklubben.persistenceEJB.UserEJB;
 import dat076.frukostklubben.model.Address;
 import dat076.frukostklubben.model.User;
+import dat076.frukostklubben.security.SubjectGroup;
 import java.util.List;
 import javax.ejb.embeddable.EJBContainer;
 import junit.framework.Assert;
@@ -44,31 +45,34 @@ public class UserEJBTest {
     @Test
     public void testUser() throws Exception{
         // Creates an instance of User
-        User user = new User("Anders", "Nordin", "mail@mail.com", new Address());
+        User user = new User();
+        user.addGroup(SubjectGroup.USER);
+        user.setAddress(new Address());
+        user.setFirstName("Fredrik");
+        user.setLastName("Einarsson");
+        user.setMail("Einarsson.F@gmail.com");
+        user.setPasswd("fredrik");
         
         // Persists the user to the database
-        user  = userEJB.createUser(user);
-        Assert.assertNotNull(user);
+        userEJB.create(user);
         
-        // Retrieves all the users from the database
-        List<User> users = userEJB.findUsers();
-        Assert.assertNotNull(users);
+        //Try aquire it again
+        User user2 = userEJB.find(user.getMail());
+        Assert.assertEquals(user2.getFirstName(), user.getFirstName());
         
-        //Gets a user by its id
-        /*User user2 = userEJB.findUserById(user.getId());
-        Assert.assertEquals(user2.getId(), user.getId());*/
+        //Try update
+        user.setLastName("Andersson");
+        userEJB.update(user);
+        User user3 = userEJB.find(user.getMail());
+        Assert.assertEquals(user3.getLastName(),"Andersson");
         
-        //Updating the user
-      /*  user.setMail("Anders@mail.com");
-        userEJB.updateUser(user);
-        User user3 = userEJB.findUserById(user.getId());
-        Assert.assertEquals(user3.getMail(),"Anders@mail.com");*/
+        //Try delete
+        userEJB.delete(user);
+        user = userEJB.find(user.getMail());
+        Assert.assertNull(user);
         
-                
-        //If we delete the last user the list of users should på empty.
-        userEJB.deleteUser(user);
-        users = userEJB.findUsers();
-        Assert.assertTrue(users.isEmpty());   
- 
+        //findall
+        List<User> list = userEJB.findAll();
+        Assert.assertNotNull(list);
     }
 }

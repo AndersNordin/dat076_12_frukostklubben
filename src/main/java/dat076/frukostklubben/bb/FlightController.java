@@ -4,7 +4,7 @@
  */
 package dat076.frukostklubben.bb;
 
-import dat076.frukostklubben.ejb.FlightEJB;
+import dat076.frukostklubben.persistenceEJB.FlightEJB;
 import dat076.frukostklubben.ejb.ShoppingCartEJB;
 import dat076.frukostklubben.model.Flight;
 import java.util.ArrayList;
@@ -38,7 +38,7 @@ public class FlightController {
     // ======================================
 
     public String doCreateFlight() {
-        flight = flightEJB.createFlight(flight);
+        flightEJB.create(flight);
         return "browse?faces-redirect=true"; // bug fix, need parameter to redirect correctly
     }
 
@@ -54,7 +54,7 @@ public class FlightController {
     }
 
     public List<Flight> getFlightList() {
-        return flightEJB.findFlights();
+        return flightEJB.findAll();
     }
     
     public void buy(){

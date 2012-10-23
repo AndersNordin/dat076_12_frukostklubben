@@ -4,7 +4,7 @@
  */
 package dat076.frukostklubben.bb;
 
-import dat076.frukostklubben.ejb.UserEJB;
+import dat076.frukostklubben.persistenceEJB.UserEJB;
 import dat076.frukostklubben.model.User;
 import java.io.Serializable;
 import javax.annotation.ManagedBean;
@@ -43,14 +43,14 @@ public class ChangeInfoBB implements Serializable {
     // =           Public Methods           =
     // ======================================
     public String fetchUser() {
-        user = userRegistry.findByMail(currentMail);
+        user = userRegistry.find(currentMail);
         return "/users/changeInfo?faces-redirect=true";
     }
 
     public void change() {
         if (checkPasswd.equals(user.getPasswd())) {
             user.setPasswd(newPasswd);
-            userRegistry.updateUser(user);
+            userRegistry.update(user);
         } else {
             checkPasswd = "";
         }

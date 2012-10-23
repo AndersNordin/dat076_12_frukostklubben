@@ -1,7 +1,8 @@
 package dat076.frukostklubben.bb;
 
-import dat076.frukostklubben.ejb.UserEJB;
+
 import dat076.frukostklubben.model.User;
+import dat076.frukostklubben.persistenceEJB.UserEJB;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.annotation.ManagedBean;
@@ -87,7 +88,7 @@ public class SignupBB {
 
     public String doCreateUser() {
         try {            
-            user = userRegistry.createUser(user);
+            userRegistry.create(user);
             return "login?faces-redirect=true"; // bug fix, need parameter to redirect correctly
         } catch (Exception e) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Bad Login name"));

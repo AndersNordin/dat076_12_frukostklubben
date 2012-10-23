@@ -11,26 +11,26 @@ import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 
 /**
  *
  * @author Fredrik
  */
 @Entity
-public class Order implements Serializable {
+public class FinnishedOrder implements Serializable {
     @Id @GeneratedValue
     private Long id;
     @ElementCollection(fetch = FetchType.LAZY)
     @OneToMany
     List<Flight> flights = new ArrayList<>();
-    @OneToOne //Lägg till casce. //bidirectional
+    
+    @ManyToOne
     User user;
     
-    public Order(){
+    public FinnishedOrder(){
     }
 
     public List<Flight> getFlights() {

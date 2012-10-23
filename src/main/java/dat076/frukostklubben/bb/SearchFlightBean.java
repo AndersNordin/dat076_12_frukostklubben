@@ -4,8 +4,8 @@
  */
 package dat076.frukostklubben.bb;
 
-import dat076.frukostklubben.ejb.FlightEJB;
 import dat076.frukostklubben.model.Flight;
+import dat076.frukostklubben.persistenceEJB.FlightEJB;
 import java.io.Serializable;
 import java.util.List;
 import javax.ejb.EJB;

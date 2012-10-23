@@ -5,7 +5,7 @@
 package dat076.frukostklubben.ejb;
 
 import dat076.frukostklubben.model.Flight;
-import dat076.frukostklubben.model.Order;
+import dat076.frukostklubben.model.FinnishedOrder;
 import dat076.frukostklubben.model.User;
 import java.util.ArrayList;
 import java.util.List;
@@ -99,10 +99,10 @@ public class ShoppingCartEJB {
     
     @Remove //Detta betyder att denna böna försvinner när checkout() anropas.
     public void checkout(User user) {
-        Order order = new Order();
+        FinnishedOrder order = new FinnishedOrder();
         order.setFlights(cartItems);
         order.setUser(user); ///Hur vet jag vem???
-        user.getOrderhistory().add(order);
+        user.getFinnishedOrders().add(order);
         em.persist(order);
         cartItems.clear();
     }   
