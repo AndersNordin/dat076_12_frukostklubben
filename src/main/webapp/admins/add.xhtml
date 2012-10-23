@@ -11,6 +11,10 @@
         <ui:composition template="/jsf/template/template.xhtml">
 
             <ui:define name="content">
+                <h1>Add new flight</h1>
+                <p>
+                    Since you are logged in as administrator it is now possible to add new flights. Please proceed.
+                </p>                
                 <h:form id="addForm">
                     <h:panelGrid id="calendar">
                         <ace:dateTimeEntry id="cal"
@@ -32,6 +36,7 @@
                     </h:panelGrid>
                 </h:form>
             </ui:define>
+
         </ui:composition>
 
     </h:body>

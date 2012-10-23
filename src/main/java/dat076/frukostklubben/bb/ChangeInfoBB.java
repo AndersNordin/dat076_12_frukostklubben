@@ -14,7 +14,6 @@ import javax.faces.application.FacesMessage;
 import javax.faces.component.EditableValueHolder;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
-import javax.faces.validator.ValidatorException;
 import javax.inject.Named;
 
 /**
@@ -114,7 +113,7 @@ public class ChangeInfoBB implements Serializable {
     public void setSelected(Boolean selected) {
         this.selected = selected;
     }
-
+    
     //For authorizing changes
     public String getCheckPasswd() {
         return checkPasswd;

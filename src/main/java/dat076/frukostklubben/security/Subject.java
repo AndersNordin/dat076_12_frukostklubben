@@ -31,6 +31,18 @@ public class Subject implements Serializable {
     @CollectionTable(name = "SUBJECT_GROUP")
     @Enumerated(EnumType.STRING)
     private final List<SubjectGroup> groups = new ArrayList<>();
+    
+    public String getIsAdmin(){
+        /*for (SubjectGroup group : groups)
+        {
+            if(group == SubjectGroup.ADMIN)
+            {
+                return true;
+            }                
+        }
+        return false;*/
+        return "String";
+    }
 
     public String getPasswd() {
         return passwd;

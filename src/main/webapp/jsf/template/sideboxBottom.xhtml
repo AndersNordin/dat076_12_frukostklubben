@@ -8,7 +8,9 @@
     <body>
         <ui:composition> 
             <h:panelGroup rendered="#{empty request.remoteUser}">
-                <h1 class="titleRibbon"><strong class="titleContent">Popular</strong></h1>
+                              
+                <h1 class="titleRibbon"><strong class="titleContent">Are you admin?</strong></h1>
+                <p>If you are admin. You should log in <h:link outcome="/admins/add">here</h:link> instead.</p>            
             </h:panelGroup>
 
             <h:panelGroup rendered="#{not empty request.remoteUser}">
