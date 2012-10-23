@@ -8,17 +8,17 @@
     <packaging>war</packaging>
     <name>project</name>
     <properties>
-                <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<eclipselink.version>2.4.0</eclipselink.version>
+        <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <eclipselink.version>2.4.0</eclipselink.version>
         <netbeans.hint.deploy.server>gfv3ee6</netbeans.hint.deploy.server>
-            <glassfish.embedded-static-shell.jar>C:\Program Files\glassfish-3.1.2.2\glassfish\lib\embedded\glassfish-embedded-static-shell.jar</glassfish.embedded-static-shell.jar>
+        <glassfish.embedded-static-shell.jar>C:\Program Files\glassfish-3.1.2.2\glassfish\lib\embedded\glassfish-embedded-static-shell.jar</glassfish.embedded-static-shell.jar>
     </properties>
     <repositories>
-    <repository>
-        <id>EclipseLink</id>
-        <url>http://download.eclipse.org/rt/eclipselink/maven.repo</url>
-    </repository>
+        <repository>
+            <id>EclipseLink</id>
+            <url>http://download.eclipse.org/rt/eclipselink/maven.repo</url>
+        </repository>
         <repository>
             <url>http://download.eclipse.org/rt/eclipselink/maven.repo/</url>
             <id>eclipselink</id>
@@ -26,7 +26,7 @@
             <name>Repository for library EclipseLink (JPA 2.0)</name>
         </repository>
     </repositories>
-        <dependencies>
+    <dependencies>
         <dependency>
             <groupId>org.eclipse.persistence</groupId>
             <artifactId>eclipselink</artifactId>
@@ -49,36 +49,36 @@
             <version>4.10</version>
             <scope>test</scope>
         </dependency>
-                <dependency>
-                        <groupId>org.icefaces</groupId>
-                        <artifactId>icefaces</artifactId>
-                        <version>3.1.0</version>
-                </dependency>
-                <dependency>
-                        <groupId>org.icefaces</groupId>
-                        <artifactId>icefaces-ace</artifactId>
-                        <version>3.1.0</version>
-                </dependency>
-                <dependency>
-                        <groupId>org.apache.derby</groupId>
-                        <artifactId>derbyclient</artifactId>
-                        <version>10.9.1.0</version>
-                </dependency>
-                <dependency>
-                        <groupId>org.glassfish.extras</groupId>
-                        <artifactId>glassfish-embedded-static-shell</artifactId>
-                        <version>3.1.1</version>
-                        <scope>system</scope>
-                        <systemPath>${glassfish.embedded-static-shell.jar}</systemPath>
-                </dependency>
-                <dependency>
+        <dependency>
+            <groupId>org.icefaces</groupId>
+            <artifactId>icefaces</artifactId>
+            <version>3.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.icefaces</groupId>
+            <artifactId>icefaces-ace</artifactId>
+            <version>3.1.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.derby</groupId>
+            <artifactId>derbyclient</artifactId>
+            <version>10.9.1.0</version>
+        </dependency>
+        <dependency>
+                <groupId>org.glassfish.extras</groupId>
+                <artifactId>glassfish-embedded-static-shell</artifactId>
+                <version>3.1.1</version>
+                <scope>system</scope>
+                <systemPath>${glassfish.embedded-static-shell.jar}</systemPath>
+        </dependency>
+        <dependency>
             <groupId>javax</groupId>
             <artifactId>javaee-web-api</artifactId>
             <version>6.0</version>
             <scope>provided</scope>
         </dependency>
     </dependencies>
-<build>
+    <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
