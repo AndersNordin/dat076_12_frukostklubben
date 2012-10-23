@@ -32,7 +32,7 @@ public class UserEJBTest {
         //Create an Ejb container and put in an UserEJB instance
         ec = EJBContainer.createEJBContainer();
         userEJB = (UserEJB)ec.getContext().
-                lookup("java:global/classes/UserEJB!dat076.frukostklubben.ejb.UserEJB");
+                lookup("java:global/classes/UserEJB");
     }
 
     @AfterClass

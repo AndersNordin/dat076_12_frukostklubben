@@ -36,7 +36,7 @@ public class FlightEJBTest {
         //Create an Ejb container and put in an FlightEJB instance
         ec = EJBContainer.createEJBContainer();
         flightEJB = (FlightEJB)ec.getContext().
-                lookup("java:global/classes/FlightEJB!dat076.frukostklubben.ejb.FlightEJB");
+                lookup("java:global/classes/FlightEJB");
     }
 
     @AfterClass
