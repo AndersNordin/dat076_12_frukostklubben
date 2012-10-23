@@ -4,11 +4,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml"   
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:ace="http://www.icefaces.org/icefaces/components">
+      xmlns:ace="http://www.icefaces.org/icefaces/components"
+      xmlns:f="http://java.sun.com/jsf/core">
     <h:body>
         <ui:composition template="/jsf/template/template.xhtml">
             <ui:define name="content">
                 Här ska man kunna gå vidare med sitt köp
+                <h:commandButton action="#{orderBB.checkout()}" value="Checkout" class="inputButton">
+                    <f:setPropertyActionListener target="#{orderBB.mail}" value="${request.remoteUser}"/>
+                </h:commandButton>
             </ui:define>
         </ui:composition>
     </h:body>

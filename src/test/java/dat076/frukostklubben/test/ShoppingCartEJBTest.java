@@ -65,7 +65,7 @@ public class ShoppingCartEJBTest {
         flight2.setCost(8.3);
         ejb.addFlight(flight2);
         
-        ejb.checkout();
+        //ejb.checkout();
         
     }
 }

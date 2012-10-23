@@ -6,6 +6,7 @@ package dat076.frukostklubben.ejb;
 
 import dat076.frukostklubben.model.Flight;
 import dat076.frukostklubben.model.Order;
+import dat076.frukostklubben.model.User;
 import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.EJB;
@@ -25,7 +26,7 @@ import javax.persistence.PersistenceContext;
 @StatefulTimeout(value = 30) //Containern tar bort bönan efter 30 overksamma min
 @LocalBean
 @Named("cart")
-public class ShoppingCartEJB implements ShoppingCartEJBRemote {
+public class ShoppingCartEJB {
     @EJB
     MailEJB orderEJB;
     @PersistenceContext(unitName = "projectPU")
@@ -35,7 +36,7 @@ public class ShoppingCartEJB implements ShoppingCartEJBRemote {
     
     public ShoppingCartEJB(){} //Needed for container  
     
-    @Override
+
     public void addFlight(Flight flight) {
         if(find(flight.getId()) == null){
       //  if (!cartItems.contains(flight)){ //Får det inte att fungera om man går direkt hit, utan bara via CartBB
@@ -43,7 +44,7 @@ public class ShoppingCartEJB implements ShoppingCartEJBRemote {
         }
     }
     
-    @Override
+
     public void removeItem(Flight flight) {
         Flight f = find(flight.getId());
         if(f != null){
@@ -61,7 +62,7 @@ public class ShoppingCartEJB implements ShoppingCartEJBRemote {
         return null;
     }
     
-    @Override
+
     public Integer getNumberOfItems() {
         if (cartItems == null || cartItems.isEmpty()){
             return 0;
@@ -71,7 +72,7 @@ public class ShoppingCartEJB implements ShoppingCartEJBRemote {
         }
     }
     
-    @Override
+
     public Double getTotal() {
         if (cartItems == null || cartItems.isEmpty()){
             return 0D;
@@ -92,19 +93,17 @@ public class ShoppingCartEJB implements ShoppingCartEJBRemote {
         return cartItems;
     }
     
-    @Override
     public void empty() {
         cartItems.clear();
     }
     
     @Remove //Detta betyder att denna böna försvinner när checkout() anropas.
-    @Override
-    public void checkout() {
+    public void checkout(User user) {
         Order order = new Order();
         order.setFlights(cartItems);
-        order.setUser(null); ///Hur vet jag vem???
+        order.setUser(user); ///Hur vet jag vem???
+        user.getOrderhistory().add(order);
         em.persist(order);
-        // Do some business logic
         cartItems.clear();
     }   
 }

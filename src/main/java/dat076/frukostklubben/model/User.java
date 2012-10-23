@@ -13,6 +13,9 @@ import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
 import dat076.frukostklubben.security.Subject;
 import dat076.frukostklubben.security.SubjectGroup;
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -22,16 +25,14 @@ import dat076.frukostklubben.security.SubjectGroup;
 @Entity(name="UserObj")
 @NamedQuery(name = "findAllUsers", query = "SELECT u FROM UserObj u")
 public class User extends Subject implements Serializable {
-       
-     /*@Id @GeneratedValue
-     private long id;     */
+
      private String firstName;
      private String lastName;
      @Embedded
      @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
      private Address address = new Address();
-
-
+     @OneToMany
+     private List<Order> orderhistory = new ArrayList<>();
 
     public User(String firstName, String lastName, String mail, Address address) {
         this.firstName = firstName;
@@ -48,13 +49,6 @@ public class User extends Subject implements Serializable {
     // ======================================
     // =          Getters & Setters         =
     // ======================================
-   /* public long getId() {
-        return id;
-    }
-    
-    public void setId(long id) {
-        this.id = id;
-    }*/
     
     public String getFirstName() {
         return firstName;
@@ -79,4 +73,13 @@ public class User extends Subject implements Serializable {
     public void setAddress(Address address) {
         this.address = address;
     }
+
+    public List<Order> getOrderhistory() {
+        return orderhistory;
+    }
+
+    public void setOrderhistory(List<Order> orderhistory) {
+        this.orderhistory = orderhistory;
+    }
+    
 }
