@@ -10,9 +10,10 @@
 
         <ui:composition template="/jsf/template/template.xhtml">
             <ui:define name="content">
+                <h1>Matching Results</h1>
                 <h:form>
                     <ace:dataTable id="flightTable"
-                                   value="#{flightController.flightList}"
+                                   value="#{search.flights}"
                                    var="flight"
                                    paginator="true"
                                    paginatorPosition="bottom"

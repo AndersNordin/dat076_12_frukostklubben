@@ -10,9 +10,10 @@
 
         <ui:composition template="/jsf/template/template.xhtml">
             <ui:define name="content"> 
+                <h1>Here is your shopping cart</h1>
                 <h:form>
                     <ace:dataTable id="flightTable"
-                                   value="#{cartbb.flights}"
+                                   value="#{search.flights}"
                                    var="flight"
                                    paginator="true"
                                    paginatorPosition="bottom"
