@@ -8,7 +8,7 @@
 // This is a bug-fix.
 function greeting()
 {
-alert("hej");
+    alert("hej");
 }
 
 var $ = jQuery;    
@@ -31,4 +31,60 @@ $(document).ready(function() {
             $(this).addClass("arrow_right");                
         }              
     });  // toggle end 
-}); // document ready end      
+}); // document ready end
+
+
+//This adds an autocomplete function to the From and To fields.
+//delay a bit in the textfield after entering a letter...
+$(document).ready(function() {
+    $(function() {
+        var availableTags = [
+        "Arlanda (Stockholm)",
+        
+        "Schiphol (Amsterdam)",
+        
+        "Bangkok International",
+        
+        "Beijing Capital International",
+        
+        "Dubai International",
+        
+        "Frankfurt Airport",
+        
+        "Haneda Airport (Tokyo)",
+        
+        "Heathrow (London)",
+        
+        "Hong Kong International",
+        
+        "O'Hare (Chicago)",
+        
+        "John F. Kennedy (New York City)",
+        
+        "Landvetter (Gothenburg)",
+        
+        "Leonardo da Vinci-Fiumicino (Rome)",
+        
+        "London Gatwick",
+        
+        "Los Angeles International",
+        
+        "Madrid Barajas",
+        
+        "McCarran International (Las Vegas)",
+        
+        "Munich Airport",
+        
+        "Newark Liberty (New Jersey)",
+
+        "Paris-Charles de Gaulle",
+        
+        "San Francisco International",
+
+        "Singapore Changi",
+        ];
+        $( ".autoCompleteInputForm" ).autocomplete({
+            source: availableTags
+        });
+    });
+});
