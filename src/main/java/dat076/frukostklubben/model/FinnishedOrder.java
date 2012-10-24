@@ -28,7 +28,7 @@ public class FinnishedOrder implements Serializable {
     @OneToMany(cascade = CascadeType.ALL)
     List<Flight> flights = new ArrayList<>();
     
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     User user;
     
     public FinnishedOrder(){

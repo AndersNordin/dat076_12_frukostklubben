@@ -6,11 +6,6 @@
  */
 
 // This is a bug-fix.
-function greeting()
-{
-    alert("hej");
-}
-
 var $ = jQuery;    
 $(document).ready(function() {  
  
