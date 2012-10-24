@@ -86,8 +86,7 @@ public class ShoppingCartEJB {
                 total += flight.getCost();
             }
             return total;
-        }      
-        
+        }       
     }
     
     
