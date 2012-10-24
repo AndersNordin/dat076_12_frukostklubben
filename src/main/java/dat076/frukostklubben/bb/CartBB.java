@@ -36,7 +36,7 @@ public class CartBB implements Serializable {
      */
     public String addFlight(Flight flight) {
         cartEJB.addFlight(flight);
-        return "cart?faces-redirect=true";
+        return "/users/cart?faces-redirect=true";
     }
 
     public List<Flight> getFlights() {
@@ -45,7 +45,7 @@ public class CartBB implements Serializable {
 
     public String removeFlight(Long id) {
         cartEJB.removeItem(flightEJB.find(id));
-        return "cart?faces-redirect=true";
+        return "/users/cart?faces-redirect=true";
     }
 
     public String checkout(String mail) {

@@ -24,7 +24,7 @@
                     </ul>
                 </article>
 
-                <h3><br/>Change your personal info:</h3>
+                <h4><br/>Change your personal info:</h4>
                 <f:view>
                     <h:form>
                         <p>
@@ -56,7 +56,7 @@
 
 
                         <h:panelGrid columns="2">
-                            <h3><br/>Change password </h3>
+                            <h4><br/>Change password </h4>
                             <ace:checkboxButton id="changePasswdCheckBox" value="#{changeInfo.selected}">
                                 <ace:ajax execute="@this" event="activate" render="newPassword confirmPassword"/>
                             </ace:checkboxButton>
@@ -78,7 +78,7 @@
                             <h:message for="confirmPassword" class="error" /></p>
 
                         <footer>
-                                <h3>Verify with current Password:</h3>
+                                <h4>Verify with current Password:</h4>
                                 <p><h:outputLabel for="password" value="Password: " /><br />
                                     <h:inputSecret id="password" value="#{changeInfo.checkPasswd}" class="inputForm"
                                                    required="true" requiredMessage=" - required" validator="#{changeInfo.correctPasswd}"/>
